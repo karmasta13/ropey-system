@@ -10562,24 +10562,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Labbi\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Grisha Giri\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Labbi\\OneDrive\\Desktop\\Y3\\app dev\\appdevcw2\\RopeyDVDSystem.csproj",
+      "projectUniqueName": "C:\\Users\\Grisha Giri\\Desktop\\app dev cw\\appdevcw2\\RopeyDVDSystem.csproj",
       "projectName": "RopeyDVDSystem",
-      "projectPath": "C:\\Users\\Labbi\\OneDrive\\Desktop\\Y3\\app dev\\appdevcw2\\RopeyDVDSystem.csproj",
-      "packagesPath": "C:\\Users\\Labbi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Labbi\\OneDrive\\Desktop\\Y3\\app dev\\appdevcw2\\obj\\",
+      "projectPath": "C:\\Users\\Grisha Giri\\Desktop\\app dev cw\\appdevcw2\\RopeyDVDSystem.csproj",
+      "packagesPath": "C:\\Users\\Grisha Giri\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Grisha Giri\\Desktop\\app dev cw\\appdevcw2\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Labbi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Grisha Giri\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
