@@ -14,6 +14,7 @@ namespace RopeyDVDSystem.Models
         public string MembershipCategoryDescription { get; set; }
         public int MembershipCategoryTotalLoans { get; set; }
 
+
         //relationship
         public ICollection<Member> Members { get; set; }
     }

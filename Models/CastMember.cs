@@ -11,6 +11,7 @@ namespace RopeyDVDSystem.Models
     {
         [ForeignKey("ActorNumber")]
         public int ActorNumber { get; set; }
+
         [ForeignKey("DVDNumber")]
         public int DVDNumber { get; set; }
 

@@ -14,6 +14,7 @@ namespace RopeyDVDSystem.Models
         public string ProducerPictureURL { get; set; }
         public string ProducerName { get; set; }
 
+
         //relationship
         public ICollection<DVDTitle> DVDTitles { get; set; }
     }

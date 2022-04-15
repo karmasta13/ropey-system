@@ -12,12 +12,16 @@ namespace RopeyDVDSystem.Models
     {
         [Key]
         public int DVDNumber { get; set; }
+
         [ForeignKey("CategoryNumber")]
         public int CategoryNumber { get; set; }
+
         [ForeignKey("StudioNumber")]
         public int StudioNumber { get; set; }
+
         [ForeignKey("ProducerNumber")]
         public int ProducerNumber { get; set; }
+
         public string DVDPictureURL { get; set; }
         public string DVDTitleName { get; set; }
         public DateOnly DateReleased { get; set; }
