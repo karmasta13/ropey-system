@@ -14,15 +14,15 @@ namespace RopeyDVDSystem.Models
         public int MemberNumber { get; set; }
 
         [ForeignKey("MemberCategoryNumber")]
-        public int MemberCategoryNumber { get; set; }
+        public int  MemberCategoryNumber { get; set; }
 
         public string MemberFirstName { get; set; }
         public string MemberLastName { get; set; }
         public string MemberAddress { get; set; }
-        public DateOnly MemberDateOfBirth { get; set; }
+        public DateTime MemberDateOfBirth { get; set; }
 
         //relationships
-        public MembershipCategory MembershipCategory { get; set; }
+        public virtual MembershipCategory MembershipCategory { get; set; }
 
         public ICollection<Loan> Loans { get; set; }
     }

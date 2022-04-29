@@ -16,7 +16,7 @@ namespace RopeyDVDSystem.Models
         public int DVDNumber { get; set; }
 
         //Relationships
-        public Actor Actor { get; set; }
-        public DVDTitle DVDTitle { get; set; }
+        public virtual  Actor Actor { get; set; }
+        public virtual DVDTitle DVDTitle { get; set; }
     }
 }

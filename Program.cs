@@ -1,18 +1,50 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using RopeyDVDSystem.Data;
+using RopeyDVDSystem.Models;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+ConfigurationManager configuration = builder.Configuration;
 
-var ConnectionString = builder.Configuration.GetConnectionString("RopeyDB");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<ApplicationDbContext>( options =>
+
+// add services to the continer
+// For Entity Framework
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("RopeyDB")));
+
+// For Identity
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
+
+// Adding Authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+// Adding Jwt Bearer
+.AddJwtBearer(options =>
+{
+    options.SaveToken = true;
+    options.RequireHttpsMetadata = false;
+    options.TokenValidationParameters = new TokenValidationParameters()
     {
-        options.UseSqlServer(ConnectionString); 
-    }
- );
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidAudience = configuration["JWT:ValidAudience"],
+        ValidIssuer = configuration["JWT:ValidIssuer"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]))
+    };
+});
+
 
 var app = builder.Build();
 
