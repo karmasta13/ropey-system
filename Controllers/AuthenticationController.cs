@@ -12,12 +12,12 @@ namespace CourseWorkSampleAuth.Controllers
 {
     public class AuthenticationController : Controller
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
 
         public AuthenticationController(
-            UserManager<IdentityUser> userManager,
+            UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager,
             IConfiguration configuration)
         {
@@ -66,6 +66,7 @@ namespace CourseWorkSampleAuth.Controllers
                 UserDetailsViewModel userDetails = new UserDetailsViewModel()
                 {
                     UserName = user.UserName,
+                    
                     Email = user.Email,
                     Token = new JwtSecurityTokenHandler().WriteToken(token),
                     Expiration = token.ValidTo
@@ -90,7 +91,7 @@ namespace CourseWorkSampleAuth.Controllers
             if (userExists != null)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
 
-            IdentityUser user = new()
+            ApplicationUser user = new()
             {
                 Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
@@ -120,9 +121,10 @@ namespace CourseWorkSampleAuth.Controllers
             if (userExists != null)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
 
-            IdentityUser user = new()
+            ApplicationUser user = new()
             {
                 Email = model.Email,
+                FullName = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UserName = model.Username
             };

@@ -14,18 +14,18 @@ namespace RopeyDVDSystem.Models
         [Key]
         public int LoanNumber { get; set; }
         [ForeignKey("LoanTypeNumber")]
-        public int LoanTypeNumber { get; set; }
+        public  int LoanTypeNumber { get; set; }
         [ForeignKey("CopyNumber")]
         public int CopyNumber { get; set; }
         [ForeignKey("MemberNumber")]
-        public int MemberNumber { get; set; }
-        public DateOnly DateOut { get; set; }
-        public DateOnly DateDue { get; set; }
-        public DateOnly DateReturn { get; set; }
+        public  int MemberNumber { get; set; }
+        public DateTime DateOut { get; set; }
+        public DateTime DateDue { get; set; }
+        public DateTime DateReturn { get; set; }
 
         //relationships
-        public LoanType LoanType { get; set; }
-        public DVDCopy DVDCopy { get; set; }
-        public Member Member { get; set; }
+        public virtual LoanType LoanType { get; set; }
+        public virtual DVDCopy DVDCopy { get; set; }
+        public virtual Member Member { get; set; }
     }
 }

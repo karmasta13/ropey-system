@@ -14,10 +14,10 @@ namespace RopeyDVDSystem.Models
         public int CopyNumber { get; set; }
         [ForeignKey("DVDNumber")]
         public int DVDNumber { get; set; }
-        public DateOnly DatePurchased { get; set; }
+        public DateTime DatePurchased { get; set; }
 
         //Relationship
-        public DVDTitle DVDTitle { get; set; }
+        public virtual DVDTitle DVDTitle { get; set; }
         public ICollection<Loan> Loans { get; set; }
     }
 }
