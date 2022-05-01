@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
-namespace RopeyDVDSystem.Models
+namespace RopeyDVDSystem.Models.Identity
 {
     public class ApplicationUser: IdentityUser
     {

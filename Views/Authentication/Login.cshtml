@@ -4,7 +4,22 @@
     ViewData["Title"] = "Login";
 }
 
-<h1>Login</h1>
+@section AddCustomStyles{
+    <link href="@Url.Content("~/css/style.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/fonts/linearicons/style.css")" rel="stylesheet"  />
+}
+
+
+
+@if(TempData["Error"] != null)
+{
+    <div class="col-md-12 alert alert-danger">
+        <span>@TempData["Error"]</span>
+    </div>
+}
+
+
+@*<h1>Login</h1>
 
 <h4>UserLoginModel</h4>
 <hr />
@@ -31,5 +46,35 @@
 
 <div>
     <a asp-action="Index">Back to List</a>
-</div>
+</div>*@
 
+<body style="background-color: #f9dec0">
+		<div class="wrapper">
+			<div class="inner">
+                
+				<img src="~/images/image-1.png" alt="" class="image-1">
+                <form asp-action="Login">
+                    <h3 > Admin login page</h3>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-holder mt-4">
+                        <span class="lnr lnr-user"></span>
+                        <input asp-for="Username" class="form-control" placeholder="Username"/>
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+                    <div class="form-holder">
+                        <span class="lnr lnr-lock"></span>
+                        <input asp-for="Password" class="form-control" placeholder ="Password"/>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-4 text-right float-right">
+                        <input type="submit" value="Login" class="btn btn-warning text-white" style="width: 100%"/>
+                    </div>
+                </form>				
+				<img src="~/images/image-2.png" alt="" class="image-2">
+			</div>
+			
+		</div>
+</body>
+		
+		
