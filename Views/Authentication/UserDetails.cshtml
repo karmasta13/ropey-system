@@ -1,17 +1,13 @@
 ﻿@model RopeyDVDSystem.Models.ViewModels.UserDetailsViewModel
 
 @{
-    Layout = null;
+    ViewData["Title"] = "UserDetails";
 }
 
 <!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>UserDetails</title>
-</head>
-<body>
+
+<h1>UserDetails</h1>
 
 <div>
     <h4>UserDetailsViewModel</h4>
@@ -23,18 +19,21 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.UserName)
         </dd>
+
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Email)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Email)
         </dd>
+        
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Token)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Token)
         </dd>
+        
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Expiration)
         </dt>
@@ -43,5 +42,3 @@
         </dd>
     </dl>
 </div>
-</body>
-</html>

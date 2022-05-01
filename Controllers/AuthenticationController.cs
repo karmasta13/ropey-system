@@ -30,24 +30,29 @@ namespace CourseWorkSampleAuth.Controllers
             return View();
         }
 
-        public IActionResult UserDetails()
+        public IActionResult UserDetails(UserDetailsViewModel userDetails)
         {
-            return View();
+            return View(userDetails);
         }
 
-        // GET: Authentication/Login
+
         public IActionResult Login()
         {
-            return View();
+            return View(new UserLoginModel());
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(UserLoginModel loginModel)
         {
+
+            if (!ModelState.IsValid) return View(loginModel);
+
             var user = await _userManager.FindByNameAsync(loginModel.Username);
+
             if (user != null && await _userManager.CheckPasswordAsync(user, loginModel.Password))
             {
+
                 var userRoles = await _userManager.GetRolesAsync(user);
 
                 var authClaims = new List<Claim>
@@ -71,13 +76,30 @@ namespace CourseWorkSampleAuth.Controllers
                     Token = new JwtSecurityTokenHandler().WriteToken(token),
                     Expiration = token.ValidTo
                 };
-                ViewBag.User = userDetails;
-                return RedirectToAction("UserDetails", ViewBag.User);
+
+                Response.Cookies.Append("X-Access-Token",
+                                            userDetails.Token,
+                                            new CookieOptions
+                                            {
+                                                HttpOnly = true,
+                                                SameSite = SameSiteMode.Strict
+                                            });
+
+                
+                return RedirectToAction("UserDetails", userDetails);
+
             }
-            return RedirectToAction("UnauthorizedAccess");
+
+            TempData["Error"] = "Invalid credentials. Please, try again!";
+            return View(loginModel);
         }
 
-        // GET: Authentication/RegisterUser
+        public IActionResult Logout()
+        {
+            Response.Cookies.Delete("X-Access-Token");
+            return RedirectToAction("Index");
+        }
+
         public IActionResult RegisterUser()
         {
             return View();
@@ -100,14 +122,14 @@ namespace CourseWorkSampleAuth.Controllers
             var result = await _userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
-            if (await _roleManager.RoleExistsAsync(UserRoles.Admin))
+            if (await _roleManager.RoleExistsAsync(UserRoles.Assistant))
             {
-                await _userManager.AddToRoleAsync(user, UserRoles.User);
+                await _userManager.AddToRoleAsync(user, UserRoles.Assistant);
             }
             return RedirectToAction("Index", "Home");
         }
 
-        // GET: Authentication/RegisterAdmin
+
         public IActionResult RegisterAdmin()
         {
             return View();
@@ -124,7 +146,6 @@ namespace CourseWorkSampleAuth.Controllers
             ApplicationUser user = new()
             {
                 Email = model.Email,
-                FullName = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UserName = model.Username
             };
@@ -132,14 +153,11 @@ namespace CourseWorkSampleAuth.Controllers
             if (!result.Succeeded)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
 
-            if (!await _roleManager.RoleExistsAsync(UserRoles.Admin))
-                await _roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
-            if (!await _roleManager.RoleExistsAsync(UserRoles.User))
-                await _roleManager.CreateAsync(new IdentityRole(UserRoles.User));
-
-            if (await _roleManager.RoleExistsAsync(UserRoles.Admin))
+           
+           
+            if (await _roleManager.RoleExistsAsync(UserRoles.Manager))
             {
-                await _userManager.AddToRoleAsync(user, UserRoles.Admin);
+                await _userManager.AddToRoleAsync(user, UserRoles.Manager);
             }
             
             return RedirectToAction("Index", "Home");
