@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RopeyDVDSystem</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="~/fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="~/css/nucleo-icons.css">
+    <link rel="stylesheet" type="text/css" href="~/css/nucleo-svg.css">
+
+    <link rel="stylesheet" type="text/css" href="~/css/argon-dashboard.css?v=2.0.2">
+
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+
+    @RenderSection("AddCustomStyles", required: false)
+
+</head>
+
+<body class="g-sidenav-show   bg-gray-100">
+    <div class="min-height-300 bg-primary position-absolute w-100"></div>
+    <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
+        <div class="sidenav-header">
+        <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+        <div class="col text-center mb-3 mt-4">
+            <img src="" class="navbar-brand-img h-100" alt="main_logo">
+        </div>
+        <div class="col text-center">
+            <a asp-area="" asp-controller="Home" asp-action="Index">
+            <span class="ms-1 font-weight-bold h6">Ropey Dashboard</span>
+            </a>
+        </div>
+        </div>
+        <hr class="horizontal dark mt-0">
+        <div class="">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+            <a class="nav-link active" href="../pages/dashboard.html">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fa fa-chart-bar text-dark text-sm opacity-8"></i>
+                </div>
+                <span class="nav-link-text ms-1">Dashboard</span>
+            </a>
+            </li>
+            <li class="nav-item mt-3">
+            <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">DVD Section</h6>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link " href="../pages/tables.html">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">DVD Details</span>
+            </a>
+            </li>
+            
+            <li class="nav-item">
+            <a class="nav-link " href="../pages/billing.html">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fa fa-chart-bar text-dark text-sm opacity-8"></i>
+                </div>
+                <span class="nav-link-text ms-1">Loan Transaction</span>
+            </a>
+            
+            </li>
+            <li class="nav-item">
+            <a class="nav-link " href="../pages/virtual-reality.html">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fa fa-chart-bar text-dark text-sm opacity-8"></i>
+                </div>
+                <span class="nav-link-text ms-1">DVD Transaction</span>
+            </a>
+            </li>
+
+            <li class="nav-item mt-3">
+            <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Members Section</h6>
+            </li>
+
+            <li class="nav-item">
+            <a class="nav-link " href="../pages/virtual-reality.html">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fa fa-chart-bar text-dark text-sm opacity-8"></i>
+                </div>
+                <span class="nav-link-text ms-1">Member Details</span>
+            </a>
+            </li>
+
+            <li class="nav-item">
+            <a class="nav-link " href="../pages/virtual-reality.html">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fa fa-chart-bar text-dark text-sm opacity-8"></i>
+                </div>
+                <span class="nav-link-text ms-1">Manage Members</span>
+            </a>
+            </li>
+
+            <li class="nav-item mt-3">
+            <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link " href="../pages/profile.html">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Profile</span>
+            </a>
+            </li>
+            
+        </ul>
+        </div>
+    
+    </aside>
+    
+    <main class="main-content position-relative border-radius-lg ">
+        <!-- Navbar -->
+        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur" data-scroll="false">
+        <div class="container-fluid py-1 px-3">
+
+            <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li>
+                <li class="breadcrumb-item text-sm text-white active" aria-current="page">Dashboard</li>
+            </ol>
+            <h6 class="font-weight-bolder text-white mb-0">Dashboard</h6>
+            </nav>
+
+            <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+            
+            <ul class="navbar-nav col  justify-content-end">
+                
+                <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
+                    <div class="sidenav-toggler-inner">
+                    <i class="sidenav-toggler-line bg-white"></i>
+                    <i class="sidenav-toggler-line bg-white"></i>
+                    <i class="sidenav-toggler-line bg-white"></i>
+                    </div>
+                </a>
+
+                </li>
+                
+                <li class="nav-item dropdown pe-2 d-flex align-items-center">
+                <a href="javascript:;" class="nav-link text-white p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-cog fixed-plugin-button-nav cursor-pointerr"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton" style ="margin-top: -100px;">
+                    
+                    <li class="align-content-center">
+                    <a class="dropdown-item border-radius-md"   asp-area="" asp-controller="Authentication" asp-action="Logout">
+                        <div class="d-flex">
+                        <div class="my-auto pt-1">
+                            <i class="ni ni-spaceship"></i>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <h6 class="text-sm font-weight-normal my-auto">    
+                                <span class="mx-2"></span>
+                                <span class="font-weight-bold">Log out</span>
+                            </h6>
+                        </div>
+                        </div>
+                    </a>
+                    </li>
+                    
+                </ul>
+                </li>
+
+            </ul>
+            </div>
+
+        </div>
+        </nav>
+        <!-- End Navbar -->
+
+        @RenderBody()
+
+    </main>
+    
+    <script src="~/js/core/popper.min.js"></script>
+    <script src="~/js/core/bootstrap.min.js"></script>
+    <script src="~/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="~/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="~/js/plugins/chartjs.min.js"></script>
+    <script src="~/js/plugins/bootstrap-notify.js"></script>
+    <script src="~/js/argon-dashboard.js.map"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+    @RenderSection("AddCustomScripts", required: false)
+
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+            damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+    </script>
+
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    
+    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="~/js/argon-dashboard.min.js?v=2.0.2"></script>
+
+</body>
+
+</html>
