@@ -27,12 +27,7 @@ namespace CourseWorkSampleAuth.Controllers
         }
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult UserDetails(UserDetailsViewModel userDetails)
-        {
-            return View(userDetails);
+            return RedirectToAction("Index", "Home");
         }
 
 
@@ -86,7 +81,7 @@ namespace CourseWorkSampleAuth.Controllers
                                             });
 
                 
-                return RedirectToAction("UserDetails", userDetails);
+                return RedirectToAction("Index", "Admin");
 
             }
 
