@@ -11,6 +11,8 @@ namespace RopeyDVDSystem.Models
     {
         [Key]
         public int StudioNumber { get; set; }
+
+        [Display(Name = "Studio Name")]
         public string StudioName { get; set; }
 
         //relationship

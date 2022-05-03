@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RopeyDVDSystem.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -70,6 +70,7 @@ namespace RopeyDVDSystem.Migrations
                 {
                     CategoryNumber = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    CategoryName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CategoryDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AgeRestricted = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -98,6 +99,7 @@ namespace RopeyDVDSystem.Migrations
                 {
                     MembershipCategoryNumber = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    MembershipCategoryName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MembershipCategoryDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MembershipCategoryTotalLoans = table.Column<int>(type: "int", nullable: false)
                 },
@@ -274,8 +276,8 @@ namespace RopeyDVDSystem.Migrations
                     DVDPictureURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DVDTitleName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateReleased = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    StandardCharge = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    PenaltyCharge = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false)
+                    StandardCharge = table.Column<decimal>(type: "decimal(10,3)", precision: 10, scale: 3, nullable: false),
+                    PenaltyCharge = table.Column<decimal>(type: "decimal(10,3)", precision: 10, scale: 3, nullable: false)
                 },
                 constraints: table =>
                 {

@@ -13,19 +13,31 @@ namespace RopeyDVDSystem.Models
         [Key]
         public int DVDNumber { get; set; }
 
+        [Display(Name = "Category Number")]
         [ForeignKey("CategoryNumber")]
         public  int CategoryNumber { get; set; }
 
+        [Display(Name = "Studio Number")]
         [ForeignKey("StudioNumber")]
         public  int StudioNumber { get; set; }
 
+        [Display(Name = "Producer Number")]
         [ForeignKey("ProducerNumber")]
         public  int ProducerNumber { get; set; }
 
+        [Display(Name = "DVD Picture")]
         public string DVDPictureURL { get; set; }
+
+        [Display(Name = "DVD Title")]
         public string DVDTitleName { get; set; }
+
+        [Display(Name = "Release Date")]
         public DateTime DateReleased { get; set; }
+
+        [Display(Name = "Standard Charge")]
         public decimal StandardCharge { get; set; }
+
+        [Display(Name = "Penalty Charge")]
         public decimal PenaltyCharge { get; set; }
 
         //relationships

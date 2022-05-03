@@ -10,7 +10,14 @@ namespace RopeyDVDSystem.Models
     {
         [Key]
         public int CategoryNumber { get; set; }
+
+		[Display(Name = "Category Name")]
+		public string CategoryName { get; set; }
+
+		[Display(Name = "Category Description")]
         public string CategoryDescription { get; set; }
+
+        [Display(Name = "Restricted Age")]
         public string AgeRestricted { get; set; }
 
         //Relationship

@@ -16,9 +16,16 @@ namespace RopeyDVDSystem.Models
         [ForeignKey("MemberCategoryNumber")]
         public int  MemberCategoryNumber { get; set; }
 
+        [Display(Name = "First Name")]
         public string MemberFirstName { get; set; }
+
+        [Display(Name = "Last Name")]
         public string MemberLastName { get; set; }
+
+        [Display(Name = "Address")]
         public string MemberAddress { get; set; }
+
+        [Display(Name = "Date of Birth")]
         public DateTime MemberDateOfBirth { get; set; }
 
         //relationships
