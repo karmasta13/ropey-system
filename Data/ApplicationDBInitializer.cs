@@ -74,28 +74,153 @@ namespace RopeyDVDSystem.Data
                     {
                         new Actor()
                         {
-
-                            ActorPictureURL = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
-                            ActorFirstName = "Robert",
-                            ActorSurname = "Pattinson"
+                          ActorPictureURL = "https://i.postimg.cc/BvB3b7pX/lindsay.jpg",
+                          ActorFirstName = "Lindsay",
+                          ActorSurname = "Lohan"
                         },
                         new Actor()
                         {
-                          ActorPictureURL = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
-                          ActorFirstName = "Robert2",
-                          ActorSurname = "Pattinson2"
+                          ActorPictureURL = "https://i.postimg.cc/C5Z9GcGC/rachel-mcadams-435-40.jpg",
+                          ActorFirstName = "Rachel",
+                          ActorSurname = "McAdams"
                         },
                         new Actor()
                         {
-                            ActorPictureURL = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
-                            ActorFirstName = "Robert3",
-                            ActorSurname = "Pattinson3"
+                          ActorPictureURL = "https://i.postimg.cc/0jW2QX8p/Amanda-Seyfried-2019-by-Glenn-Francis.jpg",
+                          ActorFirstName = "Amanda",
+                          ActorSurname = "Seyfried"
                         },
                         new Actor()
                         {
-                            ActorPictureURL = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
-                            ActorFirstName = "Robert4",
-                            ActorSurname = "Pattinson4"
+                          ActorPictureURL = "https://i.postimg.cc/k5s5zgk1/timothee.jpg",
+                          ActorFirstName = "Timothee",
+                          ActorSurname = "Chalamet"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/hPCWk7j7/zendaya.jpg",
+                          ActorFirstName = "Zendaya",
+                          ActorSurname = "Coleman"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/8kLtfFrf/jason.jpg",
+                          ActorFirstName = "Jason",
+                          ActorSurname = "Momoa"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/W3Tt9fXv/Sam-Claflin.jpg",
+                          ActorFirstName = "Sam",
+                          ActorSurname = "Claflin"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/4y106nnG/Emilia.jpg",
+                          ActorFirstName = "Emilia",
+                          ActorSurname = "Clarke"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/Kz2Q0F68/Matthew-Lewis.jpg",
+                          ActorFirstName = "Matthew",
+                          ActorSurname = "Lewis"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/rw2d0mxs/Robert-Pattinson.jpg",
+                          ActorFirstName = "Robert",
+                          ActorSurname = "Pattinson"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/yxwTSHyK/Kravitz.jpg",
+                          ActorFirstName = "Zoe",
+                          ActorSurname = "Kravitz"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/6pDyJQ5t/Paul-Dano.jpg",
+                          ActorFirstName = "Paul",
+                          ActorSurname = "Dano"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/C51FfyLc/Colin-Farrell.jpg",
+                          ActorFirstName = "Colin",
+                          ActorSurname = "Farrell"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/YCkt1m94/James-Franco.jpg",
+                          ActorFirstName = "James",
+                          ActorSurname = "Franco"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/xT544k5N/Selena-Gomez.png",
+                          ActorFirstName = "Selena",
+                          ActorSurname = "Gomez"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/SRDHCjt9/Vanessa-Hudgens.jpg",
+                          ActorFirstName = "Vanessa",
+                          ActorSurname = "Hudgens"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/vZWLNCbq/Kate-Winslet.jpg",
+                          ActorFirstName = "Kate",
+                          ActorSurname = "Winslet"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/ZYBsJbm0/Leonardo-Di-Caprio.jpg",
+                          ActorFirstName = "Leonardo",
+                          ActorSurname = "DiCaprio"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/pTtryV7x/Billy-Zane.jpg",
+                          ActorFirstName = "Billy",
+                          ActorSurname = "Zane"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/7Ljs2dMq/Tom-Hardy.jpg",
+                          ActorFirstName = "Tom",
+                          ActorSurname = "Hardy"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/JhjJpFCr/Will-Poulter.jpg",
+                          ActorFirstName = "Will",
+                          ActorSurname = "Poulter"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/MKhgRcWC/Zoe-Saldana.jpg",
+                          ActorFirstName = "Zoe",
+                          ActorSurname = "Saldana"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/wj5yYm3H/Sam-Worthington.jpg",
+                          ActorFirstName = "Sam",
+                          ActorSurname = "Worthington"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/d0LhkS4Q/Sigourney-Weaver.jpg",
+                          ActorFirstName = "Sigourney",
+                          ActorSurname = "Weaver"
+                        },
+                        new Actor()
+                        {
+                          ActorPictureURL = "https://i.postimg.cc/zBkYJqKy/Michelle-Rodriguez.jpg",
+                          ActorFirstName = "Michelle",
+                          ActorSurname = "Rodriguez"
                         },
                     });
                     context.SaveChanges();
@@ -109,52 +234,91 @@ namespace RopeyDVDSystem.Data
                     {
                         new DVDCategory()
                         {
-                            CategoryName = "Category 1",
-                            CategoryDescription = "This is category 1",
-                            AgeRestricted = "+18"
+                            CategoryName = "Comedy",
+                            CategoryDescription = "The comedy genre uses humor and familiarity, in both situations and characters, to appeal to audiences.",
+                            AgeRestricted = "False"
                         },
                         new DVDCategory()
                         {
-                            CategoryName = "Category 2",
-                            CategoryDescription = "This is category 2",
-                            AgeRestricted = "+18"
+                            CategoryName = "Family",
+                            CategoryDescription = "Family film is a genre that is contains appropriate content for younger viewers. Family film aims to appeal not only to children, but to a wide range of ages.While the storyline may appeal to a younger audience, there are components of the film that are geared towards adults - such as witty jokes and humor.",
+                            AgeRestricted = "False"
                         },
                         new DVDCategory()
                         {
-                            CategoryName = "Category 3",
-                            CategoryDescription = "This is category 3",
-                            AgeRestricted = "+18"
+                            CategoryName = "Action",
+                            CategoryDescription = "Action film is a film genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats.",
+                            AgeRestricted = "False"
                         },
                         new DVDCategory()
                         {
-                            CategoryName = "Category 4",
-                            CategoryDescription = "This is category 4",
-                            AgeRestricted = "+18"
+                            CategoryName = "Sci-fi",
+                            CategoryDescription = "Science fiction (sometimes shortened to sci-fi or SF) is a genre of speculative fiction which typically deals with imaginative and futuristic concepts such as advanced science and technology, space exploration, time travel, parallel universes, and extraterrestrial life. ",
+                            AgeRestricted = "False"
+                        },
+                        new DVDCategory()
+                        {
+                            CategoryName = "Romance",
+                            CategoryDescription = "Romance films or movies involve romantic love stories recorded in visual media for broadcast in theatres or on television that focus on passion, emotion, and the affectionate romantic involvement of the main characters. Typically their journey through dating, courtship or marriage is featured.",
+                            AgeRestricted = "False"
+                        },
+                        new DVDCategory()
+                        {
+                            CategoryName = "Adventure",
+                            CategoryDescription = "Adventure film is a genre that revolves around the conquests and explorations of a protagonist. The purpose of the conquest can be to retrieve a person or treasure, but often the main focus is simply the pursuit of the unknown. ",
+                            AgeRestricted = "False"
+                        },
+                        new DVDCategory()
+                        {
+                            CategoryName = "Crime",
+                            CategoryDescription = "Crime film is a genre that revolves around the action of a criminal mastermind. A Crime film will often revolve around the criminal himself, chronicling his rise and fall. Some Crime films will have a storyline that follows the criminal's victim, yet others follow the person in pursuit of the criminal.",
+                            AgeRestricted = "False"
+                        },
+                        new DVDCategory()
+                        {
+                            CategoryName = "18+",
+                            CategoryDescription = "Films classified R 18+ is restricted to adults. Some films classified R18+ may be offensive to sections of the adult community. A person may be asked for proof of their age before purchasing, hiring or viewing R18 + films at a retail store or cinema.",
+                            AgeRestricted = "True"
                         },
                     });
                     context.SaveChanges();
                 }
 
-                //Studio
                 if (!context.Studios.Any())
                 {
                     context.Studios.AddRange(new List<Studio>()
                     {
                         new Studio()
                         {
-                            StudioName = "Studio Name 1"
+                            StudioName = "Broadway Video"
                         },
                         new Studio()
                         {
-                            StudioName = "Studio Name 1"
+                            StudioName = "Legendary Pictures"
                         },
                         new Studio()
                         {
-                            StudioName = "Studio Name 1"
+                            StudioName = "Pinewood Studios"
                         },
                         new Studio()
                         {
-                            StudioName = "Studio Name 1"
+                            StudioName = "Warner Bros Pictures"
+                        },
+                        new Studio()
+                        {
+                            StudioName = "Lightstorm Entertainment"
+                        },
+                        new Studio()
+                        {
+                            StudioName = "Paramount Pictures"
+                        },
+                        new Studio()
+                        {
+                            StudioName = "Regency Enterprises RatPac Entertainment"
+                        },
+                        new Studio()
+                        {
+                            StudioName = "Muse Entertainment"
                         },
                     });
                     context.SaveChanges();
@@ -167,28 +331,33 @@ namespace RopeyDVDSystem.Data
                     {
                         new Producer()
                         {
-                            ProducerPictureURL = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
-                            ProducerName = "Producer number 1",
+                            ProducerPictureURL = "https://i.postimg.cc/Bb3rzHDz/Lorne-Michaels.jpg",
+                            ProducerName = "Lorne Michaels",
                         },
                         new Producer()
                         {
-                            ProducerPictureURL = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
-                            ProducerName = "Producer number 2",
+                            ProducerPictureURL = "https://i.postimg.cc/tg02DyFS/Mary-Parent.jpg",
+                            ProducerName = "Mary Parent",
                         },
                         new Producer()
                         {
-                            ProducerPictureURL = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
-                            ProducerName = "Producer number 3",
+                            ProducerPictureURL = "https://i.postimg.cc/W3VVBBcS/Alison-Owen.jpg",
+                            ProducerName = "Alison Owen",
                         },
                         new Producer()
                         {
-                            ProducerPictureURL = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
-                            ProducerName = "Producer number 4",
+                            ProducerPictureURL = "https://i.postimg.cc/597cgYys/Matt-Reeves.jpg",
+                            ProducerName = "Matt Reeves",
                         },
                         new Producer()
                         {
-                            ProducerPictureURL = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
-                            ProducerName = "Producer number 5",
+                            ProducerPictureURL = "https://i.postimg.cc/rFV1Vs92/Chris-Hanley.jpg",
+                            ProducerName = "Chris Hanley",
+                        },
+                        new Producer()
+                        {
+                            ProducerPictureURL = "https://i.postimg.cc/CxZf5qBX/James-Cameron.jpg",
+                            ProducerName = "James Cameron",
                         },
                     });
                     context.SaveChanges();
@@ -204,45 +373,90 @@ namespace RopeyDVDSystem.Data
                             CategoryNumber = 1,
                             StudioNumber = 1,
                             ProducerNumber = 1,
-                            DVDPictureURL = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
-                            DVDTitleName = "Title 1",
-                            DateReleased = DateTime.Now.AddDays(-10),
-                            StandardCharge = 15.98m,
-                            PenaltyCharge = 15.76m
+                            DVDPictureURL = "https://i.postimg.cc/0Ndz6RxK/mean-girls.jpg",
+                            DVDTitleName = "Mean Girls",
+                            DateReleased = DateTime.ParseExact("2004-04-30","yyyy-MM-dd",null),
+                            StandardCharge = 200,
+                            PenaltyCharge = 15
                         },
                         new DVDTitle()
                         {
                             CategoryNumber = 4,
                             StudioNumber = 2,
                             ProducerNumber = 2,
-                            DVDPictureURL = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
-                            DVDTitleName = "Title 2",
-                            DateReleased = DateTime.Now.AddDays(-10),
-                            StandardCharge = 10.4m,
-                            PenaltyCharge = 15.76m
+                            DVDPictureURL = "https://i.postimg.cc/jS1pzLxG/dune.jpg",
+                            DVDTitleName = "Dune",
+                            DateReleased = DateTime.ParseExact("2021-10-22","yyyy-MM-dd",null),
+                            StandardCharge = 500.00m,
+                            PenaltyCharge = 150.00m
                         },
                         new DVDTitle()
                         {
-                            CategoryNumber = 2,
-                            StudioNumber = 1,
-                            ProducerNumber = 4,
-                            DVDPictureURL = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
-                            DVDTitleName = "Title 3",
-                            DateReleased = DateTime.Now.AddDays(-10),
-                            StandardCharge = 15.98m,
-                            PenaltyCharge = 15.76m
+                            CategoryNumber = 5,
+                            StudioNumber = 3,
+                            ProducerNumber = 3,
+                            DVDPictureURL = "https://i.postimg.cc/dt1N4wxv/me-before-you.jpg",
+                            DVDTitleName = "Me Before You",
+                            DateReleased = DateTime.ParseExact("2016-08-30","yyyy-MM-dd",null),
+                            StandardCharge = 400,
+                            PenaltyCharge = 100
                         },
                         new DVDTitle()
                         {
                             CategoryNumber = 3,
                             StudioNumber = 4,
-                            ProducerNumber = 3,
-                            DVDPictureURL = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
-                            DVDTitleName = "Title 4",
-                            DateReleased = DateTime.Now.AddDays(-10),
-                            StandardCharge = 15.98m,
-                            PenaltyCharge = 15.76m
+                            ProducerNumber = 4,
+                            DVDPictureURL = "https://i.postimg.cc/zfJgFXxF/the-batman.jpg",
+                            DVDTitleName = "The Batman",
+                            DateReleased = DateTime.ParseExact("2022-03-04","yyyy-MM-dd",null),
+                            StandardCharge = 600,
+                            PenaltyCharge = 150,
                         },
+                        new DVDTitle()
+                        {
+                            CategoryNumber = 7,
+                            StudioNumber = 8,
+                            ProducerNumber = 4,
+                            DVDPictureURL = "https://i.postimg.cc/CxM8jxPH/spring-breakers.jpg",
+                            DVDTitleName = "Spring Breakers",
+                            DateReleased = DateTime.ParseExact("1997-12-19","yyyy-MM-dd",null),
+                            StandardCharge = 300,
+                            PenaltyCharge = 100
+                        },
+                        new DVDTitle()
+                        {
+                            CategoryNumber = 5,
+                            StudioNumber = 6,
+                            ProducerNumber = 6,
+                            DVDPictureURL = "https://i.postimg.cc/4yZysWjb/titanic.jpg",
+                            DVDTitleName = "Titanic",
+                            DateReleased = DateTime.ParseExact("1997-12-17","yyyy-MM-dd",null),
+                            StandardCharge = 200,
+                            PenaltyCharge = 50,
+                        },
+                        new DVDTitle()
+                        {
+                            CategoryNumber = 6,
+                            StudioNumber = 7,
+                            ProducerNumber = 2,
+                            DVDPictureURL = "https://i.postimg.cc/SRwZnz7r/the-renevant.jpg",
+                            DVDTitleName = "The Renevant",
+                            DateReleased = DateTime.ParseExact("2015-12-16","yyyy-MM-dd",null),
+                            StandardCharge = 400,
+                            PenaltyCharge = 100
+                        },
+                        new DVDTitle()
+                        {
+                            CategoryNumber = 4,
+                            StudioNumber = 5,
+                            ProducerNumber = 6,
+                            DVDPictureURL = "https://i.postimg.cc/0NWh8j3t/avatar.jpg",
+                            DVDTitleName = "Avatar",
+                            DateReleased = DateTime.ParseExact("2009-12-17","yyyy-MM-dd",null),
+                            StandardCharge = 250,
+                            PenaltyCharge = 50
+                        },
+
                     });
                     context.SaveChanges();
                 }
@@ -255,19 +469,123 @@ namespace RopeyDVDSystem.Data
                         new CastMember()
                         {
                             ActorNumber= 1,
-                            DVDNumber = 3
+                            DVDNumber = 1
                         },
                         new CastMember()
                         {
                             ActorNumber= 2,
+                            DVDNumber = 1
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 3,
+                            DVDNumber = 1
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 4,
+                            DVDNumber = 2
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 5,
+                            DVDNumber = 2
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 6,
+                            DVDNumber = 2
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 7,
+                            DVDNumber = 3
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 8,
+                            DVDNumber = 3
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 9,
+                            DVDNumber = 3
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 10,
                             DVDNumber = 4
                         },
                         new CastMember()
                         {
-                            ActorNumber= 1,
+                            ActorNumber= 11,
+                            DVDNumber = 4
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 12,
+                            DVDNumber = 4
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 14,
                             DVDNumber = 5
                         },
-
+                        new CastMember()
+                        {
+                            ActorNumber= 15,
+                            DVDNumber = 5
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 16,
+                            DVDNumber = 5
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 17,
+                            DVDNumber = 6
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 18,
+                            DVDNumber = 6
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 19,
+                            DVDNumber = 6
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 18,
+                            DVDNumber = 7
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 20,
+                            DVDNumber = 7
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 21,
+                            DVDNumber = 7
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 22,
+                            DVDNumber = 8
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 23,
+                            DVDNumber = 8
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 24,
+                            DVDNumber = 8
+                        },
                     });
                     context.SaveChanges();
                 }
@@ -280,22 +598,42 @@ namespace RopeyDVDSystem.Data
                         new DVDCopy()
                         {
                             DVDNumber = 5,
-                            DatePurchased = DateTime.Now.AddDays(-20)
+                            DatePurchased = DateTime.ParseExact("2021-12-12","yyyy-MM-dd",null)
                         },
                         new DVDCopy()
                         {
-                            DVDNumber = 4,
-                            DatePurchased = DateTime.Now.AddDays(-20)
+                            DVDNumber = 6,
+                            DatePurchased = DateTime.ParseExact("2018-05-10","yyyy-MM-dd",null)
+                        },
+                        new DVDCopy()
+                        {
+                            DVDNumber = 8,
+                            DatePurchased = DateTime.ParseExact("2017-03-30","yyyy-MM-dd",null)
                         },
                         new DVDCopy()
                         {
                             DVDNumber = 3,
-                            DatePurchased = DateTime.Now.AddDays(-20)
+                            DatePurchased = DateTime.ParseExact("2019-12-30","yyyy-MM-dd",null)
+                        },
+                        new DVDCopy()
+                        {
+                            DVDNumber = 1,
+                            DatePurchased = DateTime.ParseExact("2017-11-25","yyyy-MM-dd",null)
                         },
                         new DVDCopy()
                         {
                             DVDNumber = 2,
-                            DatePurchased = DateTime.Now.AddDays(-20)
+                            DatePurchased = DateTime.ParseExact("2022-01-02","yyyy-MM-dd",null)
+                        },
+                        new DVDCopy()
+                        {
+                            DVDNumber = 4,
+                            DatePurchased = DateTime.ParseExact("2022-05-01","yyyy-MM-dd",null)
+                        },
+                        new DVDCopy()
+                        {
+                            DVDNumber = 7,
+                            DatePurchased = DateTime.ParseExact("2020-10-15","yyyy-MM-dd",null)
                         },
                     });
                     context.SaveChanges();
@@ -308,23 +646,18 @@ namespace RopeyDVDSystem.Data
                     {
                         new LoanType()
                         {
-                            LoanTypeName = "Loan Type 1",
-                            Duration = 10
+                            LoanTypeName = "Daily",
+                            Duration = 1
                         },
                         new LoanType()
                         {
-                            LoanTypeName = "Loan Type 2",
-                            Duration = 10
+                            LoanTypeName = "Weekly",
+                            Duration = 7
                         },
                         new LoanType()
                         {
-                            LoanTypeName = "Loan Type 3",
-                            Duration = 10
-                        },
-                        new LoanType()
-                        {
-                            LoanTypeName = "Loan Type 4",
-                            Duration = 10
+                            LoanTypeName = "Monthly",
+                            Duration = 30
                         },
                     });
                     context.SaveChanges();
@@ -337,27 +670,21 @@ namespace RopeyDVDSystem.Data
                     {
                         new MembershipCategory
                         {
-                            MembershipCategoryName = "Membership 1",
-                            MembershipCategoryDescription = "This is type 1 of membershup category",
-                            MembershipCategoryTotalLoans = 1,
+                            MembershipCategoryName = "Silver",
+                            MembershipCategoryDescription = "With a Silver membership, a member can rent 5 DVD copies at once.",
+                            MembershipCategoryTotalLoans = 5,
                         },
                         new MembershipCategory
                         {
-                            MembershipCategoryName = "Membership 2",
-                            MembershipCategoryDescription = "This is type 2 of membershup category",
-                            MembershipCategoryTotalLoans = 2,
+                            MembershipCategoryName = "Gold",
+                            MembershipCategoryDescription = "With a Gold membership, a member can rent 10 DVD copies at once.",
+                            MembershipCategoryTotalLoans = 10,
                         },
                         new MembershipCategory
                         {
-                            MembershipCategoryName = "Membership 3",
-                            MembershipCategoryDescription = "This is type 3 of membershup category",
-                            MembershipCategoryTotalLoans = 3,
-                        },
-                        new MembershipCategory
-                        {
-                            MembershipCategoryName = "Membership 4",
-                            MembershipCategoryDescription = "This is type 4 of membershup category",
-                            MembershipCategoryTotalLoans = 4,
+                            MembershipCategoryName = "Platinum",
+                            MembershipCategoryDescription = "With a Platinum membership, a member can rent 15 DVD copies at once.",
+                            MembershipCategoryTotalLoans = 15,
                         },
                     });
                     context.SaveChanges();
@@ -371,34 +698,58 @@ namespace RopeyDVDSystem.Data
                         new Member()
                         {
                             MemberCategoryNumber = 1,
-                            MemberFirstName = "Robert",
-                            MemberLastName = "Pattinson",
-                            MemberAddress = "Kuleshwor",
-                            MemberDateOfBirth = DateTime.Now.AddYears(-10),
-                        },
-                        new Member()
-                        {
-                            MemberCategoryNumber = 1,
-                            MemberFirstName = "Robert",
-                            MemberLastName = "Pattinson",
-                            MemberAddress = "Kuleshwor",
-                            MemberDateOfBirth = DateTime.Now.AddYears(-10),
-                        },
-                        new Member()
-                        {
-                            MemberCategoryNumber = 3,
-                            MemberFirstName = "Robert",
-                            MemberLastName = "Pattinson",
-                            MemberAddress = "Kuleshwor",
-                            MemberDateOfBirth = DateTime.Now.AddYears(-10),
+                            MemberFirstName = "Asha",
+                            MemberLastName = "Dahal",
+                            MemberAddress = "Bouddha",
+                            MemberDateOfBirth = DateTime.ParseExact("1998-12-04","yyyy-MM-dd",null),
                         },
                         new Member()
                         {
                             MemberCategoryNumber = 2,
-                            MemberFirstName = "Robert",
-                            MemberLastName = "Pattinson",
-                            MemberAddress = "Kuleshwor",
-                            MemberDateOfBirth = DateTime.Now.AddYears(-10),
+                            MemberFirstName = "Om",
+                            MemberLastName = "Thapa",
+                            MemberAddress = "New Road",
+                            MemberDateOfBirth = DateTime.ParseExact("2000-09-08","yyyy-MM-dd",null),
+                        },
+                        new Member()
+                        {
+                            MemberCategoryNumber = 3,
+                            MemberFirstName = "Garima",
+                            MemberLastName = "Adhikari",
+                            MemberAddress = "Kamalpokhari",
+                            MemberDateOfBirth = DateTime.ParseExact("2001-11-09","yyyy-MM-dd",null),
+                        },
+                        new Member()
+                        {
+                            MemberCategoryNumber = 3,
+                            MemberFirstName = "Aditi",
+                            MemberLastName = "Shrestha",
+                            MemberAddress = "Bansbari",
+                            MemberDateOfBirth = DateTime.ParseExact("2006-05-01","yyyy-MM-dd",null),
+                        },
+                        new Member()
+                        {
+                            MemberCategoryNumber = 2,
+                            MemberFirstName = "Nitesh",
+                            MemberLastName = "Giri",
+                            MemberAddress = "Ghantaghar",
+                            MemberDateOfBirth = DateTime.ParseExact("2005-12-12","yyyy-MM-dd",null),
+                        },
+                        new Member()
+                        {
+                            MemberCategoryNumber = 1,
+                            MemberFirstName = "Aditya",
+                            MemberLastName = "Karmacharya",
+                            MemberAddress = "Pulchowk",
+                            MemberDateOfBirth = DateTime.ParseExact("1990-07-03","yyyy-MM-dd",null),
+                        },
+                        new Member()
+                        {
+                            MemberCategoryNumber = 3,
+                            MemberFirstName = "Mina",
+                            MemberLastName = "Poudel",
+                            MemberAddress = "Patan Durbar",
+                            MemberDateOfBirth = DateTime.ParseExact("2002-06-18","yyyy-MM-dd",null),
                         },
                     });
                     context.SaveChanges();
@@ -413,37 +764,64 @@ namespace RopeyDVDSystem.Data
                         {
                             LoanTypeNumber = 1,
                             CopyNumber = 5,
-                            MemberNumber = 1,
-                            DateOut = DateTime.Now.AddDays(-10),
-                            DateDue = DateTime.Now.AddDays(10),
-                            DateReturn = DateTime.Now.AddDays(-5)
+                            MemberNumber = 2,
+                            DateOut = DateTime.ParseExact("2022-05-04","yyyy-MM-dd",null),
+                            DateDue = DateTime.ParseExact("2022-05-05","yyyy-MM-dd",null),
+                            DateReturn = DateTime.ParseExact("2022-05-05","yyyy-MM-dd",null),
+                        },
+                        new Loan()
+                        {
+                            LoanTypeNumber = 2,
+                            CopyNumber = 2,
+                            MemberNumber = 5,
+                            DateOut = DateTime.ParseExact("2022-04-20","yyyy-MM-dd",null),
+                            DateDue = DateTime.ParseExact("2022-04-27","yyyy-MM-dd",null),
+                            DateReturn = DateTime.ParseExact("2022-04-26","yyyy-MM-dd",null),
                         },
                         new Loan()
                         {
                             LoanTypeNumber = 3,
-                            CopyNumber = 8,
+                            CopyNumber = 1,
+                            MemberNumber = 7,
+                            DateOut = DateTime.ParseExact("2022-04-04","yyyy-MM-dd",null),
+                            DateDue = DateTime.ParseExact("2022-05-04","yyyy-MM-dd",null),
+                            DateReturn = DateTime.ParseExact("2022-05-01","yyyy-MM-dd",null),
+                        },
+                        new Loan()
+                        {
+                            LoanTypeNumber = 2,
+                            CopyNumber = 4,
                             MemberNumber = 3,
-                            DateOut = DateTime.Now.AddDays(-10),
-                            DateDue = DateTime.Now.AddDays(10),
-                            DateReturn = DateTime.Now.AddDays(-5)
+                            DateOut = DateTime.ParseExact("2022-03-20","yyyy-MM-dd",null),
+                            DateDue = DateTime.ParseExact("2022-03-27","yyyy-MM-dd",null),
+                            DateReturn = DateTime.ParseExact("2022-03-27","yyyy-MM-dd",null),
+                        },
+                        new Loan()
+                        {
+                            LoanTypeNumber = 1,
+                            CopyNumber = 3,
+                            MemberNumber = 1,
+                            DateOut = DateTime.ParseExact("2022-05-01","yyyy-MM-dd",null),
+                            DateDue = DateTime.ParseExact("2022-05-02","yyyy-MM-dd",null),
+                            DateReturn = DateTime.ParseExact("2022-05-02","yyyy-MM-dd",null),
+                        },
+                        new Loan()
+                        {
+                            LoanTypeNumber = 2,
+                            CopyNumber = 6,
+                            MemberNumber = 4,
+                            DateOut = DateTime.ParseExact("2022-04-01","yyyy-MM-dd",null),
+                            DateDue = DateTime.ParseExact("2022-04-08","yyyy-MM-dd",null),
+                            DateReturn = DateTime.ParseExact("2022-04-07","yyyy-MM-dd",null),
                         },
                         new Loan()
                         {
                             LoanTypeNumber = 2,
                             CopyNumber = 7,
-                            MemberNumber = 3,
-                            DateOut = DateTime.Now.AddDays(-10),
-                            DateDue = DateTime.Now.AddDays(10),
-                            DateReturn = DateTime.Now.AddDays(-5)
-                        },
-                        new Loan()
-                        {
-                            LoanTypeNumber = 3,
-                            CopyNumber = 6,
-                            MemberNumber = 4,
-                            DateOut = DateTime.Now.AddDays(-10),
-                            DateDue = DateTime.Now.AddDays(10),
-                            DateReturn = DateTime.Now.AddDays(-5)
+                            MemberNumber = 6,
+                            DateOut = DateTime.ParseExact("2022-05-01","yyyy-MM-dd",null),
+                            DateDue = DateTime.ParseExact("2022-05-08","yyyy-MM-dd",null),
+                            DateReturn = DateTime.ParseExact("2022-05-05","yyyy-MM-dd",null),
                         },
                     });
                     context.SaveChanges();
