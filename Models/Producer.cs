@@ -11,7 +11,11 @@ namespace RopeyDVDSystem.Models
     {
         [Key]
         public int ProducerNumber { get; set; }
+
+        [Display(Name = "Producer Picture")]
         public string ProducerPictureURL { get; set; }
+
+        [Display(Name = "Name")]
         public string ProducerName { get; set; }
 
 

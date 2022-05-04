@@ -11,7 +11,11 @@ namespace RopeyDVDSystem.Models
     {
         [Key]
         public int LoanTypeNumber { get; set; }
+
+        [Display(Name = "Loan Type Name")]
         public string LoanTypeName { get; set; }
+
+        [Display(Name = "Duration")]
         public int Duration { get; set; }
 
         public ICollection<Loan> Loans { get; set; }

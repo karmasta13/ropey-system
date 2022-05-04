@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using RopeyDVDSystem.Data;
+using RopeyDVDSystem.Data.Services;
 using RopeyDVDSystem.Models.Identity;
 using System.Text;
 
@@ -24,6 +25,9 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
+builder.Services.AddScoped<IActorsService, ActorsService>();
+
+
 
 // Adding Authentication
 builder.Services.AddAuthentication(options =>
@@ -32,6 +36,7 @@ builder.Services.AddAuthentication(options =>
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 })
+  
 
 // Adding Jwt Bearer
 .AddJwtBearer(options =>
@@ -84,6 +89,7 @@ app.MapControllerRoute(
 // Seed database
 ApplicationDBInitializer.SeedUsersAndRolesAsync(app).Wait();
 ApplicationDBInitializer.Seed(app);
+
 
 
 app.Run();

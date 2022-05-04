@@ -1,0 +1,46 @@
+﻿@*Define model*@
+
+@model IEnumerable<Producer>
+
+@{
+	ViewData["Title"] = "Producers";
+}
+
+
+@*Define ViewData*@
+
+<div class="row">
+	<div class="col-md-8 offset-md-2">
+
+		<table class="table">
+			<thead class="text-center">
+			<tr>
+				<th>@Html.DisplayNameFor(model => model.ProducerPictureURL)</th>
+				<th>@Html.DisplayNameFor(model => model.ProducerName)</th>
+				<th>Actions</th>
+			</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td class="align-middle">
+							<img class="rounded-circle" img src="@item.ProducerPictureURL" alt="@item.ProducerName" style="max-width: 150px" />
+						</td>
+						<td class="align-middle">
+							@Html.DisplayFor(modelItem => item.ProducerName)
+						</td>
+						<td class="align-middle">
+							<a class="btn btn-outline-primary"><i class="lnr-bicycle bi-pencil-square"></i> Edit </a> |
+							<a class="btn btn-outline-info"><i class="lnr-bicycle bi-eye"></i> Details </a> |
+							<a class="btn btn-danger text-white"><i class="lnr-bicycle bi-trash"></i> Delete </a> 
+						</td>
+					</tr>
+				}
+			</tbody>
+			
+		</table>
+
+	</div>
+</div>
+
