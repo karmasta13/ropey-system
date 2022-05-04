@@ -30,10 +30,10 @@ namespace RopeyDVDSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([Bind("ActorPictureURL,ActorFirstName,ActorSurname")]Actor actor)
         {
-            if (!ModelState.IsValid)
+           /* if (!ModelState.IsValid)
             {
                 return View(actor);
-            }
+            }*/
             await _service.AddAsync(actor);
             return RedirectToAction(nameof(Index));
         }
