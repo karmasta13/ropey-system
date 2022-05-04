@@ -1576,6 +1576,13 @@ button.mfp-close {
   transition: all 0.4s;
 }
 
+.product-img
+{
+  height:370px;
+  background-image: center center;
+  position: relative;
+}
+
 /* overlay at start */
 .mfp-fade.mfp-bg {
   opacity: 0;
