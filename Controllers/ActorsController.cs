@@ -28,12 +28,12 @@ namespace RopeyDVDSystem.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("ActorPictureURL,ActorFirstName,ActorSurname")]Actor actor)
+        public async Task<IActionResult> Create([Bind("ActorFirstName,ActorPictureURL,ActorSurname")] Actor actor)
         {
-           /* if (!ModelState.IsValid)
-            {
-                return View(actor);
-            }*/
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(actor);
+            //}
             await _service.AddAsync(actor);
             return RedirectToAction(nameof(Index));
         }
@@ -56,12 +56,13 @@ namespace RopeyDVDSystem.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("ActorNumber,ActorFirstName,ActorPictureURL,ActorSurname")] Actor actor)
+        public async Task<IActionResult> Edit(int id, Actor actor)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(actor);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(actor);
+            //}
+            actor.ActorNumber = Convert.ToUInt32(id);
             await _service.UpdateAsync(id, actor);
             return RedirectToAction(nameof(Index));
         }

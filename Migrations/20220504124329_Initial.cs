@@ -16,8 +16,8 @@ namespace RopeyDVDSystem.Migrations
                     ActorNumber = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ActorPictureURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ActorFirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ActorSurname = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ActorFirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    ActorSurname = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
