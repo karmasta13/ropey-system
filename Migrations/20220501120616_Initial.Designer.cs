@@ -12,8 +12,8 @@ using RopeyDVDSystem.Data;
 namespace RopeyDVDSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220430023040_initial")]
-    partial class initial
+    [Migration("20220501120616_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -213,6 +213,10 @@ namespace RopeyDVDSystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("CategoryNumber");
 
                     b.ToTable("DVDCategories");
@@ -262,15 +266,15 @@ namespace RopeyDVDSystem.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("PenaltyCharge")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)");
+                        .HasPrecision(10, 3)
+                        .HasColumnType("decimal(10,3)");
 
                     b.Property<int>("ProducerNumber")
                         .HasColumnType("int");
 
                     b.Property<decimal>("StandardCharge")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)");
+                        .HasPrecision(10, 3)
+                        .HasColumnType("decimal(10,3)");
 
                     b.Property<int>("StudioNumber")
                         .HasColumnType("int");
@@ -453,6 +457,10 @@ namespace RopeyDVDSystem.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MembershipCategoryNumber"), 1L, 1);
 
                     b.Property<string>("MembershipCategoryDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MembershipCategoryName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

@@ -109,21 +109,25 @@ namespace RopeyDVDSystem.Data
                     {
                         new DVDCategory()
                         {
+                            CategoryName = "Category 1",
                             CategoryDescription = "This is category 1",
                             AgeRestricted = "+18"
                         },
                         new DVDCategory()
                         {
+                            CategoryName = "Category 2",
                             CategoryDescription = "This is category 2",
                             AgeRestricted = "+18"
                         },
                         new DVDCategory()
                         {
+                            CategoryName = "Category 3",
                             CategoryDescription = "This is category 3",
                             AgeRestricted = "+18"
                         },
                         new DVDCategory()
                         {
+                            CategoryName = "Category 4",
                             CategoryDescription = "This is category 4",
                             AgeRestricted = "+18"
                         },
@@ -208,7 +212,7 @@ namespace RopeyDVDSystem.Data
                         },
                         new DVDTitle()
                         {
-                            CategoryNumber = 2,
+                            CategoryNumber = 4,
                             StudioNumber = 2,
                             ProducerNumber = 2,
                             DVDPictureURL = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
@@ -230,7 +234,7 @@ namespace RopeyDVDSystem.Data
                         },
                         new DVDTitle()
                         {
-                            CategoryNumber = 1,
+                            CategoryNumber = 3,
                             StudioNumber = 4,
                             ProducerNumber = 3,
                             DVDPictureURL = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
@@ -251,17 +255,17 @@ namespace RopeyDVDSystem.Data
                         new CastMember()
                         {
                             ActorNumber= 1,
-                            DVDNumber = 1
+                            DVDNumber = 3
                         },
                         new CastMember()
                         {
                             ActorNumber= 2,
-                            DVDNumber = 2
+                            DVDNumber = 4
                         },
                         new CastMember()
                         {
                             ActorNumber= 1,
-                            DVDNumber = 3
+                            DVDNumber = 5
                         },
 
                     });
@@ -275,22 +279,22 @@ namespace RopeyDVDSystem.Data
                     {
                         new DVDCopy()
                         {
-                            DVDNumber = 1,
-                            DatePurchased = DateTime.Now.AddDays(-20)
-                        },
-                        new DVDCopy()
-                        {
-                            DVDNumber = 2,
-                            DatePurchased = DateTime.Now.AddDays(-20)
-                        },
-                        new DVDCopy()
-                        {
-                            DVDNumber = 1,
+                            DVDNumber = 5,
                             DatePurchased = DateTime.Now.AddDays(-20)
                         },
                         new DVDCopy()
                         {
                             DVDNumber = 4,
+                            DatePurchased = DateTime.Now.AddDays(-20)
+                        },
+                        new DVDCopy()
+                        {
+                            DVDNumber = 3,
+                            DatePurchased = DateTime.Now.AddDays(-20)
+                        },
+                        new DVDCopy()
+                        {
+                            DVDNumber = 2,
                             DatePurchased = DateTime.Now.AddDays(-20)
                         },
                     });
@@ -333,21 +337,25 @@ namespace RopeyDVDSystem.Data
                     {
                         new MembershipCategory
                         {
+                            MembershipCategoryName = "Membership 1",
                             MembershipCategoryDescription = "This is type 1 of membershup category",
                             MembershipCategoryTotalLoans = 1,
                         },
                         new MembershipCategory
                         {
+                            MembershipCategoryName = "Membership 2",
                             MembershipCategoryDescription = "This is type 2 of membershup category",
                             MembershipCategoryTotalLoans = 2,
                         },
                         new MembershipCategory
                         {
+                            MembershipCategoryName = "Membership 3",
                             MembershipCategoryDescription = "This is type 3 of membershup category",
                             MembershipCategoryTotalLoans = 3,
                         },
                         new MembershipCategory
                         {
+                            MembershipCategoryName = "Membership 4",
                             MembershipCategoryDescription = "This is type 4 of membershup category",
                             MembershipCategoryTotalLoans = 4,
                         },
@@ -404,7 +412,7 @@ namespace RopeyDVDSystem.Data
                         new Loan()
                         {
                             LoanTypeNumber = 1,
-                            CopyNumber = 1,
+                            CopyNumber = 5,
                             MemberNumber = 1,
                             DateOut = DateTime.Now.AddDays(-10),
                             DateDue = DateTime.Now.AddDays(10),
@@ -413,7 +421,7 @@ namespace RopeyDVDSystem.Data
                         new Loan()
                         {
                             LoanTypeNumber = 3,
-                            CopyNumber = 4,
+                            CopyNumber = 8,
                             MemberNumber = 3,
                             DateOut = DateTime.Now.AddDays(-10),
                             DateDue = DateTime.Now.AddDays(10),
@@ -422,7 +430,7 @@ namespace RopeyDVDSystem.Data
                         new Loan()
                         {
                             LoanTypeNumber = 2,
-                            CopyNumber = 3,
+                            CopyNumber = 7,
                             MemberNumber = 3,
                             DateOut = DateTime.Now.AddDays(-10),
                             DateDue = DateTime.Now.AddDays(10),
@@ -431,7 +439,7 @@ namespace RopeyDVDSystem.Data
                         new Loan()
                         {
                             LoanTypeNumber = 3,
-                            CopyNumber = 2,
+                            CopyNumber = 6,
                             MemberNumber = 4,
                             DateOut = DateTime.Now.AddDays(-10),
                             DateDue = DateTime.Now.AddDays(10),

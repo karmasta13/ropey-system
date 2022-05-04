@@ -1,0 +1,42 @@
+﻿@*Define model*@
+
+@model IEnumerable<Studio>
+
+@{
+	ViewData["Title"] = "Studios";
+}
+
+
+@*Define ViewData*@
+
+<div class="row">
+	<div class="col-md-8 offset-md-2">
+
+		<table class="table">
+			<thead class="text-center">
+			<tr>
+				<th>@Html.DisplayNameFor(model => model.StudioName)</th>
+				<th>Actions</th>
+			</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr class="text-center">
+						<td class="align-middle">
+							@Html.DisplayFor(modelItem => item.StudioName)
+						</td>
+						<td class="align-middle">
+							<a class="btn btn-outline-primary"><i class="lnr-bicycle bi-pencil-square"></i> Edit </a> |
+							<a class="btn btn-outline-info"><i class="lnr-bicycle bi-eye"></i> Details </a> |
+							<a class="btn btn-danger text-white"><i class="lnr-bicycle bi-trash"></i> Delete </a> 
+						</td>
+					</tr>
+				}
+			</tbody>
+			
+		</table>
+
+	</div>
+</div>
+
