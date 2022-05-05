@@ -18,6 +18,8 @@ namespace RopeyDVDSystem.Models
 
         //Relationship
         public virtual DVDTitle DVDTitle { get; set; }
+
+        public bool IsLoan { get; set; }
         public ICollection<Loan> Loans { get; set; }
     }
 }

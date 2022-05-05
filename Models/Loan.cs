@@ -31,6 +31,9 @@ namespace RopeyDVDSystem.Models
         [Display(Name = "Date Return")]
         public DateTime DateReturn { get; set; }
 
+        [Display(Name = "Return Amount")]
+        public decimal ReturnAmount { get; set; }
+
         //relationships
         public virtual LoanType LoanType { get; set; }
         public virtual DVDCopy DVDCopy { get; set; }

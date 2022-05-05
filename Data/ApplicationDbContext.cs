@@ -33,13 +33,14 @@ namespace RopeyDVDSystem.Data
             
             modelBuilder.Entity<DVDTitle>().Property(dt => dt.PenaltyCharge).HasPrecision(10, 3);
             modelBuilder.Entity<DVDTitle>().Property(dt => dt.StandardCharge).HasPrecision(10, 3);
+            
 
-           
+
             modelBuilder.Entity<Loan>().HasOne(dt => dt.DVDCopy).WithMany(dt => dt.Loans).HasForeignKey(dt => dt.CopyNumber);
             modelBuilder.Entity<Loan>().HasOne(dt => dt.LoanType).WithMany(dt => dt.Loans).HasForeignKey(dt => dt.LoanTypeNumber);
             modelBuilder.Entity<Loan>().HasOne(dt => dt.Member).WithMany(dt => dt.Loans).HasForeignKey(dt => dt.MemberNumber);
+            modelBuilder.Entity<Loan>().Property(dt => dt.ReturnAmount).HasPrecision(10, 3);
 
-           
             modelBuilder.Entity<Member>().HasOne(dt => dt.MembershipCategory).WithMany(dt => dt.Members).HasForeignKey(dt => dt.MemberCategoryNumber);
 
             base.OnModelCreating(modelBuilder);
