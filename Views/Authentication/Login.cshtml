@@ -52,10 +52,10 @@
 </div>*@
 
 <section style="background-color: #f9dec0">
-		<div class="wrapper" style="min-height: 120vh">
-			<div class="inner flex">
+		<div class="wrapper" style="min-height: 110vh; min-width: 90vw">
+			<div class="inner flex mx-4">
                 
-				<img src="~/images/image-1.png" alt="" class="image-1">
+				
                 <form asp-action="Login">
                     <h3 > Admin login page</h3>
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -70,11 +70,12 @@
                         <span asp-validation-for="Password" class="text-danger mt-4"></span>
                     </div>
 
-                    <div class="form-group mt-4 text-right float-right">
-                        <input type="submit" value="Login" class="btn btn-warning text-white" style="width: 100%"/>
+                    <div class="form-group mt-3 mb-3 float-right">
+                        <input type="submit" value="Login" class="btn btn-warning text-white px-5 " style="width: 100%"/>
                     </div>
                 </form>				
-				<img src="" alt="" class="image-2">
+				<script src="https://unpkg.com/@@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_tjuauqjl.json"  class ="image-1" background="transparent"  speed="2"  style="width: 900px; height: 900px; bottom:-300px; left:-548px; z-index:0"  loop  autoplay ></lottie-player>
 			</div>
 			
 		</div>
