@@ -1231,6 +1231,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  background-image: url(wwwroot/images/slide-01.jpg);
 }
 
 .rs1-slick1 .item-slick1 {
@@ -1578,7 +1579,7 @@ button.mfp-close {
 
 .product-img
 {
-  height:370px;
+  height:390px;
   background-image: center center;
   position: relative;
 }
@@ -2483,7 +2484,7 @@ input.num-product::-webkit-inner-spin-button {
 
 .size-104 {
   min-width: 154px;
-  height: 40px;
+  
   letter-spacing: 1px;
 }
 

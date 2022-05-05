@@ -387,8 +387,8 @@ namespace RopeyDVDSystem.Data
                             DVDPictureURL = "https://i.postimg.cc/jS1pzLxG/dune.jpg",
                             DVDTitleName = "Dune",
                             DateReleased = DateTime.ParseExact("2021-10-22","yyyy-MM-dd",null),
-                            StandardCharge = 500.00m,
-                            PenaltyCharge = 150.00m
+                            StandardCharge = 500,
+                            PenaltyCharge = 150
                         },
                         new DVDTitle()
                         {
@@ -768,6 +768,8 @@ namespace RopeyDVDSystem.Data
                             DateOut = DateTime.ParseExact("2022-05-04","yyyy-MM-dd",null),
                             DateDue = DateTime.ParseExact("2022-05-05","yyyy-MM-dd",null),
                             DateReturn = DateTime.ParseExact("2022-05-05","yyyy-MM-dd",null),
+                            ReturnAmount= 200,
+
                         },
                         new Loan()
                         {
@@ -777,6 +779,7 @@ namespace RopeyDVDSystem.Data
                             DateOut = DateTime.ParseExact("2022-04-20","yyyy-MM-dd",null),
                             DateDue = DateTime.ParseExact("2022-04-27","yyyy-MM-dd",null),
                             DateReturn = DateTime.ParseExact("2022-04-26","yyyy-MM-dd",null),
+                            ReturnAmount = 500,
                         },
                         new Loan()
                         {
@@ -786,6 +789,7 @@ namespace RopeyDVDSystem.Data
                             DateOut = DateTime.ParseExact("2022-04-04","yyyy-MM-dd",null),
                             DateDue = DateTime.ParseExact("2022-05-04","yyyy-MM-dd",null),
                             DateReturn = DateTime.ParseExact("2022-05-01","yyyy-MM-dd",null),
+                            ReturnAmount= 400
                         },
                         new Loan()
                         {
@@ -795,6 +799,7 @@ namespace RopeyDVDSystem.Data
                             DateOut = DateTime.ParseExact("2022-03-20","yyyy-MM-dd",null),
                             DateDue = DateTime.ParseExact("2022-03-27","yyyy-MM-dd",null),
                             DateReturn = DateTime.ParseExact("2022-03-27","yyyy-MM-dd",null),
+                            ReturnAmount = 300,
                         },
                         new Loan()
                         {
@@ -803,7 +808,7 @@ namespace RopeyDVDSystem.Data
                             MemberNumber = 1,
                             DateOut = DateTime.ParseExact("2022-05-01","yyyy-MM-dd",null),
                             DateDue = DateTime.ParseExact("2022-05-02","yyyy-MM-dd",null),
-                            DateReturn = DateTime.ParseExact("2022-05-02","yyyy-MM-dd",null),
+                           
                         },
                         new Loan()
                         {
@@ -811,8 +816,8 @@ namespace RopeyDVDSystem.Data
                             CopyNumber = 6,
                             MemberNumber = 4,
                             DateOut = DateTime.ParseExact("2022-04-01","yyyy-MM-dd",null),
-                            DateDue = DateTime.ParseExact("2022-04-08","yyyy-MM-dd",null),
-                            DateReturn = DateTime.ParseExact("2022-04-07","yyyy-MM-dd",null),
+                            DateDue = DateTime.ParseExact("2022-04-08","yyyy-MM-dd",null),                         
+                           
                         },
                         new Loan()
                         {
@@ -821,7 +826,8 @@ namespace RopeyDVDSystem.Data
                             MemberNumber = 6,
                             DateOut = DateTime.ParseExact("2022-05-01","yyyy-MM-dd",null),
                             DateDue = DateTime.ParseExact("2022-05-08","yyyy-MM-dd",null),
-                            DateReturn = DateTime.ParseExact("2022-05-05","yyyy-MM-dd",null),
+                            DateReturn = DateTime.ParseExact("2022-05-13","yyyy-MM-dd",null),
+                            ReturnAmount = 300, 
                         },
                     });
                     context.SaveChanges();

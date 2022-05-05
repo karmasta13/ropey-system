@@ -30,6 +30,18 @@ ul {
 	padding-left: 0;
 	margin-bottom: 0;
 }
+
+.hero__items {
+	height: 600px;
+	padding-top: 50px;
+}
+
+.set-bg {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top center;
+}
+
 a {
 	text-decoration: none;
 }
@@ -49,8 +61,8 @@ a {
 }
 .image-1 {
 	position: absolute;
-	bottom: -12px;
-	left: -191px;
+	bottom: -129px;
+	left: -578px;
 	z-index: 99;
 }
 .image-2 {
