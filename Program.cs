@@ -77,6 +77,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+builder.Services.AddSession();
+app.UseSession();
 
 app.UseAuthentication();
 app.UseAuthorization();

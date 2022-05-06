@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CourseWorkSampleAuth.Controllers
 {
@@ -164,6 +165,19 @@ namespace CourseWorkSampleAuth.Controllers
             return View();
         }
 
+        [HttpGet, Authorize]
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpGet, Authorize, ValidateAntiForgeryToken]
+        public ActionResult ChangePassword1(ChangePassword changePassword)
+        {
+            if (!ModelState.IsValid) return View(ChangePassword);
+
+            return View();
+        }
 
         private JwtSecurityToken GetToken(List<Claim> authClaims)
         {
