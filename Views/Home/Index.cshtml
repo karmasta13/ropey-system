@@ -1,9 +1,34 @@
 ﻿@model IEnumerable<RopeyDVDSystem.Models.ViewModels.HomeDVD>
 
+
 @{
     ViewData["Title"] = "Home";
     ViewData["Section"] = "Home";
 }
+
+
+@section AddCustomScripts{
+    <script>
+        function changeAgeRestriction(ageRestriction) {
+            document.getElementById("AgeRestricted").value = ageRestriction;
+            document.getElementById("PostIndexForm").submit();
+        }
+
+        function changeAvailability(availability) {
+            document.getElementById("stockAvailability").value = availability;
+            document.getElementById("PostIndexForm").submit();
+        }    
+		
+		function changePrice(price){
+			document.getElementById("sortingOrderCol").value = price;
+			document.getElementById("PostIndexForm").submit();
+		}
+
+    </script>
+	
+}
+
+
 
 
 
@@ -25,11 +50,11 @@
 									Available Now
 								</h2>
 							</div>
-							<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-								<a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-									Explore Now
+							@*<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
+								<a href="" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+									Scroll down for more 
 								</a>
-							</div>
+							</div>*@
 
 						</div>
 					</div>
@@ -49,11 +74,11 @@
 									Be Our Member
 								</h2>
 							</div>
-							<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
+							@*<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
 								<a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-									Explore Now
+									Explore 
 								</a>
-							</div>
+							</div>*@
 						</div>
 					</div>
 				</div>
@@ -72,11 +97,11 @@
 									For Renting
 								</h2>
 							</div>
-							<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
+							@*<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
 								<a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-									Explore Now
+									Scroll down for more 
 								</a>
-							</div>
+							</div>*@
 								
 						</div>
 					</div>
@@ -94,285 +119,167 @@
 					DVD Overview
 				</h4>
 
-			<div class="row mt-5 mb-4">
-				<div class="bor17 col-4 mx-3">
-					<input class="stext-103 cl2 plh4 size-116 p-l-28 p-r-55" type="text" name="search" placeholder="Search">
+			<form asp-action="PostIndex" id="PostIndexForm">
+				<div class="row mt-5 mb-4">
+					<div class="bor17 col-4 mx-3">
+						<input class="stext-103 cl2 plh4 size-116 p-l-28 p-r-55" type="text" name="searchBarValue" placeholder="Search by DVD Titles | Actor" value="@ViewBag.searchBarValue" />
 
-					<button class="flex-c-m size-122 ab-t-r fs-18 cl4 hov-cl1 trans-04">
-						<i class="zmdi zmdi-search"></i>
-					</button>
-				</div>
-
-
-				<!-- <div class="col" role="group" aria-label="First group">
-					<div class ="text-right">
-					
-					<button type="button" class="btn btn-outline-secondary"> <i class="icon-filter cl4 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i> Date Released</button>
-					<button type="button" class="btn btn-outline-secondary"> <i class="icon-filter cl4 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list "></i> Actors</button>	
-					</div>	
-				</div>  -->
-
-				<div class = "col">
-					<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04  js-show-filter col-3 float-right" >
-						<i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
-						<i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-						 Filter
+						<button class="flex-c-m size-122 ab-t-r fs-18 cl4 hov-cl1 trans-04" type="submit" MaintainScrollPositionOnPostBack = true;>
+							<i class="zmdi zmdi-search"></i>
+						</button>
 					</div>
 
+
+
+					<div class = "col">
+						<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04  js-show-filter col-3 float-right" >
+							<i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
+							<i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
+							 Filter
+						</div>
+
 					
-				</div>
-			
-			
-
-				<!-- Filter -->
-				<div class="dis-none panel-filter w-full p-t-10">
-					<div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
-						<div class="filter-col1 p-r-15 p-b-27">
-							<div class="mtext-102 cl2 p-b-15">
-								Sort By
-							</div>
-
-							<ul>
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										Default
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										Popularity
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										Average rating
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04 filter-link-active">
-										Newness
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										Price: Low to High
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										Price: High to Low
-									</a>
-								</li>
-							</ul>
-						</div>
-
-						<div class="filter-col2 p-r-15 p-b-27">
-							<div class="mtext-102 cl2 p-b-15">
-								Price
-							</div>
-
-							<ul>
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04 filter-link-active">
-										All
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										$0.00 - $50.00
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										$50.00 - $100.00
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										$100.00 - $150.00
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										$150.00 - $200.00
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										$200.00+
-									</a>
-								</li>
-							</ul>
-						</div>
-
-						<div class="filter-col3 p-r-15 p-b-27">
-							<div class="mtext-102 cl2 p-b-15">
-								Color
-							</div>
-
-							<ul>
-								<li class="p-b-6">
-									<span class="fs-15 lh-12 m-r-6" style="color: #222;">
-										<i class="zmdi zmdi-circle"></i>
-									</span>
-
-									<a href="#" class="filter-link stext-106 trans-04">
-										Black
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<span class="fs-15 lh-12 m-r-6" style="color: #4272d7;">
-										<i class="zmdi zmdi-circle"></i>
-									</span>
-
-									<a href="#" class="filter-link stext-106 trans-04 filter-link-active">
-										Blue
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<span class="fs-15 lh-12 m-r-6" style="color: #b3b3b3;">
-										<i class="zmdi zmdi-circle"></i>
-									</span>
-
-									<a href="#" class="filter-link stext-106 trans-04">
-										Grey
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<span class="fs-15 lh-12 m-r-6" style="color: #00ad5f;">
-										<i class="zmdi zmdi-circle"></i>
-									</span>
-
-									<a href="#" class="filter-link stext-106 trans-04">
-										Green
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<span class="fs-15 lh-12 m-r-6" style="color: #fa4251;">
-										<i class="zmdi zmdi-circle"></i>
-									</span>
-
-									<a href="#" class="filter-link stext-106 trans-04">
-										Red
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<span class="fs-15 lh-12 m-r-6" style="color: #aaa;">
-										<i class="zmdi zmdi-circle-o"></i>
-									</span>
-
-									<a href="#" class="filter-link stext-106 trans-04">
-										White
-									</a>
-								</li>
-							</ul>
-						</div>
-
-						<div class="filter-col4 p-b-27">
-							<div class="mtext-102 cl2 p-b-15">
-								Tags
-							</div>
-
-							<div class="flex-w p-t-4 m-r--5">
-								<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Fashion
-								</a>
-
-								<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Lifestyle
-								</a>
-
-								<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Denim
-								</a>
-
-								<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Streetstyle
-								</a>
-
-								<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Crafts
-								</a>
-							</div>
-						</div>
 					</div>
-				</div>
-
-
-			</div>
-				
 			
 			
 
-			<div class="row isotope-grid mt-5">
-				  @foreach (var dvd in Model) {
-					<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-						<!-- Block2 -->
-						<div class="block2">
-							<div class="block2-pic hov-img0">
-								<img class="product-img" src="@dvd.DVDPictureURL" alt="IMG-PRODUCT">
-								<div class="example-overlay">
-									 @if (dvd.AvailableQuantity == 0){
-                                        <h5><span class="badge badge-danger my-2 mr-2">Out of Stock</span></h5>
-                                    }
-                                    else if (dvd.AvailableQuantity == -1){
-                                        <h5><span class="badge badge-warning my-2 mr-2">Coming Soon</span></h5>
-                                    }
-                                    else
-                                    {
-                                        <h5><span class="badge badge-success my-2 mr-2">Quanity : @dvd.AvailableQuantity</span></h5>
-                                    }
-									
+					<!-- Filter -->
+					<div class="dis-none panel-filter w-full p-t-10">
+						<div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
+							<div class="filter-col1 p-r-15 p-b-27">
+								<div class="mtext-102 cl2 p-b-15">
+									<i class="zmdi zmdi-long-arrow-up"></i>
+									<i class="zmdi zmdi-long-arrow-down"></i>
+									Sort By
 								</div>
+
+								<ul>
+									<li class="p-b-6" onclick ="changePrice('pa')">
+										<a class="@(ViewBag.sortingOrderCol == "all"? "filter-link stext-106 trans-04 filter-link-active":"filter-link stext-106 trans-04 text-secondary")">
+											Price: Low to High
+										</a>
+									</li>
+
+									<li class="p-b-6" onclick ="changePrice('pd')">
+										<a class="@(ViewBag.sortingOrderCol == "all"? "filter-link stext-106 trans-04 filter-link-active":"filter-link stext-106 trans-04 text-secondary")">
+											Price: High to Low
+										</a>
+									</li>
+									<input type="hidden" id="sortingOrderCol" name="sortingOrderCol" value="@ViewBag.sortingOrderCol" />
+								</ul>
 							</div>
 
-							<div class="block2-txt flex-w flex-t p-t-14">
-								<div class="block2-txt-child1 flex-col-l ">
-									<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-										@dvd.DVDTitleName
-									</a>
+							<div class="filter-col2 p-r-15 p-b-27 mx-4">
+								<div class="mtext-102 cl2 p-b-15">
+									DVD Availibility
+								</div>
 
-									<span class="stext-118 cl3 trans-04 js-name-b2 p-b-6">
-										Date Released: @Html.DisplayFor(modelItem => dvd.DateReleased)
-									</span>
+								<ul>
+									<li class="p-b-6" onclick="changeAvailability('all')">
+										<a class="@(ViewBag.stockAvailability == "all"? "filter-link stext-106 trans-04 filter-link-active":"filter-link stext-106 trans-04 text-secondary")">
+											All
+										</a>
+									</li>
 
-									<span class="stext-118 cl3 trans-04 js-name-b2 p-b-6">
-										Cast Members: @dvd.CastMember
-									</span>
+									<li class="p-b-6" onclick="changeAvailability('available')">
+										<a class="@(ViewBag.stockAvailability == "available"? "filter-link stext-106 trans-04 filter-link-active":"filter-link stext-106 trans-04 text-secondary")">
+											Available
+										</a>
+									</li>
 
-									<span class="stext-105 cl3">
-										$ @dvd.StandardCharge
-									</span>
+									<li class="p-b-6" onclick="changeAvailability('outOfStock')">
+										<a class="@(ViewBag.stockAvailability == "outOfStock"? "filter-link stext-106 trans-04 filter-link-active":"filter-link stext-106 trans-04 text-secondary")">
+											Out of Stock
+										</a>
+									</li>
+
+									<input type="hidden" id="stockAvailability" name="stockAvailability" value="@ViewBag.stockAvailability" />
+
+								</ul>
+							</div>
+
+							<div class="filter-col4 p-r-15 p-b-27">
+								<div class="mtext-102 cl2 p-b-15">
+									Age Restriction
+								</div>
+
+								<ul>
+									<li class="p-b-6" onclick="changeAgeRestriction('no')" >
+										<a  class="@(ViewBag.AgeRestricted == "no"? "filter-link stext-106 trans-04 filter-link-active":"filter-link stext-106 trans-04  text-secondary")">
+											ALL
+										</a>
+									</li>
+
+									<li class="p-b-6" onclick="changeAgeRestriction('yes')">
+										<a class="@(ViewBag.AgeRestricted == "yes"? "filter-link stext-106 trans-04 filter-link-active":"filter-link stext-106 trans-04  text-secondary")">
+											Rated PG-13
+										</a>
+										<input type="hidden" id="AgeRestricted" name="AgeRestricted" value="@ViewBag.AgeRestricted" />
+									</li>
+
 								
+								</ul>
+							</div>
+
+						
+						</div>
+					</div>
+				</div>
+			
+
+				<div class="row isotope-grid mt-5">
+					  @foreach (var dvd in Model) {
+						<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+							<!-- Block2 -->
+							<div class="block2">
+								<div class="block2-pic hov-img0">
+									<img class="product-img" src="@dvd.DVDPictureURL" alt="IMG-PRODUCT">
+									<div class="example-overlay">
+										 @if (dvd.AvailableQuantity == 0){
+											<h5><span class="badge badge-danger my-2 mr-2">Out of Stock</span></h5>
+										}
+										else if (dvd.AvailableQuantity == -1){
+											<h5><span class="badge badge-warning my-2 mr-2">Coming Soon</span></h5>
+										}
+										else
+										{
+											<h5><span class="badge badge-success my-2 mr-2">Quanity : @dvd.AvailableQuantity</span></h5>
+										}
+									
+									</div>
+								</div>
+
+								<div class="block2-txt flex-w flex-t p-t-14">
+									<div class="block2-txt-child1 flex-col-l ">
+										<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+											@dvd.DVDTitleName
+										</a>
+
+										<span class="stext-118 cl3 trans-04 js-name-b2 p-b-6">
+											Date Released: @Html.DisplayFor(modelItem => dvd.DateReleased)
+										</span>
+
+										<span class="stext-118 cl3 trans-04 js-name-b2 p-b-6">
+											Cast Members: @dvd.CastMember
+										</span>
+
+										<span class="stext-105 cl3">
+											NRS. @dvd.StandardCharge
+										</span>
+								
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					}
-
-				
-			</div>
+						}
+				</div>
+			</form>
 
 			<!-- Load more -->
-			<div class="flex-c-m flex-w w-full p-t-45">
-				<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-					Load More
-				</a>
+			<div class="btn-back-to-top" id="myBtn">
+				<span class="symbol-btn-back-to-top">
+					<i class="zmdi zmdi-chevron-up"></i>
+				</span>
 			</div>
 		</div>
 	</section>

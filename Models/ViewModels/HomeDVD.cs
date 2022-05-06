@@ -18,5 +18,7 @@ namespace RopeyDVDSystem.Models.ViewModels
         public DateTime DateReleased { get; set; }
 
         public int AvailableQuantity { get; set; }
+
+        public string? DVDType { get; set; }
     }
 }
