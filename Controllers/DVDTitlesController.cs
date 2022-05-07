@@ -126,7 +126,7 @@ namespace RopeyDVDSystem.Controllers
                        select new
                        {
                            Title = dvdtitle.DVDTitleName,
-                           Category = dvdcategory.CategoryDescription,
+                           Picture = dvdtitle.DVDPictureURL,
                            Studio = studio.StudioName,
                            Producer = dvdtitle.Producer.ProducerName,
                            Cast = from casts in dvdtitle.CastMembers

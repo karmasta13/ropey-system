@@ -51,9 +51,15 @@
                                 <span asp-validation-for="StudioNumber" class="text-danger"></span>
                             </div>
                             <div class="form-group">
+                                <a class="btn btn-outline-secondary" asp-controller="Studios" asp-action="Create">Add New Studio</a>
+                            </div>
+                            <div class="form-group">
                                 <label asp-for="CategoryNumber" class="control-label"></label>
                                 <select asp-for="CategoryNumber" class="form-control" asp-items="ViewBag.DVDCategories"></select>
                                 <span asp-validation-for="CategoryNumber" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <a class="btn btn-outline-secondary" asp-controller="DVDCategories" asp-action="Create">Add New Category</a>
                             </div>
                             <div class="form-group">
                                 <label asp-for="ProducerNumber" class="control-label"></label>
@@ -61,10 +67,16 @@
                                 <span asp-validation-for="ProducerNumber" class="text-danger"></span>
                             </div>
                             <div class="form-group">
+                                <a class="btn btn-outline-secondary" asp-controller="Producers" asp-action="Create">Add New Producer</a>
+                            </div>
+                            <div class="form-group">
                                 <label asp-for="ActorNumbers" class="control-label"></label>
 
                                 <select asp-for="ActorNumbers" class="form-control"  asp-items="ViewBag.Actors" multiple></select>
                                 <span asp-validation-for="ActorNumbers" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <a class="btn btn-outline-secondary" asp-controller="Actors" asp-action="Create">Add New Actor</a>
                             </div>
                         </div>
                     </div>

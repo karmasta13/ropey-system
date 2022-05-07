@@ -74,32 +74,35 @@
                         </tr>
                       </thead>
                       <tbody>
+                      @foreach (var item in Model) {
                         <tr>
                           <td>
                             <div class="d-flex px-2 py-1">
                               <div>
-                                <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user5">
+                                <img src=@item.Picture class="avatar avatar-sm me-3" alt="user5">
                               </div>
                               <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Mean Girls</h6>
+                                <h6 class="mb-0 text-sm">@item.Title</h6>
                               </div>
                             </div>
                           </td>
                           <td>
-                            <p class="text-xs font-weight-bold mb-0" style="margin-left: 2rem">2004</p>
+                            <p class="text-xs font-weight-bold mb-0" style="margin-left: 2rem">@item.Release</p>
                           </td>
                           <td>
-                            <p class="text-xs font-weight-regular mb-0">Lorne Michaels</p>
+                            <p class="text-xs font-weight-regular mb-0">@item.Producer</p>
                           </td>
                           <td>
-                            <p class="text-xs font-weight-regular mb-0">Broadway Video</p>
+                            <p class="text-xs font-weight-regular mb-0">@item.Studio</p>
                           </td>
                           <td>
-                            <p class="text-xs font-weight-regular mb-0">Lindsay Lohan, Rachel McAdams, Amanda Seyfried</p>
+                                @foreach(var value in item.Cast)
+                                {
+                                    <p class="text-xs font-weight-regular mb-0">@value</p>
+                                }
                           </td>
                         </tr>
-                        <tr>
-                          <td>
+                       }
                 </tbody>
               </table>
             </div>
