@@ -700,7 +700,7 @@ namespace RopeyDVDSystem.Data
                             MemberCategoryNumber = 1,
                             MemberFirstName = "Asha",
                             MemberLastName = "Dahal",
-                            MemberAddress = "Bouddha",
+                            MemberAddress = "Bouddha, Kathmandu, Nepal",
                             MemberDateOfBirth = DateTime.ParseExact("1998-12-04","yyyy-MM-dd",null),
                         },
                         new Member()
@@ -708,7 +708,7 @@ namespace RopeyDVDSystem.Data
                             MemberCategoryNumber = 2,
                             MemberFirstName = "Om",
                             MemberLastName = "Thapa",
-                            MemberAddress = "New Road",
+                            MemberAddress = "New Road, Kathmandu, Nepal",
                             MemberDateOfBirth = DateTime.ParseExact("2000-09-08","yyyy-MM-dd",null),
                         },
                         new Member()
@@ -716,7 +716,7 @@ namespace RopeyDVDSystem.Data
                             MemberCategoryNumber = 3,
                             MemberFirstName = "Garima",
                             MemberLastName = "Adhikari",
-                            MemberAddress = "Kamalpokhari",
+                            MemberAddress = "Kamalpokhari, Kathmandu, Nepal",
                             MemberDateOfBirth = DateTime.ParseExact("2001-11-09","yyyy-MM-dd",null),
                         },
                         new Member()
@@ -724,7 +724,7 @@ namespace RopeyDVDSystem.Data
                             MemberCategoryNumber = 3,
                             MemberFirstName = "Aditi",
                             MemberLastName = "Shrestha",
-                            MemberAddress = "Bansbari",
+                            MemberAddress = "Bansbari, Biratnagar, Nepal",
                             MemberDateOfBirth = DateTime.ParseExact("2006-05-01","yyyy-MM-dd",null),
                         },
                         new Member()
@@ -732,7 +732,7 @@ namespace RopeyDVDSystem.Data
                             MemberCategoryNumber = 2,
                             MemberFirstName = "Nitesh",
                             MemberLastName = "Giri",
-                            MemberAddress = "Ghantaghar",
+                            MemberAddress = "Ghantaghar, Chitwan, Nepal",
                             MemberDateOfBirth = DateTime.ParseExact("2005-12-12","yyyy-MM-dd",null),
                         },
                         new Member()
@@ -740,7 +740,7 @@ namespace RopeyDVDSystem.Data
                             MemberCategoryNumber = 1,
                             MemberFirstName = "Aditya",
                             MemberLastName = "Karmacharya",
-                            MemberAddress = "Pulchowk",
+                            MemberAddress = "Pulchowk, Lalitpur, Nepal",
                             MemberDateOfBirth = DateTime.ParseExact("1990-07-03","yyyy-MM-dd",null),
                         },
                         new Member()
@@ -748,7 +748,7 @@ namespace RopeyDVDSystem.Data
                             MemberCategoryNumber = 3,
                             MemberFirstName = "Mina",
                             MemberLastName = "Poudel",
-                            MemberAddress = "Patan Durbar",
+                            MemberAddress = "Patan Durbar, Lalitpur, Nepal",
                             MemberDateOfBirth = DateTime.ParseExact("2002-06-18","yyyy-MM-dd",null),
                         },
                     });
