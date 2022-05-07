@@ -165,6 +165,8 @@ namespace CourseWorkSampleAuth.Controllers
             return View();
         }
 
+
+
         [HttpGet, Authorize]
         public ActionResult ChangePassword()
         {
@@ -178,6 +180,9 @@ namespace CourseWorkSampleAuth.Controllers
 
             return View();
         }
+
+
+
 
         private JwtSecurityToken GetToken(List<Claim> authClaims)
         {

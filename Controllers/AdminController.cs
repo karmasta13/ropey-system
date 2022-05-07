@@ -2,8 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using RopeyDVDSystem.Models;
 using System.Diagnostics;
-using RopeyDVDSystem.Data; 
-
+using RopeyDVDSystem.Data;
+using Microsoft.AspNetCore.Identity;
+using RopeyDVDSystem.Models.Identity;
 
 namespace RopeyDVDSystem.Controllers
 {
@@ -12,11 +13,14 @@ namespace RopeyDVDSystem.Controllers
     {
         private readonly ILogger<AdminController> _logger;
         private ApplicationDbContext _context;
+        private UserManager<ApplicationUser> _userManager;
 
-        public AdminController(ILogger<AdminController> logger, ApplicationDbContext context)
+        
+        public AdminController(ILogger<AdminController> logger, ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _logger = logger;
             _context = context;
+            _userManager = userManager;
 
         }
         
@@ -62,6 +66,59 @@ namespace RopeyDVDSystem.Controllers
 
             
         }
+
+        public IActionResult ProfileDetail()
+        {
+
+            var user = _context.Users.Where(x => x.UserName == User.Identity.Name).FirstOrDefault();
+
+           
+            ViewBag.UserName = user.UserName;
+            ViewBag.Email = user.Email;
+            ViewBag.FullName = user.FullName;
+            ViewBag.UserRole = (from role in _context.Roles
+                                join userRole in _context.UserRoles on role.Id equals userRole.RoleId
+                                where userRole.UserId == user.Id
+                                select role.Name).FirstOrDefault();
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ProfileDetail(ChangePassword model)
+        {
+            var user = _context.Users.Where(x => x.UserName == User.Identity.Name).FirstOrDefault();
+
+            ViewBag.UserName = user.UserName;
+            ViewBag.Email = user.Email;
+            ViewBag.FullName = user.FullName;
+            ViewBag.UserRole = (from role in _context.Roles
+                                join userRole in _context.UserRoles on role.Id equals userRole.RoleId
+                                where userRole.UserId == user.Id
+                                select role.Name).FirstOrDefault();
+
+            if (!ModelState.IsValid) return View(model);
+
+            
+            var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+
+            
+           
+
+            if (!result.Succeeded)
+            {
+                ModelState.AddModelError("", "Invalid Old Password");
+                return View(model);
+            }
+
+            ViewBag.IsSuccess = true;
+            ModelState.Clear();
+            return View(model);
+
+        }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
