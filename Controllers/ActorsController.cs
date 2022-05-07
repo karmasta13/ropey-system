@@ -62,7 +62,7 @@ namespace RopeyDVDSystem.Controllers
             //{
             //    return View(actor);
             //}
-            actor.ActorNumber = Convert.ToUInt32(id);
+            //actor.ActorNumber = Convert.ToUInt32(id);
             await _service.UpdateAsync(id, actor);
             return RedirectToAction(nameof(Index));
         }

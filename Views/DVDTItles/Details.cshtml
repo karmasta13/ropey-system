@@ -1,0 +1,75 @@
+﻿@model DVDTitle
+
+@{
+    ViewData["Title"] = "DVD details";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <div class="card mb-12">
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-header text-white bg-info">
+                        <p class="card-text">
+                            <h5 class="card-title">
+                                @Model.DVDTitleName
+                            </h5>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="@Model.DVDPictureURL" width="100%" alt="@Model.DVDTitleName">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b>Cinema: </b>
+                            <a asp-controller="Studios" asp-action="Details" asp-route-id="@Model.StudioNumber">
+                                @Model.Studio.StudioName
+                            </a>
+                        </p>
+                        <p class="card-text">
+                            <b>Category: </b>
+                            <a asp-controller="DVDCategories" asp-action="Details" asp-route-id="@Model.CategoryNumber">
+                                @Model.DVDCategory.CategoryName
+                            </a>
+                        </p>
+                        <p class="card-text">
+                            <b>Producer: </b>
+                            <a asp-controller="Producers" asp-action="Details" asp-route-id="@Model.ProducerNumber">
+                                @Model.Producer.ProducerName
+                            </a>
+                        </p>
+                        <p class="card-text"><b>Date Released: </b>@Model.DateReleased.ToString("dd MMM yy")</p>
+                        <p class="card-text"><b>Standard Charge </b>Rs. @Model.StandardCharge</p>
+                        <p class="card-text"><b>Penalty Charge </b>Rs. @Model.PenaltyCharge</p>
+                        <p class="card-text">
+                            <b>Actors: </b>
+                            <hr />
+                            <div class="row">
+                                @foreach (var actor in Model.CastMembers)
+                                {
+                                    <div class="column text-center">
+                                        <img class="border-info rounded-circle" src="@actor.Actor.ActorPictureURL" style="max-width: 150px" />
+                                        <br />
+                                        <a asp-controller="Actors" asp-action="Details" asp-route-id="@actor.ActorNumber">@actor.Actor.ActorFirstName @actor.Actor.ActorSurname</a>
+                                    </div>
+                                }
+                            </div>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card-footer">
+                        <p class="card-text">
+                            <a class="btn btn-outline-primary float-right" asp-action="Index">
+                                Back to List
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

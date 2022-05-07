@@ -1,0 +1,111 @@
+﻿@{
+    ViewData["Title"] = "DVDDetailsIndex";
+    Layout = "_AdminLayout";
+}
+
+@*<h1 class="text-center mb-3">DVD Details</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Studio
+            </th>
+            <th>
+                Producer
+            </th>
+            <th>
+                Cast
+            </th>
+            <th>
+                Released On
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+           
+            <td>@item.Title</td>
+            
+            <td>@item.Category</td>
+            <td>@item.Studio</td>
+            <td>@item.Producer</td>
+                <td>@foreach(var value in item.Cast)
+                    {
+                        <p>@value</p>
+                    }
+                </td>
+            <td>@item.Release</td>
+        </tr>
+}
+    </tbody>
+</table>*@
+
+<div class="container-fluid py-4">
+          <div class="row">
+            <div class="col-12">
+              <div class="card mb-4">
+                <div class="card-header pb-0">
+                  <h2 class="mt-3 text-center text-warning">DVD Details</h2>
+                </div>
+                <div class="flex-row mt-4 mx-4">
+                  <div class="ms-md-auto pe-md-3 d-sm-inline-flex align-items-center">
+                    <div class="input-group mx-4 mb-4">
+                      <span class="input-group-text text-body"><i class="fas fa-search" style="color: #D18A4A" aria-hidden="true"></i></span>
+                      <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                  </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                  <div class="table-responsive p-0">
+                    <table class="table align-items-center justify-content-center mb-0">
+                      <thead>
+                        <tr>
+                          <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">DVD Title</th>
+                          <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Date Released</th>
+                          <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Producer</th>
+                          <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Studio</th>
+                          <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Cast Members</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="d-flex px-2 py-1">
+                              <div>
+                                <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user5">
+                              </div>
+                              <div class="d-flex flex-column justify-content-center">
+                                <h6 class="mb-0 text-sm">Mean Girls</h6>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <p class="text-xs font-weight-bold mb-0" style="margin-left: 2rem">2004</p>
+                          </td>
+                          <td>
+                            <p class="text-xs font-weight-regular mb-0">Lorne Michaels</p>
+                          </td>
+                          <td>
+                            <p class="text-xs font-weight-regular mb-0">Broadway Video</p>
+                          </td>
+                          <td>
+                            <p class="text-xs font-weight-regular mb-0">Lindsay Lohan, Rachel McAdams, Amanda Seyfried</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                </tbody>
+              </table>
+            </div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>

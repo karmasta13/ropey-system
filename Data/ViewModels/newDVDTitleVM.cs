@@ -8,20 +8,19 @@ using eTickets.Data.Base;
 
 namespace RopeyDVDSystem.Models
 {
-    public  class DVDTitle:IEntityBase
+    public  class newDVDTitleVM
     {
-        [Key]
         public int DVDNumber { get; set; }
 
-        [Display(Name = "Category Number")]
+        [Display(Name = "Select a category")]
         [ForeignKey("CategoryNumber")]
         public  int CategoryNumber { get; set; }
 
-        [Display(Name = "Studio Number")]
+        [Display(Name = "Select a studio")]
         [ForeignKey("StudioNumber")]
         public  int StudioNumber { get; set; }
 
-        [Display(Name = "Producer Number")]
+        [Display(Name = "Select a Producer")]
         [ForeignKey("ProducerNumber")]
         public  int ProducerNumber { get; set; }
 
@@ -40,12 +39,8 @@ namespace RopeyDVDSystem.Models
         [Display(Name = "Penalty Charge")]
         public decimal PenaltyCharge { get; set; }
 
-        //relationships
-        public virtual DVDCategory DVDCategory { get; set; }
-        public virtual Studio Studio { get; set; }
-        public virtual Producer Producer { get; set; }
-
-        public ICollection<CastMember> CastMembers { get; set; }
+        [Display(Name = "Select actor(s)")]
+        public ICollection<int> ActorNumbers { get; set; }
         public ICollection<DVDCopy> DVDCopies { get; set; }
     }
 }

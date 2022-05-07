@@ -25,6 +25,8 @@ namespace RopeyDVDSystem.Models
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Actor's last name must be in between 3 and 50 characters")]
         public string ActorSurname { get; set; }
 
+        //public string FullName { get { return ActorFirstName + " " + ActorSurname; } }
+
         //Relationship
         public ICollection<CastMember> CastMembers { get; set; }
     }
