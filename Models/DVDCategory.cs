@@ -12,12 +12,15 @@ namespace RopeyDVDSystem.Models
         public int CategoryNumber { get; set; }
 
 		[Display(Name = "Category Name")]
-		public string CategoryName { get; set; }
+        [Required(ErrorMessage = "Category name must be entered")]
+        public string CategoryName { get; set; }
 
 		[Display(Name = "Category Description")]
+        [Required(ErrorMessage = "Category description must be entered")]
         public string CategoryDescription { get; set; }
 
         [Display(Name = "Restricted Age")]
+        [Required(ErrorMessage = "Age Restricted must be entered")]
         public string AgeRestricted { get; set; }
 
         //Relationship

@@ -47,6 +47,11 @@ namespace RopeyDVDSystem.Data
 
         }
 
+        internal Task GetDVDCategoryAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public DbSet<Actor> Actors { get; set; }
         public DbSet<CastMember> CastMembers { get; set; }
         public DbSet<DVDCategory> DVDCategories { get; set; }

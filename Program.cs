@@ -26,6 +26,10 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddDefaultTokenProviders();
 
 builder.Services.AddScoped<IActorsService, ActorsService>();
+builder.Services.AddScoped<IDVDCategoriesService, DVDCategoriesService>();
+builder.Services.AddScoped<IStudiosService, StudiosService>();
+builder.Services.AddScoped<IProducersService, ProducersService>();
+builder.Services.AddScoped<IDVDTitlesService, DVDTitlesService>();
 
 
 

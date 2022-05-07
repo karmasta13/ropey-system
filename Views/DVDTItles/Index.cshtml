@@ -35,7 +35,7 @@
                             <p class="card-text"><b>Producer: </b>@item.Producer.ProducerName</p>
                             <p class="card-text"><b>Date Released: </b>@item.DateReleased.ToString("dd MMM yy")</p>
                             <p class="card-text"><b>Standard Charge </b>Rs. @item.StandardCharge</p>
-                            <p class="card-text"><b>Standard Charge </b>Rs. @item.PenaltyCharge</p>
+                            <p class="card-text"><b>Penalty Charge </b>Rs. @item.PenaltyCharge</p>
 
                         </div>
                     </div>
@@ -53,3 +53,6 @@
         </div>
 	}
 </div>
+
+@await Html.PartialAsync("_CreateItem", "DVDTitles") 
+

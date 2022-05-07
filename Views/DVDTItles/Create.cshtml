@@ -1,0 +1,108 @@
+﻿@model newDVDTitleVM
+@using RopeyDVDSystem.Data;
+ 
+@{
+    ViewData["Title"] = "Insert a new DVD title";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h4>Insert a new DVD title</h4>
+        </p>
+
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DVDTitleName" class="control-label"></label>
+                                <input asp-for="DVDTitleName" class="form-control" />
+                                <span asp-validation-for="DVDTitleName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DateReleased" class="control-label"></label>
+                                <input asp-for="DateReleased" type="date" class="form-control" />
+                                <span asp-validation-for="DateReleased" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="StandardCharge" class="control-label"></label>
+                                <input asp-for="StandardCharge" type="number" class="form-control" />
+                                <span asp-validation-for="StandardCharge" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="PenaltyCharge" class="control-label"></label>
+                                <input asp-for="PenaltyCharge" type="number" class="form-control" />
+                                <span asp-validation-for="PenaltyCharge" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DVDPictureURL" class="control-label"></label>
+                                <input asp-for="DVDPictureURL" class="form-control" />
+                                <span asp-validation-for="DVDPictureURL" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="StudioNumber" class="control-label"></label>
+                                <select asp-for="StudioNumber" class="form-control" asp-items="ViewBag.Studios"></select>
+                                <span asp-validation-for="StudioNumber" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <a class="btn btn-outline-secondary" asp-controller="Studios" asp-action="Create">Add New Studio</a>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="CategoryNumber" class="control-label"></label>
+                                <select asp-for="CategoryNumber" class="form-control" asp-items="ViewBag.DVDCategories"></select>
+                                <span asp-validation-for="CategoryNumber" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <a class="btn btn-outline-secondary" asp-controller="DVDCategories" asp-action="Create">Add New Category</a>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ProducerNumber" class="control-label"></label>
+                                <select asp-for="ProducerNumber" class="form-control" asp-items="ViewBag.Producers"></select>
+                                <span asp-validation-for="ProducerNumber" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <a class="btn btn-outline-secondary" asp-controller="Producers" asp-action="Create">Add New Producer</a>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ActorNumbers" class="control-label"></label>
+
+                                <select asp-for="ActorNumbers" class="form-control"  asp-items="ViewBag.Actors" multiple></select>
+                                <span asp-validation-for="ActorNumbers" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <a class="btn btn-outline-secondary" asp-controller="Actors" asp-action="Create">Add New Actor</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 offset-4 text-center">
+                        <img width="100%" id="ImageUrlPreview" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-outline-success float-right" />
+                        <a class="btn btn-outline-secondary" asp-action="Index">Show all</a>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts{ 
+    <script>
+        $("#DVDPictureURL").on("change", function () {
+            var output = document.getElementById("ImageUrlPreview");
+            output.src = $(this).val();
+        })
+    </script>
+}

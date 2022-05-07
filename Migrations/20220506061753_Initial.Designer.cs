@@ -12,7 +12,7 @@ using RopeyDVDSystem.Data;
 namespace RopeyDVDSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220501120616_Initial")]
+    [Migration("20220506061753_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -167,7 +167,8 @@ namespace RopeyDVDSystem.Migrations
 
                     b.Property<string>("ActorFirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("ActorPictureURL")
                         .IsRequired()
@@ -175,7 +176,8 @@ namespace RopeyDVDSystem.Migrations
 
                     b.Property<string>("ActorSurname")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("ActorNumber");
 

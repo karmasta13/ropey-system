@@ -46,11 +46,11 @@
 @section Scripts{ 
     <script>
         $(document).ready(function () {
-            var output = document.getElementById('ProfilePicturePreview');
-            output.src = $("#ProfilePictureURL").val();
+            var output = document.getElementById('ActorPicturePreview');
+            output.src = $("#ActorPictureURL").val();
         })
-        $("#ProfilePictureURL").on("change", function () {
-            var output = document.getElementById('ProfilePicturePreview');
+        $("#ActorPictureURL").on("change", function () {
+            var output = document.getElementById('ActorPicturePreview');
             output.src = $(this).val();
         })
     </script>
