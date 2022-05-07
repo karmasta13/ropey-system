@@ -1,0 +1,109 @@
+﻿@using RopeyDVDSystem.Models.ViewModels
+@*Define model*@
+
+@model IEnumerable<RopeyDVDSystem.Models.ViewModels.ReturnModel>
+@{
+	ViewData["Title"] = "Return";
+    Layout = "_AdminLayout";
+
+    var ReturnDisplay = false;
+    var Return = new ReturnModel();
+    if(ViewData["LoanRecord"] != null)
+    {
+        Return = ViewData["LoanRecord"] as ReturnModel;
+        ReturnDisplay = true;
+    }
+
+}
+
+   
+@*Define ViewData*@
+<div class="container-fluid py-3">
+            <div class="row">
+              <div class="col-12">
+                <div class="card mb-2">
+                  <div class="card-header pb-0">
+                    <h5 class="mt-3 mx-4 text-left text-warning">Search by copy number</h5>
+                  </div>
+
+
+                  <div class="row mt-4 mb-5 mx-4 "  >
+                    <div class="bor17 col-4 mx-3">
+                      <input class="stext-103 cl2 plh4 size-116 p-l-28 p-r-55" type="text" name="search" placeholder="Search" style="border:none">
+            
+                      <button class=" fs-18 cl4 hov-cl1 trans-04 " style ="margin-top: 0.7rem; border:none ; background: transparent; cursor: pointer; outline:none; position: absolute;  height:auto; left: 31%;">
+                        <i class="zmdi zmdi-search"></i>
+                      </button>
+
+                    </div>
+            
+                    <div class = "col-9 ">
+                     
+                      </div>
+            
+                      
+                    </div>
+                  </div>
+
+                 
+                  </div>
+               
+              <div class="container-fluid py-3">
+                            
+                  <div class="col">
+                      <div class="card mb-4">
+                          <div class="card-body px-0 pt-0 mt-5 pb-2">
+                            <div class="table-responsive p-0 mx-4 ">
+                              <table class="table align-items-center mb-0">
+                                <thead>
+                                  <tr>
+                                    <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">DVD Title</th>
+                                    <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Copy Number</th>
+                                    <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Date Out</th>
+                                    <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Member Name</th>
+                                    <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Total Loans</th>
+                                    <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 "></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach(var data in Model)
+                                    {
+                                      <tr>
+                                        <td>
+                                          <div class="d-flex px-2 py-1">                                           
+                                            <div class="d-flex flex-column justify-content-center">
+                                              <h6 class="mb-0 text-sm">@data.DVDTitleName</h6>
+                                            </div>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <p class="text-xs font-weight-bold mb-0">@data.CopyNumber</p>
+                                        </td>
+                                        <td>
+                                          <p class="text-xs font-weight-bold mb-0">@Html.DisplayFor(modelItem => data.DateOut)</p>
+                                        </td>
+                                    
+                                  
+                                        <td class="align-middle text-center">
+                                          <span class="text-secondary text-xs font-weight-bold">@data.MemberName</span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                          <span class="text-secondary text-xs font-weight-bold">@data.TotalLoan</span>
+                                        </td>
+                                        <td class="align-middle text-end">
+                                          <button type="button" class="btn btn-warning btn-sm my-auto">Return</button>
+                                        </td>
+                                      </tr>   
+                                     } 
+                          </tbody>
+                         
+                              </table>
+                            </div>
+                          </div>
+                      </div>             
+                    </div>
+                      
+              </div>
+            </div>
+          </div>
+

@@ -12,8 +12,8 @@ using RopeyDVDSystem.Data;
 namespace RopeyDVDSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220505121346_Added required additional attributes ")]
-    partial class Addedrequiredadditionalattributes
+    [Migration("20220507111717_additionalattributes")]
+    partial class additionalattributes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
