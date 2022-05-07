@@ -46,7 +46,7 @@ namespace RopeyDVDSystem.Data
                 {
                     var newAppUser = new ApplicationUser()
                     {
-                        FullName = "Application Assistant",
+                        FullName = "Ropey Assistant",
                         UserName = "app-user",
                         Email = appUserEmail,
                         SecurityStamp = Guid.NewGuid().ToString(),

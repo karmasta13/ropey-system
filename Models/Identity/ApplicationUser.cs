@@ -7,5 +7,6 @@ namespace RopeyDVDSystem.Models.Identity
     {
         [Display(Name = "Full name")]
         public string? FullName { get; set; }
+      
     }
 }

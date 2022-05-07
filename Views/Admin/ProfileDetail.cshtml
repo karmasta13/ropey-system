@@ -1,0 +1,133 @@
+﻿@using RopeyDVDSystem.Models.Identity;
+@model ChangePassword;
+
+
+@{
+    ViewData["Title"] = "ProfileDetail";
+     Layout = "_AdminLayout";
+}
+
+
+<div class="card shadow-lg mx-4 mt-8">
+            <div class="card-body p-3">
+              <div class="row gx-4">
+                <div class="col-auto">
+                  <div class="avatar avatar-xl position-relative">
+                    <img src="../assets/img/team-1.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                  </div>
+                </div>
+                <div class="col-auto my-auto">
+                  <div class="h-100">
+                    <h5 class="mb-1">
+                      @ViewBag.FullName
+                    </h5>
+                    <p class="mb-0 font-weight-bold text-sm">
+                      @ViewBag.UserRole
+                    </p>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+ </div>
+ 
+
+  <div class="container-fluid py-4">
+            <div class="row">
+
+              <div class="col-md-8">
+                    <div class="card">
+              <div class="card-header pb-0">
+                  <h6 class="mt-3 text-center">Change Password</h6>
+              </div>
+              <hr>
+              <form asp-action="ProfileDetail">
+                  <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+                    @if(TempData["Error"] != null)
+                    {
+                        <div class="alert text-danger mb-2 text-center mx-auto">
+                            <span>@TempData["Error"]</span>
+                        </div>
+                    }
+
+                    @if(ViewBag.IsSuccess == true)
+                    {
+                        <div class="alert text-success mb-2 text-center mx-auto">
+                            <span>The password has been changed successfully</span>
+                        </div>
+                    }       
+
+
+                  <div class="card-body">
+               
+                      <div class="form-group" data-validate = "Old Password is required">
+                        <div class="col mb-3">
+                          <label asp-for="OldPassword">Old Password</label>
+                          <input asp-for="OldPassword" type="password" class="form-control" placeholder="Old Password"/>
+                          <div class="invalid-feedback">
+                                <span asp-validation-for="OldPassword" class="alert text-danger mb-2 text-center mx-auto"></span>
+                            </div>
+                        </div>
+
+                       <div class="form-group"  data-validate = "Your New Password is required">
+                            <div class="col mb-3">
+                              <label asp-for="NewPassword">Old Password</label>
+                              <input asp-for="NewPassword" type="password" class="form-control" placeholder="New Password"/>
+                              <div class="invalid-feedback">
+                                <small><span asp-validation-for="NewPassword" class="alert text-danger mb-2 text-center mx-auto"></span></small>
+                              </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" data-validate = "Your New Password is required">
+                            <div class="col mb-3">
+                              <label asp-for="ConfirmPassword">Confirm Password</label>
+                              <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirm Password"/>
+                              <div class="invalid-feedback">
+                                <small><span asp-validation-for="ConfirmPassword" class="alert text-danger mb-2 text-center mx-auto"></span></small>
+                              </div>
+                            </div>
+                        </div>
+                    
+
+                      <div class="text-center form-group">
+                        <Button class="btn btn-md btn-primary mt-3" type="submit" value= "Update">
+                            Update
+                         </Button>
+                      </div>
+
+                   </div>
+                  </div>
+              </form>
+            
+              
+             
+            </div>
+              </div>
+
+
+              <div class="col-md-4">
+                <div class="card card-profile">
+                
+                  <div class="card-body pt-0  mt-3 mb-5">
+                    
+                
+                    <h6 class="mt-3 text-center">Password Requirements</h6>
+                    <hr>
+                    <ul class="text-sm " style="line-height: 1.9;">
+                      <li>Minimum 8 characters</li>
+                      <li>Maximum 20 characters</li>
+                      <li>Must contain at least one uppercase letter (A-Z)</li>
+                      <li>Must contain at least one lowercase letter (a-z)</li>
+                      <li>Must contain at least one number (0-9)</li>
+                      <li>Must contain at least one special character</li>
+                    
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+</div>
+
+

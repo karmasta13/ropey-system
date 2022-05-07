@@ -4,7 +4,7 @@
 
 namespace RopeyDVDSystem.Migrations
 {
-    public partial class Addedrequiredadditionalattributes : Migration
+    public partial class additionalattributes : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,8 +46,8 @@ namespace RopeyDVDSystem.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "ReturnAmount",
-                table: "Loans");
+               name: "ReturnAmount",
+               table: "Loans");
 
             migrationBuilder.DropColumn(
                 name: "IsLoan",
