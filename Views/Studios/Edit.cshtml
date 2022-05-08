@@ -14,6 +14,7 @@
                 <form asp-action="Edit">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
+                    <input type="hidden" asp-for="StudioNumber"/>
                     <div class="form-group">
                         <label asp-for="StudioName" class="control-label"></label>
                         <input asp-for="StudioName" class="form-control" />
