@@ -12,8 +12,8 @@ using RopeyDVDSystem.Data;
 namespace RopeyDVDSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220505175845_addedpasswordattribute")]
-    partial class addedpasswordattribute
+    [Migration("20220507113401_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

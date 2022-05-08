@@ -83,8 +83,42 @@ namespace RopeyDVDSystem.Controllers
                 ViewData["Member"] = memberDetails;
                 return View(data);
             }
+        }
 
+        //feature 12
+        public async Task<IActionResult> InactiveMembers()
+        {
+            //Get DateTime of 31 Days Before Today's DateTime
+            var differenceDate = DateTime.Now.AddDays(-31);
+            //Get Data of Loans Taken 31 Days from Current Date
+            var membersLoan = (from loans in _context.Loans
+                                      where loans.DateOut >= differenceDate
+                                      select loans.MemberNumber).Distinct();
+            //Get Data of DVD Copies which has not been loaned
+            var membersNoLoan = from member in _context.Members
+                                join membership in _context.MembershipCategories on member.MemberCategoryNumber equals membership.MembershipCategoryNumber
+                                where !(membersLoan).Contains(member.MemberNumber)
+                                        select new
+                                        {
+                                            MemberNumber = member.MemberNumber,
+                                            MemberName = member.MemberFirstName + " " + member.MemberLastName,
+                                            MemberAddress = member.MemberAddress,
+                                            MemberDOB = member.MemberDateOfBirth.ToString("dd MMM yyyy"),
+                                            Membership = membership.MembershipCategoryName,
+                                            LastLoan = (from loan in _context.Loans
+                                                        join dvdCopy in _context.DVDCopies on loan.CopyNumber equals dvdCopy.CopyNumber
+                                                        join dvdtitle in _context.DVDTitles on dvdCopy.DVDNumber equals dvdtitle.DVDNumber
+                                                        where loan.MemberNumber == member.MemberNumber
+                                                        orderby loan.DateOut descending
+                                                        select new
+                                                        {
+                                                            DateOut = loan.DateOut,
+                                                            DVDTitle = dvdtitle.DVDTitleName,
+                                                        }
+                                                        ).FirstOrDefault()
+                                        };
 
+            return View(await membersNoLoan.ToListAsync());
         }
     }
 }
