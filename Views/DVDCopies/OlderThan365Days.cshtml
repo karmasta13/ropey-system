@@ -1,0 +1,188 @@
+﻿
+@{
+    ViewData["Title"] = "OlderThan365Days";
+    Layout = "_AdminLayout";
+}
+
+@*<h1 class="text-center">DVD Copies Older than 365 Days</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Copy Number
+            </th>
+            <th>
+               DVD Title
+            </th>
+            <th>
+               Date Purchased
+            </th>
+            <th>
+               Days Old
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+                @if (DateTime.Now.Subtract(item.DatePurchased).Days > 365)
+                {
+                    <tr>
+                        <td>
+                            @item.CopyNumber
+                        </td>
+                        <td>
+                            @item.DVDTitle
+                        </td>
+                        <td>
+                            @item.DatePurchased
+                        </td>
+                        <td>
+                            @DateTime.Now.Subtract(item.DatePurchased).Days
+                        </td>
+                    </tr>
+                }
+        }
+    </tbody>
+</table>*@
+
+
+<div class="container-fluid py-4">
+            <div class="row">
+              <div class="col-12">
+                <div class="card mb-4">
+                  <div class="card-header pb-0">
+                      <h2 class="mt-3 text-center text-primary">DVD Details</h2>
+                      <h6 class="text-xxs text-secondary mb-4 text-center">List of DVDs purchased over a year ago</h6>
+                  </div>
+                  <div class="flex-row mx-4">
+                    <div class="d-inline-flex p-2 justify-content-end" style="margin-left: 57rem;">
+                      <form asp-action="RemoveAll">
+                        <button type="submit" class="btn btn-warning btn-sm px-4">
+                            Remove All
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                      <table class="table align-items-center mb-0">
+                        <thead>
+                          <tr>
+                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 px-5"> DVD Title</th>
+                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Copy Number</th>
+                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Purchased On</th>
+                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-6">Loan Status</th>
+                            <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Days Since Purchase</th>
+                            <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var item in Model) {
+                            @if (DateTime.Now.Subtract(item.DatePurchased).Days > 365)
+                            {
+                              <tr>
+                                <td>
+                                  <div class="d-flex px-2 py-1">
+                                    <div class="d-flex flex-column justify-content-center">
+                                      <h6 class="mb-0 text-sm ms-4">@item.DVDTitle</h6>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td class="text-center">
+                                  <span class="text-sm font-weight-bold me-5">@item.CopyNumber</span>
+                                </td>
+                                <td>
+                                  <span class="text-sm font-weight-bold ms-3">@item.DatePurchased.ToString("dd MMM yyyy")</span>
+                                </td>
+                                <td class="align-middle text-center">
+                                  <span class="badge badge-sm bg-gradient-secondary mt-1">Not On Loan</span>
+                                </td>
+                                <td>
+                                  <p class="text-sm mb-0 ms-7">
+                                      @DateTime.Now.Subtract(item.DatePurchased).Days day(s)
+                                  </p>
+                                </td>
+                                <td class="align-middle text-center">
+                                    <form asp-action="Delete" asp-route-id="@item.CopyNumber">
+                                        <button class="btn btn-warning btn-xs mt-3" type="submit">
+                                            REMOVE
+                                        </button>
+                                    </form>
+                                </td>
+                              </tr>
+                            }
+                         }
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                </div>
+          </div>
+
+@*@section Scripts 
+{
+    <script>
+        $((function(){
+            var url;
+            var redirectUrl;
+            var target;
+
+            $('body').append(`
+                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Warning</h4>
+                        </div>
+                        <div class="modal-body delete-modal-body">
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" id="cancel-delete">Cancel</button>
+                            <button type="button" class="btn btn-danger" id="confirm-delete">Delete</button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>`);
+
+            //Delete Action
+            $(".delete").on('click',(e)=>{
+                console.log("123");
+                e.preventDefault();
+
+                target = e.target;
+                var Id = $(target).data('id');
+                var controller = $(target).data('controller');
+                var action = $(target).data('action');
+                var bodyMessage = $(target).data('body-message');
+                redirectUrl = $(target).data('redirect-url');
+
+                url = "/"+controller+"/"+action+"?Id="+Id;
+                $(".delete-modal-body").text(bodyMessage);
+                $("#deleteModal").modal('show');
+            });
+
+            $("#confirm-delete").on('click',()=>{
+                $.get(url)
+                    .done((result)=>{
+                        if(!redirectUrl){
+                            return $(target).parent().parent().hide("slow");
+                        }
+                        window.location.href = redirectUrl;                    
+                    })
+                    .fail((error)=>{ 
+                        if(redirectUrl)             
+                            window.location.href = redirectUrl;
+                    }).always(()=>{
+                        $("#deleteModal").modal('hide');                    
+                    });
+            });
+
+        }()));
+    </script>
+}*@

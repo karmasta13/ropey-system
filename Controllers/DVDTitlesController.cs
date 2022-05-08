@@ -99,17 +99,17 @@ namespace RopeyDVDSystem.Controllers
         {
             if (id != dVDTitle.DVDNumber) return View("NotFound");
 
-            if (!ModelState.IsValid)
-            {
-                var dVDDropdownsData = await _service.GetNewDVDTitleDropdownsValues();
+            //if (!ModelState.IsValid)
+            //{
+            //    var dVDDropdownsData = await _service.GetNewDVDTitleDropdownsValues();
 
-                ViewBag.Cinemas = new SelectList(dVDDropdownsData.DVDCategories, "CategoryNumber", "CategoryName");
-                ViewBag.Producers = new SelectList(dVDDropdownsData.Producers, "ProducerNumber", "ProducerName");
-                ViewBag.Producers = new SelectList(dVDDropdownsData.Studios, "StudioNumber", "StudioName");
-                ViewBag.Actors = new SelectList(dVDDropdownsData.Actors, "ActorNumber", "ActorFirstName");
+            //    ViewBag.Cinemas = new SelectList(dVDDropdownsData.DVDCategories, "CategoryNumber", "CategoryName");
+            //    ViewBag.Producers = new SelectList(dVDDropdownsData.Producers, "ProducerNumber", "ProducerName");
+            //    ViewBag.Producers = new SelectList(dVDDropdownsData.Studios, "StudioNumber", "StudioName");
+            //    ViewBag.Actors = new SelectList(dVDDropdownsData.Actors, "ActorNumber", "ActorFirstName");
 
-                return View(dVDTitle);
-            }
+            //    return View(dVDTitle);
+            //}
 
             await _service.UpdateDVDTitleAsync(dVDTitle);
             return RedirectToAction(nameof(Index));
