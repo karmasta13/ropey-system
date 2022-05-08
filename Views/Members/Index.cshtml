@@ -1,5 +1,5 @@
 ﻿@using RopeyDVDSystem.Models.ViewModels;
-@model IEnumerable<MemberDetailViewModel>;
+
 
 @{
 	ViewData["Title"] = "Members";
@@ -28,18 +28,18 @@
                           </form>  
                       </div>
                       </div> 
-                  <div class="card-body px-0 pt-0 pb-2">
-                    <div class="table-responsive p-0 mx-3">
+                 <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
                       <table class="table align-items-center mb-0">
                         <thead>
                           <tr>
                             <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Member No.</th>
-                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 px-3"> Member Name</th>
+                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 px-5"> Member Name</th>
                             <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Membership</th>
+                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Date Of Birth</th>
                             <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">DVDs on Loan</th>
-                            <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-0">Remarks</th>
                             <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Details</th>
-                            
+                            <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-0">Remarks</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -52,43 +52,43 @@
                                 <td>
                                   <div class="d-flex px-2 py-1">
                                     <div class="d-flex flex-column justify-content-center">
-                                      <h6 class="mb-0 text-md ">@item.MemberFirstName @item.MemberLastName</h6>
-                                      <p class="text-xxs text-secondary mb-0 ">@item.MemberAddress</p>
+                                      <h6 class="mb-0 text-md mx-5">@item.MemberFirstName @item.MemberLastName</h6>
+                                      <p class="text-xxs text-secondary mb-0 ms-4">@item.MemberAddress</p>
                                     </div>
                                   </div>
                                 </td>
                                 <td>
-                                  @if (item.MembershipCategory == "Silver")
+                                  @if (item.Membership == "Silver")
 									{
-										<span class="badge badge-sm bg-secondary px-4">Silver</span>
+										<span class="badge badge-sm bg-gradient-secondary px-4">Silver</span>
 									}
-									else if (item.MembershipCategory == "Gold"){
-										<span class="badge badge-sm bg-primary px-4 mx-1">Gold</span>
+									else if (item.Membership == "Gold"){
+										<span class="badge badge-sm bg-gradient-warning px-4 mx-1">Gold</span>
 									}
 									else
 									{
-										<span class="badge badge-sm bg-success px-3">Platinum</span>
+										<span class="badge badge-sm bg-gradient-success px-3">Platinum</span>
 									}
                                 </td>
-                                
+                                <td class="align-middle text-start">
+                                  <p class="text-sm font-weight-bold mb-0 mx-3">@item.MemberDOB</p>
+                                </td>
                                 <td class="align-middle text-center">
-                                  <span class="text-xs font-weight-bold">@item.LoanCount</span>
+                                  <span class="text-xs font-weight-bold">@item.TotalCurrentLoans</span>
                                 </td>
-                                 <td>
-									@if (item.Remarks != "")
+                                  <td class="align-middle text-center">
+                                    <a class="btn btn-linkpx-4 mb-0" style="color: #adb5bd" asp-action="Details" asp-route-id="@item.MemberNumber"><i class="fas fa-eye me-2" style="color: #adb5bd" aria-hidden="true"></i>View</a>
+                                  </td>
+                                <td>
+									@if (item.TotalAcceptLoans < item.TotalCurrentLoans)
 									{
-										<p class="align-middle text-center text-sm text-primary">Too many DVDs!</p>
+										<p class="text-success text-md mb-0">Too many DVDs!</p>
 									}
 									else
 									{
-										<p class="align-middle text-center text-sm text-primary ">-</p>
+										<pclass="align-middle text-center">-</pclass>
 									}
                                 </td>
-
-                                  <td class="align-middle text-center">
-                                    <a class=" mb-0" style="color: #adb5bd" asp-action="Details" asp-route-id="@item.MemberNumber"><i class="fas fa-eye fa-sm me-2" style="color: #adb5bd" aria-hidden="true"></i>View</a>
-                                  </td>
-                               
 						  </tr>
                           }
                   </tbody>

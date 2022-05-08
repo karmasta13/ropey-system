@@ -30,7 +30,7 @@ namespace RopeyDVDSystem.Controllers
             //Get Data of Copies that have not been loaned
             var notLoanedCopy = (from copy in _context.DVDCopies
                                     join dvdtitle in _context.DVDTitles on copy.DVDNumber equals dvdtitle.DVDNumber
-                                    where !(loanedCopy).Contains(copy.CopyNumber)
+                                    where !(loanedCopy).Contains(copy.CopyNumber) && copy.IsLoan == false
                                     select new
                                     {
                                         CopyNumber = copy.CopyNumber,
@@ -80,7 +80,7 @@ namespace RopeyDVDSystem.Controllers
             //Get Data of Copies that have not been loaned
             var notLoanedCopy = (from copy in _context.DVDCopies
                                     join dvdtitle in _context.DVDTitles on copy.DVDNumber equals dvdtitle.DVDNumber
-                                    where !(loanedCopy).Contains(copy.CopyNumber)
+                                    where !(loanedCopy).Contains(copy.CopyNumber) && copy.IsLoan == false 
                                     select new
                                     {
                                         CopyNumber = copy.CopyNumber,

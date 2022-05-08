@@ -60,6 +60,7 @@ namespace RopeyDVDSystem.Data
 
         }
 
+
         public static void Seed(IApplicationBuilder applicationBuilder)
         {
             using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
@@ -451,7 +452,7 @@ namespace RopeyDVDSystem.Data
                             CategoryNumber = 4,
                             StudioNumber = 5,
                             ProducerNumber = 1,
-                            DVDPictureURL = "https://i.postimg.cc/0NWh8j3t/avatar.jpg",
+                            DVDPictureURL = "https://i.postimg.cc/LsdV2gMV/A-New-Hope-poster.webp",
                             DVDTitleName = "Avatar",
                             DateReleased = DateTime.ParseExact("2009-12-17","yyyy-MM-dd",null),
                             StandardCharge = 250,
@@ -464,7 +465,7 @@ namespace RopeyDVDSystem.Data
                             StudioNumber = 2,
                             ProducerNumber = 3,
                             DateReleased = DateTime.ParseExact("2019-04-26","yyyy-MM-dd",null),
-                            DVDPictureURL = "https://postimg.cc/N5xF3ncS",
+                            DVDPictureURL = "https://i.postimg.cc/bN7ntXFy/MV5-BMTc5-MDE2-ODcw-NV5-BMl5-Ban-Bn-Xk-Ft-ZTgw-Mz-I2-Nz-Q2-Nz-M-V1.jpg",
                             StandardCharge = 300,
                             PenaltyCharge = 25
                         },
@@ -475,7 +476,7 @@ namespace RopeyDVDSystem.Data
                             StudioNumber = 7,
                             ProducerNumber = 4,
                             DateReleased = DateTime.ParseExact("2019-12-20","yyyy-MM-dd",null),
-                            DVDPictureURL = "https://postimg.cc/jDXfh52W",
+                            DVDPictureURL = "https://i.postimg.cc/LsdV2gMV/A-New-Hope-poster.webp",
                             StandardCharge = 250,
                             PenaltyCharge = 25
                         },
@@ -487,7 +488,7 @@ namespace RopeyDVDSystem.Data
                             StudioNumber = 1,
                             ProducerNumber = 3,
                             DateReleased = DateTime.ParseExact("2022-05-06","yyyy-MM-dd",null),
-                            DVDPictureURL = "https://postimg.cc/8FZhT5V8",
+                            DVDPictureURL = "https://i.postimg.cc/vHvxXWXS/Doctor-Strange-in-the-Multiverse-of-Madness-poster.jpg",
                             StandardCharge = 250,
                             PenaltyCharge = 30,
                         },
@@ -499,7 +500,7 @@ namespace RopeyDVDSystem.Data
                             StudioNumber = 3,
                             ProducerNumber = 1,
                             DateReleased = DateTime.ParseExact("2021-11-29","yyyy-MM-dd",null),
-                            DVDPictureURL = "https://postimg.cc/tspzt8qg",
+                            DVDPictureURL = "https://i.postimg.cc/T3WHGXBn/14-Peaks-Nothing-Is-Impossible.jpg",
                             StandardCharge = 400,
                             PenaltyCharge = 75,
                         },
@@ -510,7 +511,7 @@ namespace RopeyDVDSystem.Data
                             StudioNumber = 7,
                             ProducerNumber = 5,
                             DateReleased = DateTime.ParseExact("1999-09-11","yyyy-MM-dd",null),
-                            DVDPictureURL = "https://postimg.cc/fJj7HZR9",
+                            DVDPictureURL = "https://i.postimg.cc/L6Gy88dN/index.jpg",
                             StandardCharge = 250,
                             PenaltyCharge = 50,
                         },
@@ -522,7 +523,7 @@ namespace RopeyDVDSystem.Data
                             StudioNumber = 5,
                             ProducerNumber = 4,
                             DateReleased = DateTime.ParseExact("2014-10-24","yyyy-MM-dd",null),
-                            DVDPictureURL = "https://postimg.cc/87zpqBNb",
+                            DVDPictureURL = "https://i.postimg.cc/52wXQnrD/MV5-BMTU2-Nj-A1-ODgz-MF5-BMl5-Ban-Bn-Xk-Ft-ZTgw-MTM2-MTI4-Mj-E-V1.jpg",
                             StandardCharge = 150,
                             PenaltyCharge = 15
                         },
@@ -533,7 +534,7 @@ namespace RopeyDVDSystem.Data
                             StudioNumber = 6,
                             ProducerNumber = 2,
                             DateReleased = DateTime.ParseExact("2021-07-09","yyyy-MM-dd",null),
-                            DVDPictureURL = "https://postimg.cc/GB9khyJF",
+                            DVDPictureURL = "https://i.postimg.cc/R0LGd1WD/Black-Widow-2021-film-poster.jpg",
                             StandardCharge = 200,
                             PenaltyCharge = 20
                         },
@@ -1062,11 +1063,15 @@ namespace RopeyDVDSystem.Data
                         {
                             LoanTypeNumber = 2,
                             CopyNumber = 2,
-                            MemberNumber = 5,
+                            MemberNumber = 1,
                             DateOut = DateTime.ParseExact("2022-04-20","yyyy-MM-dd",null),
                             DateDue = DateTime.ParseExact("2022-04-27","yyyy-MM-dd",null),
 
                         },
+
+
+
+
                         new Loan()
                         {
                             LoanTypeNumber = 3,
@@ -1129,7 +1134,7 @@ namespace RopeyDVDSystem.Data
                         {
                             LoanTypeNumber = 2,
                             CopyNumber = 15,
-                            MemberNumber = 4,
+                            MemberNumber = 5,
                             DateOut = DateTime.ParseExact("2022-05-01","yyyy-MM-dd",null),
                             DateDue = DateTime.ParseExact("2022-05-08","yyyy-MM-dd",null),
 
@@ -1159,7 +1164,6 @@ namespace RopeyDVDSystem.Data
                 }
             }
         }
-
 
     }
 }

@@ -9,26 +9,39 @@ namespace RopeyDVDSystem.Controllers
     public class MembersController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IMembersService _service;
 
-        public MembersController(ApplicationDbContext context, IMembersService service)
+        public MembersController(ApplicationDbContext context)
         {
             _context = context;
-            _service = service;
         }
 
         public async Task<IActionResult> Index()
         {
-            var data = await _service.GetAllDetailsAsync();
+            //var allMembers = await _context.Members.Include(n => n.MembershipCategory).ToListAsync();
+            //return View(allMembers);
 
-            // Get a list of all Members Numbers and Last Names
-            var members = (List<String>)_context.Members.Select(x => x.MemberNumber.ToString()).ToList();
-            var membersLastNames = (List<String>)_context.Members.Select(x => x.MemberLastName).ToList();
-            members.AddRange(membersLastNames);
-            ViewBag.MemberSearchList = (string)System.Text.Json.JsonSerializer.Serialize(members);
-
-            return View(data);
+            //Using LINQ to get Member Details
+            var allMembers = from members in _context.Members
+                             join membership in _context.MembershipCategories on members.MemberCategoryNumber equals membership.MembershipCategoryNumber
+                             select new
+                             {
+                                 MemberNumber = members.MemberNumber,
+                                 MemberFirstName = members.MemberFirstName,
+                                 MemberLastName = members.MemberLastName,
+                                 MemberAddress = members.MemberAddress,
+                                 MemberDOB = members.MemberDateOfBirth.ToString("dd MMM yyyy"),
+                                 Membership = membership.MembershipCategoryName,
+                                 TotalAcceptLoans = membership.MembershipCategoryTotalLoans,
+                                 TotalCurrentLoans = (from loans in _context.Loans
+                                                      where loans.DateReturn == DateTime.MinValue
+                                                      where loans.MemberNumber == members.MemberNumber
+                                                      select loans).Count(),
+                             };
+            return View(await allMembers.ToListAsync());
         }
+
+
+
 
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(string request)
@@ -49,7 +62,7 @@ namespace RopeyDVDSystem.Controllers
                                 Membership = membership.MembershipCategoryName,
                                 TotalAcceptLoans = membership.MembershipCategoryTotalLoans,
                                 TotalCurrentLoans = (from loans in _context.Loans
-                                                    where loans.DateReturn == null
+                                                    where loans.DateReturn == DateTime.MinValue
                                                     where loans.MemberNumber == members.MemberNumber
                                                     select loans).Count(),
                             };
@@ -82,7 +95,10 @@ namespace RopeyDVDSystem.Controllers
             ViewBag.MemberAddress = currentMember.MemberAddress;
             ViewBag.Birthday = currentMember.MemberDateOfBirth.ToString("MMM d, yyyy");
             ViewBag.MemebershipType = _context.MembershipCategories.Where(x => x.MembershipCategoryNumber == currentMember.MemberCategoryNumber).FirstOrDefault().MembershipCategoryName;
+            if(_context.Loans.Where(x => x.MemberNumber == id).Count() > 0)
+            {
             ViewBag.LastLoan = _context.Loans.Where(x => x.MemberNumber == currentMember.MemberNumber).OrderByDescending(x => x.DateOut).FirstOrDefault().DateOut.ToString("MMM d, yyyy");
+            }
             ViewBag.TotalLoans = _context.Loans.Where(x => x.MemberNumber == currentMember.MemberNumber).Count();
 
             IEnumerable<ReturnModel> loanRecord = (from dt in _context.DVDTitles

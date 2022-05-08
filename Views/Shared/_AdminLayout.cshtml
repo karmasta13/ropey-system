@@ -56,7 +56,7 @@
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">DVD Section</h6>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link " href="../pages/tables.html">
+                <a class="nav-link " asp-controller="Issue" asp-action="Index">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                     <i class="fa fa-film text-dark text-sm opacity-8 mb-1"></i>
                     </div>
@@ -85,6 +85,27 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link " asp-controller="DVDTItles" asp-action="Create">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-plus text-dark text-sm opacity-8 mb-1"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Add DVD</span>
+
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link " asp-controller="DVDCopies" asp-action="OlderThan365Days">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-remove text-dark text-sm opacity-8 mb-1"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Old DVD</span>
+
+                    </a>
+                </li>
+
+
                 <li class="nav-item mt-3">
                     <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Members Section</h6>
                 </li>
@@ -107,16 +128,7 @@
                 </a>
                 </li>
 
-                <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
-                <li class="nav-item">
-                <a class="nav-link " href="../pages/virtual-reality.html">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                    <i class="fa fa-user-plus text-dark text-sm opacity-8 mb-1"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Manage User</span>
-                </a>
-                </li>
+                
                   
             </ul>
         </div>

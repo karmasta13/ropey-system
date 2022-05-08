@@ -50,7 +50,6 @@ namespace RopeyDVDSystem.Controllers
             string CopyNumber = Request.Form["SearchCopyNumber"];
             ViewBag.SearchCopyNumber = CopyNumber;
 
-            // records of list of all copy number which are avaible to loan 
             ViewBag.AvailableCopyNumberList = (string)System.Text.Json.JsonSerializer.Serialize(_context.DVDCopies.Where(x => x.IsLoan == false).Select(x => x.CopyNumber).Distinct().ToList());
 
             if (CopyNumber != null &&
@@ -73,7 +72,6 @@ namespace RopeyDVDSystem.Controllers
             }
             else if (CopyNumber == "")
             {
-                // loan records
                 IEnumerable<IssueModel> loanRecord = GetAllAvailableCopy();
                 return View(loanRecord);
             }
@@ -112,6 +110,7 @@ namespace RopeyDVDSystem.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create([Bind("LoanTypeNumber, CopyNumber, MemberNumber")] IssueModel rent)
         {
+            var test = rent;
            
             IssueModel currentLoan = (from dt in _context.DVDTitles
                                      join dtc in _context.DVDCategories on dt.CategoryNumber equals dtc.CategoryNumber

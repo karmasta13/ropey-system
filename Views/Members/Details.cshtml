@@ -116,7 +116,9 @@
                                             <p class="text-xs font-weight-bold mb-0">@Html.DisplayFor(modelItem => loanDetail.DateOut) </p>
                                           </td>
                                           <td>
+                                            @if(loanDetail.DateReturn!=DateTime.MinValue){
                                             <p class="text-xs font-weight-bold mb-0 ms-4">@Html.DisplayFor(modelItem => loanDetail.DateReturn)</p>
+                                            }
                                           </td>
                                         </tr>
                                     }
