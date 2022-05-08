@@ -12,8 +12,8 @@ using RopeyDVDSystem.Data;
 namespace RopeyDVDSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220507113401_Initial")]
-    partial class Initial
+    [Migration("20220508030832_initial 1")]
+    partial class initial1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -3711,3 +3711,7 @@ iframe {border: none;}
 .pointer-none {
 	pointer-events: none;
 }
+
+.text ropey {
+	color: #946411 !important
+}
