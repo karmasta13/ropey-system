@@ -1,0 +1,211 @@
+﻿@using RopeyDVDManagementSystem.Models.ViewModels;
+
+@{
+    ViewData["Title"] = "Rental Form";
+    Layout = "_LayoutAdmin";
+
+    var rental = ViewData["AvailableDVD"] as RentModel; 
+    var memeberList = ViewData["MemberNumberList"] as IEnumerable<SelectViewModel>; 
+    var loanTypeList = ViewData["LoanTypeList"] as IEnumerable<SelectViewModel>; 
+    
+    var rentalInfo = new DVDReturnModel();
+    if ( ViewData["RentalInformation"] != null )
+    {
+        rentalInfo = ViewData["RentalInformation"] as DVDReturnModel;
+    }
+}
+
+
+
+<form asp-action="Create">
+    <div class="container-fluid py-4">
+                      <div class="row">
+                        <div class="col-lg-18">
+                          <div class="row">
+                            <div class="col-xl-8 mb-xl-0">
+                              <div class="card mb-0">
+                                <div class="card-header pb-0 mb-3">
+                                  <h4 class="mt-3 text-center text-primary">Rental Form</h4>
+                                </div>
+                                <div class="card-body px-2 pt-0 pb-2">
+                                  <div class="row">
+                                    <div class="col">
+                                      <ul class="list-group">
+                                        <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                                          <div class="d-flex flex-column">
+                                            <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">DVD Title:</h6>
+                                          </div>
+                                          <div class="d-flex text-md ms-6">
+                                            @rental.DVDTitleName
+                                          </div>
+                                        </li>
+                                      </ul>
+                                      <ul class="list-group">
+                                        <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                                          <div class="d-flex flex-column">
+                                            <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">DVD Category:</h6>
+                                          </div>
+                                          <div class="d-flex text-md ms-4">
+                                           @rental.DVDCategory
+                                          </div>
+                                        </li>
+                                      </ul>
+                                      <ul class="list-group">
+                                        <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                                          <div class="d-flex flex-column">
+                                            <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">Copy Number:</h6>
+                                          </div>
+                                          <div class="d-flex text-md ms-4">
+                                            @rental.CopyNumber
+                                          </div>
+                                        </li>
+                                      </ul>
+                                      <ul class="list-group">
+                                        <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                                          <div class="d-flex flex-column">
+                                            <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">Age Restricted:</h6>
+                                          </div>
+                                          <div class="d-flex text-lg ms-2 mt-1">
+                                            <i class="far fa-window-close text-danger"></i>
+                                          </div>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                    <div class="col">
+                                      <ul class="list-group">
+                                        <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                                          <div class="d-flex flex-column">
+                                                  <h6 class="mb-1 text-dark font-weight-bold text-md ms-4 mt-3">Member:</h6>
+                                                </div>
+                                                <div class="dropdown p-2">
+                                                  <button class="btn btn-outline-secondary dropdown-toggle px-4 py-2 ms-4" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false"
+                                                  style="width: 12rem;">
+                                                   Choose
+                                                  </button>
+                                                  <ul class="dropdown-menu p-2" aria-labelledby="dropdownMenu2">
+                                                    <li><button class="dropdown-item" type="button">Action</button></li>
+                                                    <li><button class="dropdown-item" type="button">Another action</button></li>
+                                                    <li><button class="dropdown-item" type="button">Something else here</button></li>
+                                                  </ul>
+                                          </div>
+                                        </li>
+                                      </ul>
+                                      <ul class="list-group">
+                                        <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                                          <div class="d-flex flex-column">
+                                                  <h6 class="mb-1 text-dark font-weight-bold text-md ms-4 mt-3">Loan Type:</h6>
+                                                </div>
+                                                <div class="dropdown p-2">
+                                                  <button class="btn btn-outline-secondary dropdown-toggle  px-4 py-2 ms-2" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false"
+                                                  style="width: 12rem;">
+                                                   Choose
+                                                  </button>
+                                                  <ul class="dropdown-menu p-2" aria-labelledby="dropdownMenu2">
+                                                    <li><button class="dropdown-item" type="button">Action</button></li>
+                                                    <li><button class="dropdown-item" type="button">Another action</button></li>
+                                                    <li><button class="dropdown-item" type="button">Something else here</button></li>
+                                                  </ul>
+                                          </div>
+                                        </li>
+                                      </ul>
+                                  </div>    
+                          </div>
+                          <div class="row">
+                            <div class="col-sm justify-content-center" style="margin-left: 27rem;">
+                              <button type="button" class="btn btn-primary btn-md px-4 py-2">
+                                Check
+                              </button>
+                            </div>
+                            <div class="col-sm justify-content-center ms-3">
+                              <button type="button" class="btn btn-outline-danger btn-md px-4 py-2">
+                                Cancel
+                              </button>
+                            </div>
+                                </div>
+                          </div>
+                          </div>
+                          </div>
+                          </div>
+                          </div>
+                          </div>
+                          </div>
+
+    @if (rentalInfo.DVDTitleName != null)
+    {
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body mx-3" >
+
+                    <h4 class="card-title mb-2">DVD Rental Confirmation</h4>
+                    <p class="card-description mb-4"> Rental Details </p>
+                    
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group row mb-0">
+                                <label class="col-sm-4 col-form-label text-gray">DVD Tile :</label>
+                                <div class="col">@rentalInfo.DVDTitleName</div>
+                            </div>
+
+                            <div class="form-group row mb-0">
+                                <label class="col-sm-4 col-form-label text-gray">DVD Category :</label>
+                                <div class="col">@rentalInfo.DVDCategory</div>
+                            </div>
+                            
+                            <div class="form-group row mb-0">
+                                <label class="col-sm-4 col-form-label text-gray">Copy Number :</label>
+                                <div class="col">@rentalInfo.CopyNumber</div>
+                            </div>
+
+                            <div class="form-group row mb-0">
+                                <label class="col-sm-4 col-form-label text-gray">Member Name :</label>
+                                <div class="col">@rentalInfo.MemberName</div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group row mb-0">
+                                <label class="col-sm-4 col-form-label text-gray">Date Out :</label>
+                                <div class="col">@Html.DisplayFor(modelItem => rentalInfo.DateOut)</div>
+                            </div>
+                            
+                            <div class="form-group row mb-0">
+                                <label class="col-sm-4 col-form-label text-gray">Date Due :</label>
+                                <div class="col">@Html.DisplayFor(modelItem => rentalInfo.DateDue)</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group row mb-0">
+                                <label class="col-sm-4 col-form-label text-gray">Standard Charge :</label>
+                                <div class="col">$ @rentalInfo.StandardCharge</div>
+                            </div>
+                            <div class="form-group row mb-0">
+                                <label class="col-sm-4 col-form-label text-gray">Total Rent Days :</label>
+                                <div class="col">@((rentalInfo.DateDue - rentalInfo.DateOut).TotalDays) days</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group row mb-0">
+                                <label class="col-sm-4 col-form-label text-gray">Total Payment Amount :</label>
+                                <div class="col text-success">$ @rentalInfo.Payment</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <button type="submit" class="btn btn-inverse-success btn-fw mr-4"> Checkout </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+
+</form>

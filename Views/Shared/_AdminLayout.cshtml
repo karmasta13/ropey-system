@@ -67,30 +67,30 @@
 
                 <li class=" ">
 
-                <a class="nav-link "asp-controller="Return" asp-action="Index">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                    <i class="fa fa-ticket text-dark text-sm opacity-8 mb-1"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Return</span>
-                </a>
+                    <a class="nav-link "asp-controller="Return" asp-action="Index">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-ticket text-dark text-sm opacity-8 mb-1"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Return</span>
+                    </a>
             
                 </li>
                 <li class="nav-item">
-                <a class="nav-link " href="../pages/virtual-reality.html">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                    <i class="fa fa-list-alt text-dark text-sm opacity-8 mb-1"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">DVD Details</span>
+                    <a class="nav-link " asp-controller="DVDTitles" asp-action="DVDDetailsIndex">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-list-alt text-dark text-sm opacity-8 mb-1"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">DVD Details</span>
 
-                </a>
+                    </a>
                 </li>
 
                 <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Members Section</h6>
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Members Section</h6>
                 </li>
 
                 <li class="nav-item">
-                <a class="nav-link " href="../pages/virtual-reality.html">
+                <a class="nav-link "asp-controller="Members" asp-action="Index">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                     <i class="fa fa-info text-dark text-sm opacity-8 mb-1"></i>
                     </div>
@@ -99,11 +99,11 @@
                 </li>
 
                 <li class="nav-item">
-                <a class="nav-link " href="../pages/virtual-reality.html">
+                <a class="nav-link "asp-controller="Members" asp-action="InactiveMembers">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                     <i class="fa fa-list-alt text-dark text-sm opacity-8 mb-1"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Manage Members</span>
+                    <span class="nav-link-text ms-1">Inactive Members</span>
                 </a>
                 </li>
 

@@ -1,88 +1,111 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RopeyDVDSystem.Data;
+using RopeyDVDSystem.Data.Services;
+using RopeyDVDSystem.Models.ViewModels;
 
 namespace RopeyDVDSystem.Controllers
 {
     public class MembersController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IMembersService _service;
 
-        public MembersController(ApplicationDbContext context)
+        public MembersController(ApplicationDbContext context, IMembersService service)
         {
             _context = context;
+            _service = service;
         }
 
         public async Task<IActionResult> Index()
         {
-            //var allMembers = await _context.Members.Include(n => n.MembershipCategory).ToListAsync();
-            //return View(allMembers);
+            var data = await _service.GetAllDetailsAsync();
 
-            //Using LINQ to get Member Details
+            // Get a list of all Members Numbers and Last Names
+            var members = (List<String>)_context.Members.Select(x => x.MemberNumber.ToString()).ToList();
+            var membersLastNames = (List<String>)_context.Members.Select(x => x.MemberLastName).ToList();
+            members.AddRange(membersLastNames);
+            ViewBag.MemberSearchList = (string)System.Text.Json.JsonSerializer.Serialize(members);
+
+            return View(data);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> Index(string request)
+        {
+
+            string MemberNumber = Request.Form["SearchMemberNumber"];
+            ViewBag.SearchMemberNumber = MemberNumber;
+            
             var allMembers = from members in _context.Members
-                                       join membership in _context.MembershipCategories on members.MemberCategoryNumber equals membership.MembershipCategoryNumber
-                                       select new
-                                       {
-                                           MemberNumber = members.MemberNumber,
-                                           MemberFirstName = members.MemberFirstName,
-                                           MemberLastName = members.MemberLastName,
-                                           MemberAddress = members.MemberAddress,
-                                           MemberDOB = members.MemberDateOfBirth.ToString("dd MMM yyyy"),
-                                           Membership = membership.MembershipCategoryName,
-                                           TotalAcceptLoans = membership.MembershipCategoryTotalLoans,
-                                           TotalCurrentLoans = (from loans in _context.Loans
-                                                                where loans.DateReturn == null
-                                                                where loans.MemberNumber == members.MemberNumber
-                                                                select loans).Count(),
-                                       };
+                            join membership in _context.MembershipCategories on members.MemberCategoryNumber equals membership.MembershipCategoryNumber
+                            select new
+                            {
+                                MemberNumber = members.MemberNumber,
+                                MemberFirstName = members.MemberFirstName,
+                                MemberLastName = members.MemberLastName,
+                                MemberAddress = members.MemberAddress,
+                                MemberDOB = members.MemberDateOfBirth.ToString("dd MMM yyyy"),
+                                Membership = membership.MembershipCategoryName,
+                                TotalAcceptLoans = membership.MembershipCategoryTotalLoans,
+                                TotalCurrentLoans = (from loans in _context.Loans
+                                                    where loans.DateReturn == null
+                                                    where loans.MemberNumber == members.MemberNumber
+                                                    select loans).Count(),
+                            };
+            
+            if(MemberNumber != ""){
+                allMembers = allMembers.Where(x => x.MemberLastName == MemberNumber || x.MemberNumber.ToString() == MemberNumber);
+            }
+
             return View(await allMembers.ToListAsync());
         }
 
+
+
+
+
         // GET: Members/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public IActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-            //Get Member Details
-            var memberDetails = await _context.Members
-                .Include(m => m.MembershipCategory)
-                .FirstOrDefaultAsync(m => m.MemberNumber == id);
 
-            //Get DateTime of 31 Days Before Today's DateTime
-            var differenceDate = DateTime.Now.AddDays(-31);
-            //Get all data of loan details within the 31 days period
-            var data = from member in _context.Members
-                       join loan in _context.Loans on member.MemberNumber equals loan.MemberNumber
-                       where loan.DateOut >= differenceDate
-                       where member.MemberNumber == id
-                       join dvdcopy in _context.DVDCopies on loan.CopyNumber equals dvdcopy.CopyNumber
-                       join dvdtitle in _context.DVDTitles on dvdcopy.DVDNumber equals dvdtitle.DVDNumber
-                       select new
-                       {
-                           Loan = loan.LoanNumber,
-                           CopyNumber = dvdcopy.CopyNumber,
-                           Title = dvdtitle.DVDTitleName,
-                           DateOut = loan.DateOut.ToString("dd MMM yyyy"),
-                           DateReturn = loan.DateReturn.ToString("dd MMM yyyy")
-                       };
-
-            if (memberDetails == null)
+            if (_context.Members.Where(x => x.MemberNumber == id).Count() == 0)
             {
-                return NotFound();
+                return RedirectToAction("Index");
             }
 
-            if (data == null)
-            {
-                ViewData["Member"] = memberDetails;
-                return View(memberDetails);
-            }
-            else
-            {
-                ViewData["Member"] = memberDetails;
-                return View(data);
-            }
+            var currentMember = _context.Members.Where(x => x.MemberNumber == id).FirstOrDefault();
+            DateTime filterRange = DateTime.Today - TimeSpan.FromDays(31);
+
+            ViewBag.MemberFirstName = currentMember.MemberFirstName;
+            ViewBag.MemberLastName = currentMember.MemberLastName;
+            ViewBag.MemberAddress = currentMember.MemberAddress;
+            ViewBag.Birthday = currentMember.MemberDateOfBirth.ToString("MMM d, yyyy");
+            ViewBag.MemebershipType = _context.MembershipCategories.Where(x => x.MembershipCategoryNumber == currentMember.MemberCategoryNumber).FirstOrDefault().MembershipCategoryName;
+            ViewBag.LastLoan = _context.Loans.Where(x => x.MemberNumber == currentMember.MemberNumber).OrderByDescending(x => x.DateOut).FirstOrDefault().DateOut.ToString("MMM d, yyyy");
+            ViewBag.TotalLoans = _context.Loans.Where(x => x.MemberNumber == currentMember.MemberNumber).Count();
+
+            IEnumerable<ReturnModel> loanRecord = (from dt in _context.DVDTitles
+                                                      join dtc in _context.DVDCategories on dt.CategoryNumber equals dtc.CategoryNumber
+                                                      join dc in _context.DVDCopies on dt.DVDNumber equals dc.DVDNumber
+                                                      join l in _context.Loans on dc.CopyNumber equals l.CopyNumber
+                                                      join m in _context.Members on l.MemberNumber equals m.MemberNumber
+                                                      orderby l.DateOut descending
+                                                      where m.MemberNumber == currentMember.MemberNumber && l.DateOut >= filterRange
+                                                      select new ReturnModel
+                                                      {
+                                                          CopyNumber = dc.CopyNumber,
+                                                          DVDTitleName = dt.DVDTitleName,
+                                                          DVDCategory = dtc.CategoryName,
+                                                          DateOut = l.DateOut,
+                                                          DateDue = l.DateDue,
+                                                          DateReturn = l.DateReturn,
+                                                          MemberName = m.MemberFirstName + ' ' + m.MemberLastName,
+                                                          LoanNumber = l.LoanNumber,
+                                                          Payment = l.ReturnAmount
+                                                      });
+
+            return View(loanRecord);
         }
 
         //feature 12

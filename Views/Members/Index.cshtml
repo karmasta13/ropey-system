@@ -1,6 +1,5 @@
-﻿@*Define model*@
-@*
-@model IEnumerable<Member>*@
+﻿@using RopeyDVDSystem.Models.ViewModels;
+@model IEnumerable<MemberDetailViewModel>;
 
 @{
 	ViewData["Title"] = "Members";
@@ -12,28 +11,35 @@
               <div class="col-12">
                 <div class="card mb-4">
                   <div class="card-header pb-0">
-                    <h2 class="mt-3 text-center text-warning">Our Members</h2>
+                    <h4 class="mt-3 mb-2 text-center text-primary">Member's Loan Details</h4>
+                    <hr>
                   </div>
                     <div class="row">
-                      <div class="col-5 d-flex align-items-center">
-                        <div class="input-group mx-4">
-                          <span class="input-group-text text-body"><i class="fas fa-search" style="color: #D18A4A" aria-hidden="true"></i></span>
-                          <input type="text" class="form-control" placeholder="Search">
-                        </div>
+                      <div class="container">
+                          <form asp-action ="Index" method ="post">
+                            <div class="row mt-4 mx-4 mb-5">
+                              <div class="bor17 col-4 mx-3">
+                                <input class="stext-103 cl2 plh4 size-116 p-l-28 p-r-55" type="text" name="SearchMemberNumber" placeholder="Search" style="border:none" value=@ViewBag.SearchMemberNumber>
+                                <button type = "submit"  class="size-122 fs-18 cl4 hov-cl1 trans-04 mt-3" style ="border:none ; background: transparent; cursor: pointer; outline:none; position: absolute;  height:auto; left: 30%;">
+                                  <i class="zmdi zmdi-search"></i>
+                                </button>
+                              </div>
+                            </div>
+                          </form>  
                       </div>
                       </div> 
                   <div class="card-body px-0 pt-0 pb-2">
-                    <div class="table-responsive p-0">
+                    <div class="table-responsive p-0 mx-3">
                       <table class="table align-items-center mb-0">
                         <thead>
                           <tr>
                             <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Member No.</th>
-                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 px-5"> Member Name</th>
+                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 px-3"> Member Name</th>
                             <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Membership</th>
-                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Date Of Birth</th>
                             <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">DVDs on Loan</th>
-                            <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Details</th>
                             <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-0">Remarks</th>
+                            <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Details</th>
+                            
                           </tr>
                         </thead>
                         <tbody>
@@ -46,43 +52,43 @@
                                 <td>
                                   <div class="d-flex px-2 py-1">
                                     <div class="d-flex flex-column justify-content-center">
-                                      <h6 class="mb-0 text-md mx-5">@item.MemberFirstName @item.MemberLastName</h6>
-                                      <p class="text-xxs text-secondary mb-0 ms-4">@item.MemberAddress</p>
+                                      <h6 class="mb-0 text-md ">@item.MemberFirstName @item.MemberLastName</h6>
+                                      <p class="text-xxs text-secondary mb-0 ">@item.MemberAddress</p>
                                     </div>
                                   </div>
                                 </td>
                                 <td>
-                                  @if (item.Membership == "Silver")
+                                  @if (item.MembershipCategory == "Silver")
 									{
-										<span class="badge badge-sm bg-gradient-secondary px-4">Silver</span>
+										<span class="badge badge-sm bg-secondary px-4">Silver</span>
 									}
-									else if (item.Membership == "Gold"){
-										<span class="badge badge-sm bg-gradient-warning px-4 mx-1">Gold</span>
+									else if (item.MembershipCategory == "Gold"){
+										<span class="badge badge-sm bg-primary px-4 mx-1">Gold</span>
 									}
 									else
 									{
-										<span class="badge badge-sm bg-gradient-success px-3">Platinum</span>
+										<span class="badge badge-sm bg-success px-3">Platinum</span>
 									}
                                 </td>
-                                <td class="align-middle text-start">
-                                  <p class="text-sm font-weight-bold mb-0 mx-3">@item.MemberDOB</p>
-                                </td>
+                                
                                 <td class="align-middle text-center">
-                                  <span class="text-xs font-weight-bold">@item.TotalCurrentLoans</span>
+                                  <span class="text-xs font-weight-bold">@item.LoanCount</span>
                                 </td>
-                                  <td class="align-middle text-center">
-                                    <a class="btn btn-linkpx-4 mb-0" style="color: #adb5bd" asp-action="Details" asp-route-id="@item.MemberNumber"><i class="fas fa-eye me-2" style="color: #adb5bd" aria-hidden="true"></i>View</a>
-                                  </td>
-                                <td>
-									@if (item.TotalAcceptLoans < item.TotalCurrentLoans)
+                                 <td>
+									@if (item.Remarks != "")
 									{
-										<p class="text-success text-md mb-0">Too many DVDs!</p>
+										<p class="align-middle text-center text-sm text-primary">Too many DVDs!</p>
 									}
 									else
 									{
-										<pclass="align-middle text-center">-</pclass>
+										<p class="align-middle text-center text-sm text-primary ">-</p>
 									}
                                 </td>
+
+                                  <td class="align-middle text-center">
+                                    <a class=" mb-0" style="color: #adb5bd" asp-action="Details" asp-route-id="@item.MemberNumber"><i class="fas fa-eye fa-sm me-2" style="color: #adb5bd" aria-hidden="true"></i>View</a>
+                                  </td>
+                               
 						  </tr>
                           }
                   </tbody>

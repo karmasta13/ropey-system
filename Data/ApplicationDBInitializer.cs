@@ -228,6 +228,7 @@ namespace RopeyDVDSystem.Data
 
                 }
 
+                //Category
                 if (!context.DVDCategories.Any())
                 {
                     context.DVDCategories.AddRange(new List<DVDCategory>()
@@ -254,7 +255,7 @@ namespace RopeyDVDSystem.Data
                         {
                             CategoryName = "Sci-fi",
                             CategoryDescription = "Science fiction (sometimes shortened to sci-fi or SF) is a genre of speculative fiction which typically deals with imaginative and futuristic concepts such as advanced science and technology, space exploration, time travel, parallel universes, and extraterrestrial life. ",
-                            AgeRestricted = "False"
+                            AgeRestricted = "True"
                         },
                         new DVDCategory()
                         {
@@ -272,7 +273,7 @@ namespace RopeyDVDSystem.Data
                         {
                             CategoryName = "Crime",
                             CategoryDescription = "Crime film is a genre that revolves around the action of a criminal mastermind. A Crime film will often revolve around the criminal himself, chronicling his rise and fall. Some Crime films will have a storyline that follows the criminal's victim, yet others follow the person in pursuit of the criminal.",
-                            AgeRestricted = "False"
+                            AgeRestricted = "True"
                         },
                         new DVDCategory()
                         {
@@ -436,7 +437,7 @@ namespace RopeyDVDSystem.Data
                         },
                         new DVDTitle()
                         {
-                            CategoryNumber = 6,
+                            CategoryNumber = 7,
                             StudioNumber = 7,
                             ProducerNumber = 2,
                             DVDPictureURL = "https://i.postimg.cc/SRwZnz7r/the-renevant.jpg",
@@ -449,15 +450,95 @@ namespace RopeyDVDSystem.Data
                         {
                             CategoryNumber = 4,
                             StudioNumber = 5,
-                            ProducerNumber = 6,
+                            ProducerNumber = 1,
                             DVDPictureURL = "https://i.postimg.cc/0NWh8j3t/avatar.jpg",
                             DVDTitleName = "Avatar",
                             DateReleased = DateTime.ParseExact("2009-12-17","yyyy-MM-dd",null),
                             StandardCharge = 250,
                             PenaltyCharge = 50
                         },
+                         new DVDTitle()
+                        {
+                            DVDTitleName = "Avengers: Endgame",
+                            CategoryNumber = 3,
+                            StudioNumber = 2,
+                            ProducerNumber = 3,
+                            DateReleased = DateTime.ParseExact("2019-04-26","yyyy-MM-dd",null),
+                            DVDPictureURL = "https://postimg.cc/N5xF3ncS",
+                            StandardCharge = 300,
+                            PenaltyCharge = 25
+                        },
+                         new DVDTitle()
+                        {
+                            DVDTitleName = "Star Wars: Episode IX",
+                            CategoryNumber = 4,
+                            StudioNumber = 7,
+                            ProducerNumber = 4,
+                            DateReleased = DateTime.ParseExact("2019-12-20","yyyy-MM-dd",null),
+                            DVDPictureURL = "https://postimg.cc/jDXfh52W",
+                            StandardCharge = 250,
+                            PenaltyCharge = 25
+                        },
 
-                    });
+                          new DVDTitle()
+                        {
+                            DVDTitleName = "Doctor Strange in the Multiverse of Madness",
+                            CategoryNumber = 3,
+                            StudioNumber = 1,
+                            ProducerNumber = 3,
+                            DateReleased = DateTime.ParseExact("2022-05-06","yyyy-MM-dd",null),
+                            DVDPictureURL = "https://postimg.cc/8FZhT5V8",
+                            StandardCharge = 250,
+                            PenaltyCharge = 30,
+                        },
+
+                          new DVDTitle()
+                        {
+                            DVDTitleName = "14 Peaks",
+                            CategoryNumber = 4,
+                            StudioNumber = 3,
+                            ProducerNumber = 1,
+                            DateReleased = DateTime.ParseExact("2021-11-29","yyyy-MM-dd",null),
+                            DVDPictureURL = "https://postimg.cc/tspzt8qg",
+                            StandardCharge = 400,
+                            PenaltyCharge = 75,
+                        },
+                           new DVDTitle()
+                        {
+                            DVDTitleName = "Fight Club",
+                            CategoryNumber = 3,
+                            StudioNumber = 7,
+                            ProducerNumber = 5,
+                            DateReleased = DateTime.ParseExact("1999-09-11","yyyy-MM-dd",null),
+                            DVDPictureURL = "https://postimg.cc/fJj7HZR9",
+                            StandardCharge = 250,
+                            PenaltyCharge = 50,
+                        },
+
+                           new DVDTitle()
+                        {
+                            DVDTitleName = "John Wick",
+                            CategoryNumber = 7,
+                            StudioNumber = 5,
+                            ProducerNumber = 4,
+                            DateReleased = DateTime.ParseExact("2014-10-24","yyyy-MM-dd",null),
+                            DVDPictureURL = "https://postimg.cc/87zpqBNb",
+                            StandardCharge = 150,
+                            PenaltyCharge = 15
+                        },
+                             new DVDTitle()
+                        {
+                            DVDTitleName = "Black Widow",
+                            CategoryNumber = 3,
+                            StudioNumber = 6,
+                            ProducerNumber = 2,
+                            DateReleased = DateTime.ParseExact("2021-07-09","yyyy-MM-dd",null),
+                            DVDPictureURL = "https://postimg.cc/GB9khyJF",
+                            StandardCharge = 200,
+                            PenaltyCharge = 20
+                        },
+
+                 });
                     context.SaveChanges();
                 }
 
@@ -579,13 +660,44 @@ namespace RopeyDVDSystem.Data
                         new CastMember()
                         {
                             ActorNumber= 23,
-                            DVDNumber = 8
+                            DVDNumber = 9
                         },
                         new CastMember()
                         {
-                            ActorNumber= 24,
-                            DVDNumber = 8
+                            ActorNumber= 10,
+                            DVDNumber = 10
                         },
+                        new CastMember()
+                        {
+                            ActorNumber= 9,
+                            DVDNumber = 11
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 17,
+                            DVDNumber = 12
+                        },
+                        new CastMember()
+                        {
+                            ActorNumber= 4,
+                            DVDNumber = 13
+                        },
+                         new CastMember()
+                        {
+                            ActorNumber= 5,
+                            DVDNumber = 14
+                        },
+                          new CastMember()
+                        {
+                            ActorNumber= 1,
+                            DVDNumber = 15
+                        },
+                            new CastMember()
+                        {
+                            ActorNumber= 11,
+                            DVDNumber = 15
+                        },
+
                     });
                     context.SaveChanges();
                 }
@@ -598,51 +710,151 @@ namespace RopeyDVDSystem.Data
                         new DVDCopy()
                         {
                             DVDNumber = 5,
-                            DatePurchased = DateTime.ParseExact("2021-12-12","yyyy-MM-dd",null)
+                            DatePurchased = DateTime.ParseExact("2021-12-12","yyyy-MM-dd",null),
+                            IsLoan = true
                         },
                         new DVDCopy()
                         {
                             DVDNumber = 6,
-                            DatePurchased = DateTime.ParseExact("2018-05-10","yyyy-MM-dd",null)
+                            DatePurchased = DateTime.ParseExact("2018-05-10","yyyy-MM-dd",null),
+                            IsLoan = true
                         },
                         new DVDCopy()
                         {
                             DVDNumber = 8,
-                            DatePurchased = DateTime.ParseExact("2017-03-30","yyyy-MM-dd",null)
+                            DatePurchased = DateTime.ParseExact("2017-03-30","yyyy-MM-dd",null),
+                            IsLoan = true
                         },
                         new DVDCopy()
                         {
                             DVDNumber = 3,
-                            DatePurchased = DateTime.ParseExact("2019-12-30","yyyy-MM-dd",null)
+                            DatePurchased = DateTime.ParseExact("2019-12-30","yyyy-MM-dd",null),
+                            IsLoan = true
+                        },
+                        new DVDCopy()
+                        {
+                            DVDNumber = 3,
+                            DatePurchased = DateTime.ParseExact("2020-12-30","yyyy-MM-dd",null),
+                            IsLoan = true
+                        },
+                         new DVDCopy()
+                        {
+                            DVDNumber = 3,
+                            DatePurchased = DateTime.ParseExact("2020-12-31","yyyy-MM-dd",null),
+                            IsLoan = false
                         },
                         new DVDCopy()
                         {
                             DVDNumber = 1,
-                            DatePurchased = DateTime.ParseExact("2017-11-25","yyyy-MM-dd",null)
+                            DatePurchased = DateTime.ParseExact("2017-11-25","yyyy-MM-dd",null),
+                            IsLoan = false
                         },
                         new DVDCopy()
                         {
                             DVDNumber = 2,
-                            DatePurchased = DateTime.ParseExact("2022-01-02","yyyy-MM-dd",null)
+                            DatePurchased = DateTime.ParseExact("2022-01-02","yyyy-MM-dd",null),
+                            IsLoan = false
                         },
                         new DVDCopy()
                         {
                             DVDNumber = 4,
-                            DatePurchased = DateTime.ParseExact("2022-05-01","yyyy-MM-dd",null)
+                            DatePurchased = DateTime.ParseExact("2022-05-01","yyyy-MM-dd",null),
+                            IsLoan = false
                         },
                         new DVDCopy()
                         {
                             DVDNumber = 7,
-                            DatePurchased = DateTime.ParseExact("2020-10-15","yyyy-MM-dd",null)
+                            DatePurchased = DateTime.ParseExact("2020-10-19","yyyy-MM-dd",null),
+                            IsLoan = false
                         },
+                         new DVDCopy()
+                        {
+                            DVDNumber = 7,
+                            DatePurchased = DateTime.ParseExact("2020-11-19","yyyy-MM-dd",null),
+                            IsLoan = false
+                        },
+                          new DVDCopy()
+                        {
+                            DVDNumber = 8,
+                            DatePurchased = DateTime.ParseExact("2022-01-15","yyyy-MM-dd",null),
+                        },
+                           new DVDCopy()
+                        {
+                            DVDNumber = 9,
+                            DatePurchased = DateTime.ParseExact("2022-03-11","yyyy-MM-dd",null),
+                            IsLoan = true
+                        },
+                            new DVDCopy()
+                        {
+                            DVDNumber = 9,
+                            DatePurchased = DateTime.ParseExact("2022-03-11","yyyy-MM-dd",null),
+                            IsLoan = true
+                        },
+                          new DVDCopy()
+                        {
+                            DVDNumber = 9,
+                            DatePurchased = DateTime.ParseExact("2022-03-11","yyyy-MM-dd",null),
+                            IsLoan = true
+                        },
+                          new DVDCopy()
+                        {
+                            DVDNumber = 9,
+                            DatePurchased = DateTime.ParseExact("2020-07-15","yyyy-MM-dd",null),
+                            IsLoan = false
+                        },
+                          new DVDCopy()
+                        {
+                            DVDNumber = 10,
+                            DatePurchased = DateTime.ParseExact("2020-02-15","yyyy-MM-dd",null),
+                            IsLoan = true
+                        },
+                          new DVDCopy()
+                        {
+                            DVDNumber = 11,
+                            DatePurchased = DateTime.ParseExact("2022-03-13","yyyy-MM-dd",null),
+                            IsLoan = true
+                        },
+                          new DVDCopy()
+                        {
+                            DVDNumber = 12,
+                            DatePurchased = DateTime.ParseExact("2020-11-15","yyyy-MM-dd",null),
+                            IsLoan = false
+                        },
+                          new DVDCopy()
+                        {
+                            DVDNumber = 13,
+                            DatePurchased = DateTime.ParseExact("2020-12-05","yyyy-MM-dd",null),
+                            IsLoan = true
+                        },
+                          new DVDCopy()
+                        {
+                            DVDNumber = 13,
+                            DatePurchased = DateTime.ParseExact("2020-10-15","yyyy-MM-dd",null),
+                            IsLoan = true
+                        },
+                          new DVDCopy()
+                        {
+                            DVDNumber = 13,
+                            DatePurchased = DateTime.ParseExact("2020-11-15","yyyy-MM-dd",null),
+                            IsLoan = false
+                        },
+
+                          new DVDCopy()
+                        {
+                            DVDNumber = 14,
+                            DatePurchased = DateTime.ParseExact("2020-10-15","yyyy-MM-dd",null),
+                            IsLoan = true
+                        },
+
+
                     });
                     context.SaveChanges();
-                }
 
-                //LoanType
-                if (!context.LoanTypes.Any())
-                {
-                    context.LoanTypes.AddRange(new List<LoanType>()
+
+                    //LoanType
+                    if (!context.LoanTypes.Any())
+                    {
+                        context.LoanTypes.AddRange(new List<LoanType>()
                     {
                         new LoanType()
                         {
@@ -660,40 +872,42 @@ namespace RopeyDVDSystem.Data
                             Duration = 30
                         },
                     });
-                    context.SaveChanges();
-                }
+                        context.SaveChanges();
+                    }
 
-                // MembershipCategory
-                if (!context.MembershipCategories.Any())
-                {
-                    context.MembershipCategories.AddRange(new List<MembershipCategory>()
+                    // MembershipCategory
+                    if (!context.MembershipCategories.Any())
+                    {
+                        context.MembershipCategories.AddRange(new List<MembershipCategory>()
                     {
                         new MembershipCategory
                         {
                             MembershipCategoryName = "Silver",
-                            MembershipCategoryDescription = "With a Silver membership, a member can rent 5 DVD copies at once.",
-                            MembershipCategoryTotalLoans = 5,
+                            MembershipCategoryDescription = "With a Silver membership, a member can rent 1 DVD copies at once.",
+                            MembershipCategoryTotalLoans = 1,
                         },
                         new MembershipCategory
                         {
                             MembershipCategoryName = "Gold",
-                            MembershipCategoryDescription = "With a Gold membership, a member can rent 10 DVD copies at once.",
-                            MembershipCategoryTotalLoans = 10,
+                            MembershipCategoryDescription = "With a Gold membership, a member can rent 2 DVD copies at once.",
+                            MembershipCategoryTotalLoans = 2,
                         },
                         new MembershipCategory
                         {
                             MembershipCategoryName = "Platinum",
-                            MembershipCategoryDescription = "With a Platinum membership, a member can rent 15 DVD copies at once.",
-                            MembershipCategoryTotalLoans = 15,
+                            MembershipCategoryDescription = "With a Platinum membership, a member can rent 3 DVD copies at once.",
+                            MembershipCategoryTotalLoans = 3,
                         },
                     });
-                    context.SaveChanges();
-                }
+                        context.SaveChanges();
+                    }
 
-                // Member
-                if (!context.Members.Any())
-                {
-                    context.Members.AddRange(new List<Member>()
+
+
+                    // Member
+                    if (!context.Members.Any())
+                    {
+                        context.Members.AddRange(new List<Member>()
                     {
                         new Member()
                         {
@@ -751,45 +965,129 @@ namespace RopeyDVDSystem.Data
                             MemberAddress = "Patan Durbar, Lalitpur, Nepal",
                             MemberDateOfBirth = DateTime.ParseExact("2002-06-18","yyyy-MM-dd",null),
                         },
+                        new Member()
+                        {
+                            MemberCategoryNumber = 2,
+                            MemberFirstName = "Aroja",
+                            MemberLastName = "Shrestha",
+                            MemberAddress = "Kuleshwor, Kathmandu, Nepal",
+                            MemberDateOfBirth = DateTime.ParseExact("2003-06-18","yyyy-MM-dd",null),
+                        },
+                        new Member()
+                        {
+                            MemberCategoryNumber = 1,
+                            MemberFirstName = "Rashika",
+                            MemberLastName = "Pandit",
+                            MemberAddress = "Patan, Lalitpur, Nepal",
+                            MemberDateOfBirth = DateTime.ParseExact("1999-06-18","yyyy-MM-dd",null),
+                        },
+                        new Member()
+                        {
+                            MemberCategoryNumber = 3,
+                            MemberFirstName = "Suku",
+                            MemberLastName = "Poudel",
+                            MemberAddress = "Jawalakhel, Lalitpur, Nepal",
+                            MemberDateOfBirth = DateTime.ParseExact("2000-06-18","yyyy-MM-dd",null),
+                        },
+                        new Member()
+                        {
+                            MemberCategoryNumber = 2,
+                            MemberFirstName = "Animesh",
+                            MemberLastName = "Bashnet",
+                            MemberAddress = "Pulchowk, Lalitpur, Nepal",
+                            MemberDateOfBirth = DateTime.ParseExact("2001-06-18","yyyy-MM-dd",null),
+                        },
+                        new Member()
+                        {
+                            MemberCategoryNumber = 3,
+                            MemberFirstName = "Avantika",
+                            MemberLastName = "Rana",
+                            MemberAddress = "Imadol, Lalitpur, Nepal",
+                            MemberDateOfBirth = DateTime.ParseExact("2002-06-18","yyyy-MM-dd",null),
+                        },
                     });
-                    context.SaveChanges();
-                }
+                        context.SaveChanges();
+                    }
 
-                //Loan
-                if (!context.Loans.Any())
-                {
-                    context.Loans.AddRange(new List<Loan>()
+                    //Loan
+                    if (!context.Loans.Any())
+                    {
+                        context.Loans.AddRange(new List<Loan>()
                     {
                         new Loan()
                         {
                             LoanTypeNumber = 1,
-                            CopyNumber = 5,
+                            CopyNumber = 3,
                             MemberNumber = 2,
-                            DateOut = DateTime.ParseExact("2022-05-04","yyyy-MM-dd",null),
-                            DateDue = DateTime.ParseExact("2022-05-05","yyyy-MM-dd",null),
-                            DateReturn = DateTime.ParseExact("2022-05-05","yyyy-MM-dd",null),
+                            DateOut = DateTime.ParseExact("2021-04-04","yyyy-MM-dd",null),
+                            DateDue = DateTime.ParseExact("2022-04-05","yyyy-MM-dd",null),
+                            DateReturn = DateTime.ParseExact("2022-04-05","yyyy-MM-dd",null),
                             ReturnAmount= 200,
                         },
+                         new Loan()
+                        {
+                            LoanTypeNumber = 1,
+                            CopyNumber = 3,
+                            MemberNumber = 12,
+                            DateOut = DateTime.ParseExact("2022-01-04","yyyy-MM-dd",null),
+                            DateDue = DateTime.ParseExact("2022-01-05","yyyy-MM-dd",null),
+                            DateReturn = DateTime.ParseExact("2022-01-05","yyyy-MM-dd",null),
+                            ReturnAmount= 200,
+
+                        },
+                          new Loan()
+                        {
+                            LoanTypeNumber = 2,
+                            CopyNumber = 3,
+                            MemberNumber = 9,
+                            DateOut = DateTime.ParseExact("2022-05-06","yyyy-MM-dd",null),
+                            DateDue = DateTime.ParseExact("2022-05-12","yyyy-MM-dd",null),
+
+                        },
+
+                         new Loan()
+
+                        {
+                            LoanTypeNumber = 2,
+                            CopyNumber = 2,
+                            MemberNumber = 5,
+                            DateOut = DateTime.ParseExact("2022-01-20","yyyy-MM-dd",null),
+                            DateDue = DateTime.ParseExact("2022-01-27","yyyy-MM-dd",null),
+                            DateReturn = DateTime.ParseExact("2022-01-26","yyyy-MM-dd",null),
+                            ReturnAmount = 500,
+                        },
+
                         new Loan()
+
                         {
                             LoanTypeNumber = 2,
                             CopyNumber = 2,
                             MemberNumber = 5,
                             DateOut = DateTime.ParseExact("2022-04-20","yyyy-MM-dd",null),
                             DateDue = DateTime.ParseExact("2022-04-27","yyyy-MM-dd",null),
-                            DateReturn = DateTime.ParseExact("2022-04-26","yyyy-MM-dd",null),
-                            ReturnAmount = 500,
+
                         },
                         new Loan()
                         {
                             LoanTypeNumber = 3,
                             CopyNumber = 1,
                             MemberNumber = 7,
-                            DateOut = DateTime.ParseExact("2022-04-04","yyyy-MM-dd",null),
-                            DateDue = DateTime.ParseExact("2022-05-04","yyyy-MM-dd",null),
-                            DateReturn = DateTime.ParseExact("2022-05-01","yyyy-MM-dd",null),
+                            DateOut = DateTime.ParseExact("2022-02-04","yyyy-MM-dd",null),
+                            DateDue = DateTime.ParseExact("2022-02-04","yyyy-MM-dd",null),
+                            DateReturn = DateTime.ParseExact("2022-02-03","yyyy-MM-dd",null),
                             ReturnAmount= 400
                         },
+
+                        new Loan()
+                        {
+                            LoanTypeNumber = 3,
+                            CopyNumber = 1,
+                            MemberNumber = 3,
+                            DateOut = DateTime.ParseExact("2022-05-04","yyyy-MM-dd",null),
+                            DateDue = DateTime.ParseExact("2022-06-04","yyyy-MM-dd",null),
+                        },
+
+
                         new Loan()
                         {
                             LoanTypeNumber = 2,
@@ -797,43 +1095,71 @@ namespace RopeyDVDSystem.Data
                             MemberNumber = 3,
                             DateOut = DateTime.ParseExact("2022-03-20","yyyy-MM-dd",null),
                             DateDue = DateTime.ParseExact("2022-03-27","yyyy-MM-dd",null),
-                            DateReturn = DateTime.ParseExact("2022-03-27","yyyy-MM-dd",null),
-                            ReturnAmount = 300,
+
                         },
                         new Loan()
                         {
                             LoanTypeNumber = 1,
-                            CopyNumber = 3,
+                            CopyNumber = 5,
                             MemberNumber = 1,
                             DateOut = DateTime.ParseExact("2022-05-01","yyyy-MM-dd",null),
                             DateDue = DateTime.ParseExact("2022-05-02","yyyy-MM-dd",null),
-                           
+
                         },
                         new Loan()
                         {
                             LoanTypeNumber = 2,
-                            CopyNumber = 6,
+                            CopyNumber = 13,
                             MemberNumber = 4,
                             DateOut = DateTime.ParseExact("2022-04-01","yyyy-MM-dd",null),
-                            DateDue = DateTime.ParseExact("2022-04-08","yyyy-MM-dd",null),                         
-                           
+                            DateDue = DateTime.ParseExact("2022-04-08","yyyy-MM-dd",null),
+
                         },
                         new Loan()
                         {
                             LoanTypeNumber = 2,
-                            CopyNumber = 7,
-                            MemberNumber = 6,
+                            CopyNumber = 14,
+                            MemberNumber = 4,
                             DateOut = DateTime.ParseExact("2022-05-01","yyyy-MM-dd",null),
                             DateDue = DateTime.ParseExact("2022-05-08","yyyy-MM-dd",null),
-                            DateReturn = DateTime.ParseExact("2022-05-13","yyyy-MM-dd",null),
-                            ReturnAmount = 300, 
+
+
+                        },
+                        new Loan()
+                        {
+                            LoanTypeNumber = 2,
+                            CopyNumber = 15,
+                            MemberNumber = 4,
+                            DateOut = DateTime.ParseExact("2022-05-01","yyyy-MM-dd",null),
+                            DateDue = DateTime.ParseExact("2022-05-08","yyyy-MM-dd",null),
+
+
+                        },
+
+                        new Loan()
+                        {
+                            LoanTypeNumber = 2,
+                            CopyNumber = 17,
+                            MemberNumber = 10,
+                            DateOut = DateTime.ParseExact("2022-05-01","yyyy-MM-dd",null),
+                            DateDue = DateTime.ParseExact("2022-05-08","yyyy-MM-dd",null),
+
+
                         },
                     });
-                    context.SaveChanges();
-                }
+                        context.SaveChanges();
+                    }
 
+
+
+
+
+
+
+                }
             }
         }
+
 
     }
 }

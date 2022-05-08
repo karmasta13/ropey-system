@@ -129,33 +129,35 @@
                         </div>
                       </li>
                       <hr>
+
                       <form asp-action="Confirmation" method="post">
-                      <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-3 border-radius-lg">
-                        <div class="d-flex flex-column">
+
+                          <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-3 border-radius-lg">
+                            <div class="d-flex flex-column">
                        
-                            <p class="mb-1 text-dark font-weight-bold text-md h6">Remaining Amount</p>
-                        </div>
-                        <div class="d-flex align-items-center text-md h6">
-                            @returnInfo.Payment
-                        </div>
-                        </li>
-                        <div class="d-flex flex-row-reverse ">
+                                <p class="mb-1 text-dark font-weight-bold text-md h6">Remaining Amount</p>
+                            </div>
+                            <div class="d-flex align-items-center text-md h6">
+                                @(returnInfo.Payment - returnInfo.StandardCharge)
+                            </div>
+                            </li>
+                            <div class="d-flex flex-row-reverse ">
                      
-                        <div class="  ms-1 ">
-                             <input type="hidden" name="CopyNumber" value="@returnInfo.CopyNumber" />
-                            <input type="hidden" name="LoanNumber" value="@returnInfo.LoanNumber" />
-                            <input type="hidden" name="Payment" value="@returnInfo.Payment" />
-                            <button type="submit" class="btn btn-success btn-md px-5 float-right">
-                            Save
-                            </button>
-                        </div>
-                        <div class=" justify-content-center mx-4 float-right">
-                            <a type="button" class="btn btn-outline-danger btn-md px-4" asp-action="Index">
-                            Cancel
-                            </a>
-                        </div>
-                        </div>
-                            </form>
+                                <div class="  ms-1 ">
+                                     <input type="hidden" name="CopyNumber" value="@returnInfo.CopyNumber" />
+                                    <input type="hidden" name="LoanNumber" value="@returnInfo.LoanNumber" />
+                                    <input type="hidden" name="Payment" value="@returnInfo.Payment" />
+                                    <button type="submit" class="btn btn-success btn-md px-5 float-right">
+                                    Save
+                                    </button>
+                                </div>
+                                <div class=" justify-content-center mx-4 float-right">
+                                    <a type="button" class="btn btn-outline-danger btn-md px-4" asp-action="Index">
+                                    Cancel
+                                    </a>
+                            </div>
+                            </div>
+                         </form>
                           
                     </ul>
                   </div>
