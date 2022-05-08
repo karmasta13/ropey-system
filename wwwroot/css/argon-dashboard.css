@@ -3350,7 +3350,7 @@ textarea.form-control-lg {
 .input-group-sm>.form-select,
 .input-group-sm>.input-group-text,
 .input-group-sm>.btn {
-  padding: 0.25rem 0.75rem;
+  padding: 0.4rem 4.2rem;
   font-size: 0.75rem;
   border-radius: 0.5rem;
 }
@@ -4372,6 +4372,10 @@ fieldset:disabled .btn {
   color: #000;
   background-color: #fff;
   border-color: #fff;
+}
+
+.listalign{
+  margin-left: 30px;
 }
 
 .btn-check:focus+.btn-outline-white,
