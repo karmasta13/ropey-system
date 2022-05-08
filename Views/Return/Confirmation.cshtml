@@ -1,0 +1,167 @@
+﻿@using RopeyDVDSystem.Models.ViewModels;
+@{
+    ViewData["Title"] = "Return";
+    ViewData["Section"] = "Return";
+    Layout = "_AdminLayout";
+    
+    var returnInfo = ViewData["Return"] as ReturnModel; 
+}
+
+
+<div class="container-fluid py-3">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="row">
+                  <div class="col-xl-8">
+                    <div class="card mb-4 h-100">
+                      <div class="card-header pb-0">
+                        <h4 class="mt-3 text-center text-primary">DVD Return</h4>
+                        <hr>
+                      </div>
+                      <div class="card-body px-2 pt-0 pb- mt-3" >
+                        <div class="row">
+
+                          <div class="col mx-4 mt-2">
+                            <ul class="list-group">
+                              <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-2 border-radius-lg">
+                                <div class="d-flex flex-column">
+                                  <p class="mb-1 text-dark opacity-8 text-md ms-4 form-group">DVD Title:</p>
+                                </div>
+                                <div class="d-flex text-md ms-6 h6 ">
+                                  @returnInfo.DVDTitleName
+                                </div>
+                              </li>
+                            </ul>
+                            <ul class="list-group">
+                              <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-2 border-radius-lg">
+                                <div class="d-flex flex-column">
+                                  <p class="mb-1 text-dark opacity-8 text-md ms-4">Copy Number:</p>
+                                </div>
+                                <div class="d-flex text-md listalign h6 ">
+                                  @returnInfo.CopyNumber
+                                </div>
+                              </li>
+                            </ul>
+                            <ul class="list-group">
+                              <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-2 border-radius-lg">
+                                <div class="d-flex flex-column">
+                                  <p class="mb-1 text-dark opacity-8 text-md ms-4">DVD Category:</p>
+                                </div>
+                                <div class="d-flex text-md h6 ms-4">
+                                  @returnInfo.DVDCategory
+                                </div>
+                              </li>
+                            </ul>
+                            <ul class="list-group">
+                              <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-2 border-radius-lg">
+                                <div class="d-flex flex-column">
+                                  <p class="mb-1 text-dark opacity-8 text-md ms-4">Member Name:</p>
+                                </div>
+                                <div class="d-flex text-md ms-4 h6">
+                                  @returnInfo.MemberName
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+
+                          <div class="col">
+                            <ul class="list-group">
+                              <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-2 border-radius-lg">
+                                <div class="d-flex flex-column">
+                                  <p class="mb-1 text-dark opacity-8 text-md ms-4">Date Out:</p>
+                                </div>
+                                <div class="d-flex text-md ms-6 h6">
+                                  @Html.DisplayFor(modelItem => returnInfo.DateOut)
+                                </div>
+                              </li>
+                            </ul>
+                            <ul class="list-group">
+                              <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-2 border-radius-lg">
+                                <div class="d-flex flex-column">
+                                  <p class="mb-1 text-dark opacity-8 text-md ms-4">Date Due:</p>
+                                </div>
+                                <div class="d-flex text-md ms-4 px-1 h6">
+                                  @Html.DisplayFor(modelItem => returnInfo.DateDue)
+                                </div>
+                              </li>
+                            </ul>
+                        </div>
+                        
+                </div>
+                </div>
+                </div>
+                </div>
+
+              <div class="col-lg-4">
+                <div class="card h-100">
+                  <div class="card-header pb-0 p-3">
+                    <div class="row">
+                      <div class=" align-items-center mt-2">
+                        <h4 class="mt-3 text-center text-primary">Invoice</h4>
+                        <hr>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body p-3 pb-0 mx-3">
+                    <ul class="list-group">
+                      <li class="list-group-item border-0 d-flex justify-content-between ps-0  border-radius-lg">
+                        <div class="d-flex flex-column">
+                          <p class="mb-1 text-dark opacity-8  text-md">Standard Charge</p>
+                        </div>
+                        <div class="d-flex align-items-center text-md h6">
+                          Rs.@returnInfo.StandardCharge
+                        </div>
+                      </li>
+                      <li class="list-group-item border-0 d-flex justify-content-between ps-0  border-radius-lg">
+                        <div class="d-flex flex-column">
+                          <p class="mb-1 text-dark opacity-8 text-md">Days Overdue</p>
+                        </div>
+                        <div class="d-flex align-items-center text-md h6">
+                          @returnInfo.OverDue
+                        </div>
+                      </li>
+                      <li class="list-group-item border-0 d-flex justify-content-between ps-0  border-radius-lg">
+                        <div class="d-flex flex-column">
+                          <p class="mb-1 text-dark opacity-8 text-md">Penalty Charge</p>
+                        </div>
+                        <div class="d-flex align-items-center text-md h6">
+                         Rs.@returnInfo.PenaltyCharge
+                        </div>
+                      </li>
+                      <hr>
+                      <form asp-action="Confirmation" method="post">
+                      <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-3 border-radius-lg">
+                        <div class="d-flex flex-column">
+                       
+                            <p class="mb-1 text-dark font-weight-bold text-md h6">Remaining Amount</p>
+                        </div>
+                        <div class="d-flex align-items-center text-md h6">
+                            @returnInfo.Payment
+                        </div>
+                        </li>
+                        <div class="d-flex flex-row-reverse ">
+                     
+                        <div class="  ms-1 ">
+                             <input type="hidden" name="CopyNumber" value="@returnInfo.CopyNumber" />
+                            <input type="hidden" name="LoanNumber" value="@returnInfo.LoanNumber" />
+                            <input type="hidden" name="Payment" value="@returnInfo.Payment" />
+                            <button type="submit" class="btn btn-success btn-md px-5 float-right">
+                            Save
+                            </button>
+                        </div>
+                        <div class=" justify-content-center mx-4 float-right">
+                            <a type="button" class="btn btn-outline-danger btn-md px-4" asp-action="Index">
+                            Cancel
+                            </a>
+                        </div>
+                        </div>
+                            </form>
+                          
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+            </div>

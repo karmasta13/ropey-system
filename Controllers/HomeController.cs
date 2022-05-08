@@ -31,18 +31,19 @@ namespace RopeyDVDSystem.Controllers
 
             var databaseDVDList = from dvd in _context.DVDTitles select dvd.DVDNumber;
 
-            
+
             switch (ageRestricted)
             {
                 case "yes":
                     databaseDVDList = from dvd in databaseDVDList
-                                 join dc in _context.DVDCategories on dvd equals dc.CategoryNumber
-                                 where dc.AgeRestricted == "False"
-                                 select dvd;
+                                      join dvddt in _context.DVDTitles on dvd equals dvddt.DVDNumber
+                                      join dc in _context.DVDCategories on dvddt.CategoryNumber equals dc.CategoryNumber
+                                      where dc.AgeRestricted == "False"
+                                      select dvd;
                     break;
             }
 
-        
+
 
             ViewBag.sortingOrderCol = string.IsNullOrEmpty(sortingOrderCol) ? "na" : sortingOrderCol;
             ViewBag.stockAvailability  = string.IsNullOrEmpty(stockAvailability ) ? "all" : stockAvailability ;
