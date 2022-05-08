@@ -12,13 +12,8 @@ using RopeyDVDSystem.Data;
 namespace RopeyDVDSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-<<<<<<<< HEAD:Migrations/20220507113401_Initial.Designer.cs
-    [Migration("20220507113401_Initial")]
-    partial class Initial
-========
-    [Migration("20220507114801_initial")]
-    partial class initial
->>>>>>>> 6392e27 (tk-615: Added pages in navigation):Migrations/20220507114801_initial.Designer.cs
+    [Migration("20220508030832_initial 1")]
+    partial class initial1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
