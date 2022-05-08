@@ -10,11 +10,11 @@
               <div class="col-12">
                 <div class="card mb-6">
                   <div class="card-header pb-0">
-                    <h4 class="mt-3 text-center text-warning">Inactive Members</h2>
+                    <h4 class="mt-3 text-center text-primary">Inactive Members</h2>
                     <h6 class="text-xxs text-secondary mb-4 text-center">A list of members who haven't borrowed a DVD in the last 31 days</h6>
                   </div>
                   <div class="card-body px-0 pt-0 pb-2">
-                    <div class="table-responsive p-0">
+                    <div class="table-responsive p-0 mx-4 mt-3">
                       <table class="table align-items-center mb-0">
                         <thead>
                           <tr>
@@ -37,22 +37,22 @@
                                 <td>
                                   <div class="d-flex px-2 py-1">
                                     <div class="d-flex flex-column justify-content-center">
-                                      <h6 class="mb-0 text-md mx-3">@item.MemberName</h6>
-                                      <p class="text-xxs text-secondary mb-0 ms-5">@item.MemberAddress</p>
+                                      <h6 class="mb-0 text-md ">@item.MemberName</h6>
+                                      <p class="text-xxs text-secondary mb-0 ">@item.MemberAddress</p>
                                     </div>
                                   </div>
                                 </td>
                                 <td>
                                   @if (item.Membership == "Silver")
 									{
-										<span class="badge badge-sm bg-gradient-secondary px-4">Silver</span>
+										<span class="badge badge-sm bg-secondary px-4">Silver</span>
 									}
 									else if (item.Membership == "Gold"){
-										<span class="badge badge-sm bg-gradient-warning px-4 mx-1">Gold</span>
+										<span class="badge badge-sm bg-primary px-4 mx-1">Gold</span>
 									}
 									else
 									{
-										<span class="badge badge-sm bg-gradient-success px-3">Platinum</span>
+										<span class="badge badge-sm bg-success px-3">Platinum</span>
 									}
                                 </td>
                                 <td class="align-middle text-start">
@@ -65,7 +65,7 @@
                                   <span class="text-sm font-weight-bold">@item.LastLoan.DateOut.ToString("dd MMM yyyy")</span>
                                 </td>
                                 <td>
-                                  <p class="text-success text-md mb-0 ms-4">
+                                  <p class="text-success font-weight-bold text-md mb-0 ms-4">
                                       @(DateTime.Now.Subtract(item.LastLoan.DateOut).Days)
                                   </p>
                                 </td>

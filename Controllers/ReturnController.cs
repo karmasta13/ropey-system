@@ -106,7 +106,6 @@ namespace RopeyDVDSystem.Controllers
         }
 
 
-
         public IActionResult Confirmation(int LoanID)
         {
             if (LoanID == 0 ||
@@ -132,7 +131,7 @@ namespace RopeyDVDSystem.Controllers
                                               DateDue = l.DateDue,
                                               MemberName = m.MemberFirstName + ' ' + m.MemberLastName,
                                               LoanNumber = l.LoanNumber,
-                                              StandardCharge = dt.StandardCharge,
+                                              StandardCharge = l.ReturnAmount,
                                               PenaltyCharge = dt.PenaltyCharge
                                           }).First();
 
@@ -151,21 +150,22 @@ namespace RopeyDVDSystem.Controllers
         [HttpPost]
         public IActionResult Confirmation(ReturnModel returnDVD)
         {
+
             if (returnDVD.LoanNumber == 0 ||
                 returnDVD.CopyNumber == 0 ||
                 _context.Loans.Where(l => l.LoanNumber == returnDVD.LoanNumber).Count() == 0 ||
-                _context.DVDCopies.Where(dc => dc.CopyNumber == returnDVD.CopyNumber).Count() == 0 ||
-                _context.DVDCopies.Where(dc => dc.CopyNumber == returnDVD.CopyNumber).First().IsLoan == false)
+                _context.DVDCopies.Where(dc => dc.CopyNumber == returnDVD.CopyNumber).Count() == 0)
             {
                 return RedirectToAction("Index");
             }
 
-            // Update the loan record
+            
             var loan = _context.Loans.Find(returnDVD.LoanNumber);
             loan.DateReturn = DateTime.Today;
             loan.ReturnAmount = returnDVD.Payment;
+            _context.SaveChanges();
 
-            // Update the DVD copy record
+           
             var copy = _context.DVDCopies.Find(returnDVD.CopyNumber);
             copy.IsLoan = false;
 
@@ -173,6 +173,7 @@ namespace RopeyDVDSystem.Controllers
 
             return RedirectToAction("Index");
         }
+
     }
 
 }

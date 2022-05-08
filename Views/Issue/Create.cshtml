@@ -1,0 +1,276 @@
+﻿@using RopeyDVDSystem.Models.ViewModels;
+
+@{
+  ViewData["Title"] = "Rental Form";
+  Layout = "_AdminLayout";
+
+  var rental = ViewData["AvailableDVD"] as IssueModel;
+  var memeberList = ViewData["MemberNumberList"] as IEnumerable<SelectViewModel>;
+  var loanTypeList = ViewData["LoanTypeList"] as IEnumerable<SelectViewModel>;
+
+  var rentalInfo = new ReturnModel();
+  if (ViewData["RentalInformation"] != null)
+  {
+    rentalInfo = ViewData["RentalInformation"] as ReturnModel;
+  }
+}
+
+
+
+<form asp-action="Create">
+      <div class="container-fluid py-4">
+        <div class="row">
+          <div class="col-lg-18">
+            <div class="row">
+              <div class="col-xl-8 mb-xl-0">
+                <div class="card mb-0">
+                  <div class="card-header pb-0 mb-3">
+                    <h4 class="mt-3 text-center text-primary">Rental Form</h4>
+                  </div>
+                  <div class="card-body px-2 pt-0 pb-2">
+                    <div class="row">
+                      <div class="col">
+                        <ul class="list-group">
+                          <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                            <div class="d-flex flex-column">
+                              <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">DVD Title:</h6>
+                            </div>
+                            <div class="d-flex text-md ms-6">
+                              @rental.DVDTitleName
+                            </div>
+                          </li>
+                        </ul>
+                        <ul class="list-group">
+                          <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                            <div class="d-flex flex-column">
+                              <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">DVD Category:</h6>
+                            </div>
+                            <div class="d-flex text-md ms-4">
+                              @rental.DVDCategory
+                            </div>
+                          </li>
+                        </ul>
+                        <ul class="list-group">
+                          <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                            <div class="d-flex flex-column">
+                              <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">Copy Number:</h6>
+                            </div>
+                            <div class="d-flex text-md ms-4">
+                              @rental.CopyNumber
+                            </div>
+                          </li>
+                        </ul>
+                        <ul class="list-group">
+                          <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                            <div class="d-flex flex-column">
+                              <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">Age Restricted:</h6>
+                            </div>
+                            <div class="d-flex text-lg ms-2 mt-1">
+                              <i class="far fa-window-close text-danger"></i>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col">
+
+                        @if (TempData["Error"] != null)
+                        {
+                          <div class="alert text-danger mb-2">
+                            <span>@TempData["Error"]</span>
+                          </div>
+                        }
+
+                        <ul class="list-group">
+                          <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                            <div class="d-flex flex-column">
+                              <h6 class="mb-1 text-dark font-weight-bold text-md ms-4 mt-3">Member:</h6>
+                            </div>
+                            <div class="dropdown p-2">
+                              <select name="MemberNumber" value=@ViewBag.MemberNumber>
+                                @foreach (var member in memeberList)
+                                {
+                                  @if (@ViewBag.MemberNumber == member.SelectValue)
+                                  {
+                                    <option value=@member.SelectValue selected>@member.SelectKey</option>
+                                  }
+                                  else
+                                  {
+                                    <option value=@member.SelectValue>@member.SelectKey</option>
+                                  }
+                                }
+                              </select>
+                            </div>
+                          </li>
+                        </ul>
+                        <ul class="list-group">
+                          <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                            <div class="d-flex flex-column">
+                              <h6 class="mb-1 text-dark font-weight-bold text-md ms-4 mt-3">Loan Type:</h6>
+                            </div>
+                            <div class="dropdown p-2">
+                              <select name="LoanTypeNumber" value=@ViewBag.LoanTypeNumber>
+                                @foreach (var loan in loanTypeList)
+                                {
+                                  @if (@ViewBag.LoanTypeNumber == loan.SelectValue)
+                                  {
+                                    <option value=@loan.SelectValue selected>@loan.SelectKey</option>
+                                  }
+                                  else
+                                  {
+                                    <option value=@loan.SelectValue>@loan.SelectKey</option>
+                                  }
+                                }
+                              </select>
+                            </div>
+                            <input type="hidden" name="CopyNumber" value=@ViewBag.CopyNumber />
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm justify-content-center" style="margin-left: 27rem;">
+                        <button type="submit" class="btn btn-primary btn-md px-4 py-2" value="Generate" name="GenerateButton" >
+                          Check
+                        </button>
+                      </div>
+                      <div class="col-sm justify-content-center ms-3">
+                        <a type="button" class="btn btn-outline-danger btn-md px-4 py-2" asp-action="Index">
+                          Cancel
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      @if (rentalInfo.DVDTitleName != null)
+  {
+      <div class="container-fluid py-4">
+
+        <div class="col-xl-8 mb-xl-0">
+          <div class="card mb-0">
+            <div class="card-header pb-0 mb-3">
+              <h4 class="mt-3 text-center text-primary">Rental Confirmation</h4>
+            </div>
+            <div class="card-body px-2 pt-0 pb-2">
+              <div class="row">
+                <div class="col">
+                  <ul class="list-group">
+                    <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                      <div class="d-flex flex-column">
+                        <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">DVD Title:</h6>
+                      </div>
+                      <div class="d-flex text-md ms-6">
+                        @rentalInfo.DVDTitleName
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="list-group">
+                    <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                      <div class="d-flex flex-column">
+                        <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">DVD Category:</h6>
+                      </div>
+                      <div class="d-flex text-md ms-4">
+                        @rentalInfo.DVDCategory
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="list-group">
+                    <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                      <div class="d-flex flex-column">
+                        <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">Copy Number:</h6>
+                      </div>
+                      <div class="d-flex text-md ms-4">
+                        @rentalInfo.CopyNumber
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="list-group">
+                    <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-6 border-radius-lg">
+                      <div class="d-flex flex-column">
+                        <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">Member Name:</h6>
+                      </div>
+                      <div class="d-flex text-md ms-4">
+                        @rentalInfo.MemberName
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="list-group">
+                    <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                      <div class="d-flex flex-column">
+                        <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">Standard Charge:</h6>
+                      </div>
+                      <div class="d-flex text-md ms-4">
+                        Rs. @rentalInfo.StandardCharge
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="list-group">
+                    <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                      <div class="d-flex flex-column">
+                        <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">Loan Duration:</h6>
+                      </div>
+                      <div class="d-flex text-md ms-5">
+                        @((rentalInfo.DateDue - rentalInfo.DateOut).TotalDays)  day(s)
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="list-group">
+                    <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                      <div class="d-flex flex-column">
+                        <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">Payable Amount:</h6>
+                      </div>
+                      <div class="d-flex text-md ms-4">
+                        Rs. @rentalInfo.Payment
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col">
+                  <ul class="list-group">
+                    <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                      <div class="d-flex flex-column">
+                        <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">Date Out:</h6>
+                      </div>
+                      <div class="d-flex text-md ms-5">
+                        @Html.DisplayFor(modelItem => rentalInfo.DateOut)
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="list-group">
+                    <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                      <div class="d-flex flex-column">
+                        <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">Date Due:</h6>
+                      </div>
+                      <div class="d-flex text-md ms-5">
+                        @Html.DisplayFor(modelItem => rentalInfo.DateDue)
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <ul class="list-group">
+                  <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
+                    <div class="d-flex flex-column">
+                      <div class="col-sm justify-content-end ms-8">
+                        <button type="submit" class="btn btn-primary btn-md px-4 py-2" style="margin-left: 18rem;">
+                          Checkout
+                        </button>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  }
+
+
+
+  
+
+</form>
