@@ -140,5 +140,41 @@ namespace RopeyDVDSystem.Controllers
             data.OrderBy(c => c.Cast);
             return View(await data.ToListAsync());
         }
+
+        public async Task<IActionResult> UnoccupiedDVDs()
+        {
+            //Get DateTime of 31 Days Before Today's DateTime
+            var differenceDate = DateTime.Now.AddDays(-31);
+
+            //Get all data of Loaned Copies in 31 Days
+            var loanedCopyDetails = (from loan in _context.Loans
+                                      where loan.DateOut >= differenceDate
+                                      select loan.CopyNumber).Distinct();
+
+            //Get all data of Copies that have not been loaned.
+            var notLoanedCopyDetails = from copy in _context.DVDCopies
+                                       join dvdtitle in _context.DVDTitles on copy.DVDNumber equals dvdtitle.DVDNumber
+                                       join category in _context.DVDCategories on dvdtitle.CategoryNumber equals category.CategoryNumber
+
+                                       where !(loanedCopyDetails).Contains(copy.CopyNumber)
+                                       select new
+                                       {
+                                           CopyNumber = copy.CopyNumber,
+                                           Title = dvdtitle.DVDTitleName,
+                                           Picture = dvdtitle.DVDPictureURL,
+                                           ReleaseDate = dvdtitle.DateReleased.ToString("dd MMM yyyy"),
+                                           Category = category.CategoryName,
+                                           LastLoan = (from loan in _context.Loans
+                                                       join dvdCopy in _context.DVDCopies on loan.CopyNumber equals dvdCopy.CopyNumber
+                                                       orderby loan.DateOut descending
+                                                       select new
+                                                       {
+                                                           DateOut = loan.DateOut,
+                                                       }
+                                                        ).FirstOrDefault()
+                                       };
+
+            return View(await notLoanedCopyDetails.ToListAsync());
+        }
     }
 }

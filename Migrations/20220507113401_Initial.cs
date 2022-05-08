@@ -333,7 +333,8 @@ namespace RopeyDVDSystem.Migrations
                     CopyNumber = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DVDNumber = table.Column<int>(type: "int", nullable: false),
-                    DatePurchased = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DatePurchased = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsLoan = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -357,7 +358,8 @@ namespace RopeyDVDSystem.Migrations
                     MemberNumber = table.Column<int>(type: "int", nullable: false),
                     DateOut = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateDue = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateReturn = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DateReturn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ReturnAmount = table.Column<decimal>(type: "decimal(10,3)", precision: 10, scale: 3, nullable: false)
                 },
                 constraints: table =>
                 {
