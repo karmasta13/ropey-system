@@ -57,6 +57,7 @@
                         <thead>
                           <tr>
                             <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 px-5">DVD Title</th>
+                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Copy Number</th>
                             <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Release Date</th>
                             <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Category</th>
                             <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Last Loaned On</th>
@@ -75,6 +76,9 @@
                                       <h6 class="mb-0 text-sm">@item.Title</h6>
                                     </div>
                                   </div>
+                                </td>
+                                <td class="align-middle">
+                                  <p class="text-sm font-weight-bold mb-0 ms-5">@item.CopyNumber</p>
                                 </td>
                                 <td class="align-middle">
                                   <p class="text-sm font-weight-bold mb-0 ms-5">@item.ReleaseDate</p>

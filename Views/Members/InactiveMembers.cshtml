@@ -5,53 +5,6 @@
     Layout = "_AdminLayout";
 }
 
-@*<h1 class="text-center mb-3">SleepingMembers</h1>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Member Name
-            </th>
-            <th>
-                Member Address
-            </th>
-            <th>
-                Last Loan Taken On
-            </th>
-            <th>
-                DVD Title
-            </th>
-            <th>
-                No. of Days from Loan Taken
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        @if(item.LastLoan != null){
-            <tr>
-                <td>
-                    @item.MemberName
-                </td>
-                <td>
-                    @item.MemberAddress
-                </td>
-                <td>
-                    @item.LastLoan.DateOut.ToString("dd-MMMM-yyyy")
-                </td>
-                <td>
-                    @item.LastLoan.DVDTitle
-                </td>
-                <td>
-                    @(DateTime.Now.Subtract(item.LastLoan.DateOut).Days)
-                </td>             
-            </tr>
-        }
-}
-    </tbody>
-</table>
-*@
 <div class="container-fluid py-4">
             <div class="row">
               <div class="col-12">

@@ -769,7 +769,6 @@ namespace RopeyDVDSystem.Data
                             DateDue = DateTime.ParseExact("2022-05-05","yyyy-MM-dd",null),
                             DateReturn = DateTime.ParseExact("2022-05-05","yyyy-MM-dd",null),
                             ReturnAmount= 200,
-
                         },
                         new Loan()
                         {
