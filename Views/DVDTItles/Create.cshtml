@@ -3,100 +3,173 @@
  
 @{
     ViewData["Title"] = "Insert a new DVD title";
+    Layout = "_AdminLayout";
 }
 
-<div class="row">
-    <div class="col-md-8 offset-2">
-        <p>
-            <h4>Insert a new DVD title</h4>
-        </p>
+<div class="container-fluid py-4">
+            
+            <div class="card mb-4">
 
-        <div class="row">
-            <div class="col-md-8 offset-2">
+              <div class="card-header pb-0">
+                <h4 class="mt-3 mb-2 text-center text-primary">Insert New DVD</h4>
+                <hr>
+              </div>
+
+              <div class="card-body px-2 pt-0 pb-2 mt-3">
+
                 <form asp-action="Create">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                  <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label asp-for="DVDTitleName" class="control-label"></label>
-                                <input asp-for="DVDTitleName" class="form-control" />
-                                <span asp-validation-for="DVDTitleName" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="DateReleased" class="control-label"></label>
-                                <input asp-for="DateReleased" type="date" class="form-control" />
-                                <span asp-validation-for="DateReleased" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="StandardCharge" class="control-label"></label>
-                                <input asp-for="StandardCharge" type="number" class="form-control" />
-                                <span asp-validation-for="StandardCharge" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="PenaltyCharge" class="control-label"></label>
-                                <input asp-for="PenaltyCharge" type="number" class="form-control" />
-                                <span asp-validation-for="PenaltyCharge" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="DVDPictureURL" class="control-label"></label>
-                                <input asp-for="DVDPictureURL" class="form-control" />
-                                <span asp-validation-for="DVDPictureURL" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label asp-for="StudioNumber" class="control-label"></label>
-                                <select asp-for="StudioNumber" class="form-control" asp-items="ViewBag.Studios"></select>
-                                <span asp-validation-for="StudioNumber" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <a class="btn btn-outline-secondary" asp-controller="Studios" asp-action="Create">Add New Studio</a>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="CategoryNumber" class="control-label"></label>
-                                <select asp-for="CategoryNumber" class="form-control" asp-items="ViewBag.DVDCategories"></select>
-                                <span asp-validation-for="CategoryNumber" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <a class="btn btn-outline-secondary" asp-controller="DVDCategories" asp-action="Create">Add New Category</a>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="ProducerNumber" class="control-label"></label>
-                                <select asp-for="ProducerNumber" class="form-control" asp-items="ViewBag.Producers"></select>
-                                <span asp-validation-for="ProducerNumber" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <a class="btn btn-outline-secondary" asp-controller="Producers" asp-action="Create">Add New Producer</a>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="ActorNumbers" class="control-label"></label>
+                  <div class="row">
 
-                                <select asp-for="ActorNumbers" class="form-control"  asp-items="ViewBag.Actors" multiple></select>
-                                <span asp-validation-for="ActorNumbers" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <a class="btn btn-outline-secondary" asp-controller="Actors" asp-action="Create">Add New Actor</a>
-                            </div>
-                        </div>
+                    <div class="col">
+                      <ul class="list-group">
+                        <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-2 ">
+                          <div class="d-flex flex-column ">
+                            <p asp-for="DVDTitleName" class="mb-1 text-secondary font-weight-bold text-md ms-4 mt-2 me-4">DVD Title:</p>
+                          </div>
+                          <div class="p-2 input-group-sm ms-6">
+                            <input asp-for="DVDTitleName" type="text" class="form-control">
+                           </div>
+                        </li>
+                      </ul>
+                      <ul class="list-group">
+                        <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-2">
+                          <div class="d-flex flex-column">
+                            <p asp-for="DateReleased" class="mb-1 text-secondary font-weight-bold text-md ms-4 mt-2 me-2">Release Date:</p>
+                          </div>
+                          <div class="p-2 input-group-sm ms-5" >
+                            <input asp-for="DateReleased" type="date" class="form-control">
+                           </div>
+                        </li>
+                      </ul>
+                      <ul class="list-group">
+                        <li class="list-group-item border-0 d-flex justify-content-start ps-0  border-radius-lg ">
+                          <div class="d-flex flex-column">
+                            <h6 asp-for="CategoryNumber" class="mb-1 text-secondary font-weight-bold text-md ms-4 mt-3">DVD Category:</h6>
+                          </div>
+                          <div class="dropdown p-2 ">
+                            <select asp-for="CategoryNumber" asp-items="ViewBag.DVDCategories" class="btn btn-outline-secondary dropdown-toggle px-7 py-2 ms-5" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                             Choose
+                            </select>
+                          </div>
+                          <div class="p-2 me-1">
+                            <a class="btn btn-secondary opacity-7 btn mt-1" asp-controller="DVDCategories" asp-action="Create">
+                              <i class="fas fa-plus" style="color:white" aria-hidden="true"></i>
+                            </a>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul class="list-group">
+                        <li class="list-group-item border-0 d-flex justify-content-start ps-0  border-radius-lg">
+                          <div class="d-flex flex-column">
+                            <h6 asp-for="StudioNumber" class="mb-1 text-secondary font-weight-bold text-md ms-4 mt-3">DVD Studio:</h6>
+                          </div>
+                          <div class="dropdown p-2">
+                            <select asp-for="StudioNumber" asp-items="ViewBag.Studios" class="btn btn-outline-secondary dropdown-toggle px-7 py-2 ms-6" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                             Choose
+                            </select>
+                          </div>
+                          <div class="p-2 me-1">
+                            <a asp-controller="Studios" asp-action="Create" class="btn btn-secondary  opacity-7 btn mt-1">
+                              <i class="fas fa-plus" style="color:white" aria-hidden="true"></i>
+                            </a>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul class="list-group">
+                        <li class="list-group-item border-0 d-flex justify-content-start ps-0  border-radius-lg">
+                          <div class="d-flex flex-column">
+                            <h6 asp-for="ProducerNumber" class="mb-1 text-secondary font-weight-bold text-md ms-4 mt-3">Producer:</h6>
+                          </div>
+                          <div class="dropdown p-2">
+                            <select asp-for="ProducerNumber" asp-items="ViewBag.Producers" class="btn btn-outline-secondary dropdown-toggle px-7 py-2 ms-6" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                             Choose
+                            </select>
+                          </div>
+                          <div class="p-2 me-1">
+                            <a asp-controller="Producers" asp-action="Create" class="btn btn-secondary  opacity-7 btn mt-1">
+                              <i class="fas fa-plus" style="color:white" aria-hidden="true"></i>
+                            </a>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul class="list-group">
+                        <li class="list-group-item border-0 d-flex justify-content-start ps-0  border-radius-lg">
+                          <div class="d-flex flex-column">
+                            <h6 asp-for="ActorNumbers" class="mb-1 text-secondary font-weight-bold text-md ms-4 mt-3">Cast Members:</h6>
+                          </div>
+                          <div class="dropdown p-2">
+                            <select asp-for="ActorNumbers" class="form-control"  asp-items="ViewBag.Actors" multiple class="btn btn-outline-secondary dropdown-toggle px-7 py-2 " style="margin-left: 2.8rem;" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                             Choose
+                            </select>
+                          </div>
+                          <div class="p-2 me-1">
+                            <a asp-controller="Actors" asp-action="Create" class="btn btn-secondary opacity-7 btn mt-1">
+                              <i class="fas fa-plus" style="color:white" aria-hidden="true"></i>
+                            </a>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul class="list-group">
+                        <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-2">
+                          <div class="d-flex flex-column">
+                            <p asp-for="StandardCharge" class="mb-1 text-secondary font-weight-bold text-md ms-4 mt-2 me-2">Standard Charge:</p>
+                          </div>
+                          <div class="p-2 input-group-sm ms-3">
+                            <input asp-for="StandardCharge" type="number" class="form-control">
+                           </div>
+                        </li>
+                      </ul>
+                      <ul class="list-group">
+                        <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-2">
+                          <div class="d-flex flex-column">
+                            <p asp-for="PenaltyCharge" class="mb-1 text-secondary font-weight-bold text-md ms-4 mt-2 me-2">Penalty Charge:</p>
+                          </div>
+                          <div class="p-2 input-group-sm ms-4">
+                            <input asp-for="PenaltyCharge" type="number" type="text" class="form-control">
+                           </div>
+                        </li>
+                      </ul>
+                    </div>
+  
+  
+                    <div class="col">
+                      <ul class="list-group">
+                        <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-4 border-radius-lg">
+                          <div class="d-flex flex-column">
+                            <h6 asp-for="DVDPictureURL" class="mb-1 text-secondary font-weight-bold text-md ms-4 mt-2 me-2">Image Link:</h6>
+                          </div>
+                          <div class="p-2 input-group-sm ms-4" style=" width: 55%">
+                            <input asp-for="DVDPictureURL" class="form-control"/>
+                          </div>
+                        </li>
+                      </ul>
+  
+                      <div class="ms-9">                  
+                            <img id="ImageUrlPreview" style="height:60vh;"/>                 
+                      </div>
                     </div>
 
-                    <div class="col-md-4 offset-4 text-center">
-                        <img width="100%" id="ImageUrlPreview" />
+                    <!-- buttons -->
+                  <div class="d-flex  flex-row-reverse mt-4" style="margin-right:5vh">
+                    <div class=" justify-content-center">
+                      <input type="submit" value="Create" class="btn btn-primary  btn-md px-5">
                     </div>
-
-                    <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-outline-success float-right" />
-                        <a class="btn btn-outline-secondary" asp-action="Index">Show all</a>
+                    <div class="justify-content-center mx-4">
+                      <a class="btn btn-outline-secondary" asp-action="Index" class="btn btn-outline-danger btn-md px-5">
+                        Show All
+                      </a>
                     </div>
+                  </div> 
 
+
+                    </div>
                 </form>
-
+                
             </div>
-        </div>
-
-    </div>
-</div>
+            
+           </div>
 
 @section Scripts{ 
     <script>
