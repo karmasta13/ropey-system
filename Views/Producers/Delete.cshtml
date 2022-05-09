@@ -2,40 +2,71 @@
 
 @{
     ViewData["Title"] = "Delete Producer";
+    Layout = "_AdminLayout";
 }
 
-<div class="row text">
-    <div class="col-md-8 offset-2">
-        <p>
-            <h1>Delete Confirmation for @Model.ProducerName</h1>
-        </p>
+<div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-md-8">
         <div class="row">
-            <div class="col-md-8 offset-2">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+          <div class="col-xl-8 mb-xl-0 mb-4 me-2">
+            <div class="card mb-4" style="width: 45rem;">
+              <div class="card-header pb-0">
+                <h4 class="mt-3 mb-2 text-start ms-2 text-primary">Delete Confirmation for @Model.ProducerName</h4>
+              </div>
+              <div class="card-body px-2 pt-0 pb-2">
+                <div class="row">
+                  <div class="col">
+                    <ul class="list-group">
+                    <li class="list-group-item border-0 d-flex justify-content-start ps-0">
+                      <div class="d-flex flex-column">
+                        <p asp-for="ProducerName" class="text-dark font-weight-bold text-md ms-4 mt-2 me-1">Full Name:</p>
+                      </div>
+                      <div class="p-2 input-group-sm ms-3" style="width: 60%;">
+                        <input asp-for="ProducerName" type="text" class="form-control" readonly/>
+                       </div>
+                    </li>
+                  </ul>
+                  <ul class="list-group">
+                    <li class="list-group-item border-0 d-flex justify-content-start ps-0">
+                      <div class="d-flex flex-column">
+                        <p asp-for="ProducerPictureURL" class="text-dark font-weight-bold text-md ms-4 me-2 mt-2">Image Link:</p>
+                      </div>
+                      <div class="p-2 input-group-sm ms-1" style=" width: 60%;">
+                        <input asp-for="ProducerPictureURL" type="text" class="form-control" readonly/>
+                       </div>
+                    </li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                  <div class="card ms-6 h-100" style="height: 100%; width: 70%">
+                   
+                    <div class="card-body">
+                        <img id="ProfilePicturePreview" style="max-width: 200px" />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm justify-content-center" style="margin-left: 1rem;">
+                    <a asp-action="Index" class="btn btn-outline-secondary btn-md px-4 py-2">
+                      Show All
+                    </a>
+                  </div>
+                  <div class="col-sm justify-content-center mt-1" style="margin-left: 13rem;">
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="ProducerNumber" />
+                        <input type="submit" value="Confirm" class="btn btn-primary btn-md px-4 py-2"/>
+                    </form>
+                  </div>
 
-                    <div class="form-group text-center">
-                        <img id="ProfilePicturePreview"  class="border-info rounded-circle" style="max-width: 150px" />
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="ProducerPictureURL" class="control-label"></label>
-                        <input asp-for="ProducerPictureURL" class="form-control" readonly/>
-                        <span asp-validation-for="ProducerPictureURL" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="ProducerName" class="control-label"></label>
-                        <input asp-for="ProducerName" class="form-control" readonly/>
-                        <span asp-validation-for="ProducerName" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <form asp-action="Delete">
-                            <input type="hidden" asp-for="ProducerNumber" />
-                            <input type="submit" value="Confirm" class="btn btn-danger float-right" />
-                        </form>
-                        <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
-                    </div>
-            </div>
+        </div> 
         </div>
+        </div>
+       
+        </div>
+        
+      </div>
+    </div>
     </div>
 </div>
 
