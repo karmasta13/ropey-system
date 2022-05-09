@@ -2,31 +2,51 @@
 
 @{
     ViewData["Title"] = "Update studio";
+    Layout = "_AdminLayout";
 }
 
-<div class="row text">
-    <div class="col-md-8 offset-2">
-        <p>
-            <h1>Update studio</h1>
-        </p>
+<div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-md-8">
         <div class="row">
-            <div class="col-md-8 offset-2">
-                <form asp-action="Edit">
+          <div class="col-xl-6 mb-xl-0 mb-4 me-2">
+            <div class="card mb-4" style="width: 40rem;">
+              <div class="card-header pb-0">
+                <h4 class="mt-3 mb-2 ms-2 text-start text-primary">Update Details of @Model.StudioName</h4>
+              </div>
+              <div class="card-body px-2 pt-0 pb-2">
+                  <form asp-action="Edit">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                    <input type="hidden" asp-for="StudioNumber"/>
-                    <div class="form-group">
-                        <label asp-for="StudioName" class="control-label"></label>
-                        <input asp-for="StudioName" class="form-control" />
-                        <span asp-validation-for="StudioName" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="submit" value="Update" class="btn btn-outline-success float-right" />
-                        <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
-                    </div>
-                </form>
+                        <div class="row">
+                          <div class="col">
+                          <input type="hidden" asp-for="StudioNumber"/>
+                            <ul class="list-group">
+                              <li class="list-group-item border-0 d-flex justify-content-start ps-0">
+                                <div class="d-flex flex-column">
+                                  <p asp-for="StudioName" class="text-dark font-weight-bold text-md ms-4 mt-2 me-1">Studio Name:</p>
+                                </div>
+                                <div class="p-2 input-group-sm" style="width: 50%; height: 30%; margin-left: 2rem;">
+                                  <input asp-for="StudioName" type="text" class="form-control">
+                                 </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm justify-content-center" style="margin-left: 1rem;">
+                            <a asp-action="Index" class="btn btn-outline-secondary btn-md px-4 py-2">
+                              View All
+                            </a>
+                          </div>
+                          <div class="col-sm justify-content-center mt-1" style="margin-right: 8rem;">
+                            <input input type="submit" value="Update" class="btn btn-primary btn-md px-4 py-2"/>
+                          </div>
+                        </div>
+                 </form>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
 </div>
