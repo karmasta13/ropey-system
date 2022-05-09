@@ -8,20 +8,23 @@ namespace RopeyDVDSystem.Controllers
 {
     public class StudiosController : Controller
     {
+        //injecting service to the controller
         private readonly IStudiosService _service;
 
+        //creating a constructor
         public StudiosController(IStudiosService service)
         {
             _service = service;
         }
 
+        //get Studio
         public async Task<IActionResult> Index()
         {
             var allStudios = await _service.GetAllAsync();
             return View(allStudios);
         }
 
-        //Get: producers/details/1
+        //Get: producers/details/id
         public async Task<IActionResult> Details(int id)
         {
             var studioDetails = await _service.GetStudioAsync(id);
@@ -39,7 +42,6 @@ namespace RopeyDVDSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([Bind("StudioName")] Studio studio)
         {
-            //if (!ModelState.IsValid) return View(dVDCategory);
 
             await _service.AddAsync(studio);
             return RedirectToAction(nameof(Index));
@@ -56,7 +58,6 @@ namespace RopeyDVDSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, [Bind("StudioNumber, StudioName")] Studio studio)
         {
-            //if (!ModelState.IsValid) return View(dVDCategory);
             if (id == studio.StudioNumber)
             {
                 await _service.UpdateAsync(id, studio);
@@ -65,7 +66,7 @@ namespace RopeyDVDSystem.Controllers
             return View(studio);
         }
 
-        //Get: Actors/delete
+        //Get: Actors/delete/id
         public async Task<IActionResult> Delete(int id)
         {
             var studioDetails = await _service.GetStudioAsync(id);

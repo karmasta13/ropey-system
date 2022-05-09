@@ -8,13 +8,16 @@ namespace RopeyDVDSystem.Controllers
 {
     public class ActorsController : Controller
     {
+        //injecting service to the controller
         private readonly IActorsService _service;
 
+        //defining constructor
         public ActorsController(IActorsService service)
         {
             _service = service;
         }
 
+        //Get: /Actors
         public async Task<IActionResult> Index()
         {
             var allActors = await _service.GetAllAsync();
@@ -30,10 +33,6 @@ namespace RopeyDVDSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([Bind("ActorFirstName,ActorPictureURL,ActorSurname")] Actor actor)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return View(actor);
-            //}
             await _service.AddAsync(actor);
             return RedirectToAction(nameof(Index));
         }
@@ -47,7 +46,7 @@ namespace RopeyDVDSystem.Controllers
             return View(actorDetails);
         }
 
-        //Get: Actors/edit
+        //Get: Actors/edit/id
         public async Task<IActionResult> Edit(int id)
         {
             var actorDetails = await _service.GetActorAsync(id);
@@ -58,16 +57,11 @@ namespace RopeyDVDSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, Actor actor)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return View(actor);
-            //}
-            //actor.ActorNumber = Convert.ToUInt32(id);
             await _service.UpdateAsync(id, actor);
             return RedirectToAction(nameof(Index));
         }
         
-        //Get: Actors/delete
+        //Get: Actors/delete/id
         public async Task<IActionResult> Delete(int id)
         {
             var actorDetails = await _service.GetActorAsync(id);

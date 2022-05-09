@@ -8,13 +8,16 @@ namespace RopeyDVDSystem.Controllers
 {
     public class ProducersController : Controller
     {
+        //injecting service to the controller
         private readonly IProducersService _service;
 
+        //defining a constructor
         public ProducersController(IProducersService service)
         {
             _service = service;
         }
 
+        //get Producer
         public async Task<IActionResult> Index()
         {
             var allProducers = await _service.GetAllAsync();
@@ -30,10 +33,6 @@ namespace RopeyDVDSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([Bind("ProducerPictureURL,ProducerName")] Producer producer)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return View(producer);
-            //}
             await _service.AddAsync(producer);
             return RedirectToAction(nameof(Index));
         }
@@ -58,11 +57,6 @@ namespace RopeyDVDSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, Producer producer)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return View(producer);
-            //}
-            //producer.ProducerNumber = Convert.ToUInt32(id);
             await _service.UpdateAsync(id, producer);
             return RedirectToAction(nameof(Index));
         }

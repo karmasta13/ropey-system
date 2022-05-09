@@ -8,20 +8,23 @@ namespace RopeyDVDSystem.Controllers
 {
     public class DVDCategoriesController : Controller
     {
+        //injecting services into the controller
         private readonly IDVDCategoriesService _service;
 
+        //defining a constructor
         public DVDCategoriesController(IDVDCategoriesService service)
         {
             _service = service;
         }
 
+        //get DVDCategories
         public async Task<IActionResult> Index()
         {
             var allDVDCategories = await _service.GetAllAsync();
             return View(allDVDCategories);
         }
 
-        //Get: producers/details/1
+        //Get: producers/details/id
         public async Task<IActionResult> Details(int id)
         {
             var categoryDetails = await _service.GetDVDCategoryAsync(id);
@@ -39,8 +42,6 @@ namespace RopeyDVDSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([Bind("CategoryName, CategoryDescription, AgeRestricted")] DVDCategory dVDCategory)
         {
-            //if (!ModelState.IsValid) return View(dVDCategory);
-            
             await _service.AddAsync(dVDCategory);
             return RedirectToAction(nameof(Index));
         }
@@ -56,7 +57,6 @@ namespace RopeyDVDSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, [Bind("CategoryNumber, CategoryName, CategoryDescription, AgeRestricted")] DVDCategory dVDCategory)
         {
-            //if (!ModelState.IsValid) return View(dVDCategory);
             if (id == dVDCategory.CategoryNumber)
             {
                 await _service.UpdateAsync(id, dVDCategory);
@@ -65,7 +65,7 @@ namespace RopeyDVDSystem.Controllers
             return View(dVDCategory);
         }
 
-        //Get: Actors/delete
+        //Get: Actors/delete/id
         public async Task<IActionResult> Delete(int id)
         {
             var categoryDetails = await _service.GetDVDCategoryAsync(id);

@@ -6,28 +6,32 @@ namespace RopeyDVDSystem.Controllers
 {
     public class DVDCopiesController : Controller
     {
+        //getting database context in the controller
         private readonly ApplicationDbContext _context;
 
+        //defining a constructor
         public DVDCopiesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
+        //get DVDCopies
         public async Task<IActionResult> Index()
         {
             var allDVDCopies = await _context.DVDCopies.ToListAsync();
             return View();
         }
 
+        //feature 10: displaying list of DVDCopies older than 365 days and currently not on loan
         public async Task<IActionResult> OlderThan365Days()
         {
 
-            //Get Distinct Copy Numbers of Loaned DVDs
+            //Getting Distinct Copy Numbers of Loaned DVDs
             var loanedCopy = (from loan in _context.Loans
                                  where loan.DateReturn == null
                                  select loan.CopyNumber).Distinct();
 
-            //Get Data of Copies that have not been loaned
+            //Getting Data of Copies that have not been loaned
             var notLoanedCopy = (from copy in _context.DVDCopies
                                     join dvdtitle in _context.DVDTitles on copy.DVDNumber equals dvdtitle.DVDNumber
                                     where !(loanedCopy).Contains(copy.CopyNumber) && copy.IsLoan == false
@@ -41,7 +45,7 @@ namespace RopeyDVDSystem.Controllers
             return View(await notLoanedCopy.ToListAsync());
         }
 
-        // GET: DVDCopy/Delete/5
+        // GET: DVDCopy/Delete/id
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -60,7 +64,7 @@ namespace RopeyDVDSystem.Controllers
             return View(dVDCopyModel);
         }
 
-        // POST: DVDCopy/Delete/5
+        // POST: DVDCopy/Delete/id
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
@@ -70,14 +74,16 @@ namespace RopeyDVDSystem.Controllers
             return RedirectToAction(nameof(OlderThan365Days));
         }
 
+
+        //to remove all the older dvd copy from database at once
         public async Task<IActionResult> RemoveAll()
         {
-            //Get Distinct Copy Numbers of Loaned DVDs
+            //Getting Distinct Copy Numbers of Loaned DVDs
             var loanedCopy = (from loan in _context.Loans
                                  where loan.DateReturn == null
                                  select loan.CopyNumber).Distinct();
 
-            //Get Data of Copies that have not been loaned
+            //Getting Data of Copies that have not been loaned
             var notLoanedCopy = (from copy in _context.DVDCopies
                                     join dvdtitle in _context.DVDTitles on copy.DVDNumber equals dvdtitle.DVDNumber
                                     where !(loanedCopy).Contains(copy.CopyNumber) && copy.IsLoan == false 
@@ -90,10 +96,10 @@ namespace RopeyDVDSystem.Controllers
 
             foreach (var copy in notLoanedCopy.ToList())
             {
-                //Check if the Copy is older than one year.
+                //Checking if the Copy is older than 365 days
                 if (DateTime.Now.Subtract(copy.DatePurchased).Days > 365)
                 {
-                    //Remove the Copy from the Database if the Copy is older than one year.
+                    //Removing the Copy from the Database if the Copy is older than 365 days.
                     var remove = (from removeCopy in _context.DVDCopies
                                   where removeCopy.CopyNumber == copy.CopyNumber
                                   select removeCopy).FirstOrDefault();

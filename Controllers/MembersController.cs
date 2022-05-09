@@ -8,17 +8,18 @@ namespace RopeyDVDSystem.Controllers
 {
     public class MembersController : Controller
     {
+        //getting database context to the controller
         private readonly ApplicationDbContext _context;
 
+        //defining a constructor
         public MembersController(ApplicationDbContext context)
         {
             _context = context;
         }
 
+        //get Members
         public async Task<IActionResult> Index()
         {
-            //var allMembers = await _context.Members.Include(n => n.MembershipCategory).ToListAsync();
-            //return View(allMembers);
 
             //Using LINQ to get Member Details
             var allMembers = from members in _context.Members
@@ -40,13 +41,10 @@ namespace RopeyDVDSystem.Controllers
             return View(await allMembers.ToListAsync());
         }
 
-
-
-
+        //feature 8: getting the list of members along with their loan details of last 31 days
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(string request)
         {
-
             string MemberNumber = Request.Form["SearchMemberNumber"];
             ViewBag.SearchMemberNumber = MemberNumber;
             
@@ -74,11 +72,8 @@ namespace RopeyDVDSystem.Controllers
             return View(await allMembers.ToListAsync());
         }
 
-
-
-
-
-        // GET: Members/Details/5
+        //feature 3
+        // GET: Members/Details/id
         public IActionResult Details(int id)
         {
 
@@ -124,7 +119,7 @@ namespace RopeyDVDSystem.Controllers
             return View(loanRecord);
         }
 
-        //feature 12
+        //feature 12: displaying the list of inactive members
         public async Task<IActionResult> InactiveMembers()
         {
             //Get DateTime of 31 Days Before Today's DateTime
