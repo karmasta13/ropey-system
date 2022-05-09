@@ -60,8 +60,6 @@
                             <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Copy Number</th>
                             <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Release Date</th>
                             <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Category</th>
-                            <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Last Loaned On</th>
-                            <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Days Since Last Loan</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -86,16 +84,7 @@
                                 <td class="align-middle">
                                   <p class="text-sm font-weight-bold mb-0 ms-4">@item.Category</p>
                                 </td>
-                                <td class="align-middle text-start">
-                                  <p class="text-sm font-weight-bold mb-0 ms-7">
-                                      @item.LastLoan.DateOut.ToString("dd MMM yyyy")
-                                  </p>
-                                </td>
-                                <td>
-                                  <p class="text-success text-md mb-0 ms-8">
-                                      @(DateTime.Now.Subtract(item.LastLoan.DateOut).Days) day(s)
-                                  </p>
-                                </td>
+                               
                               </tr>
                             }
                         </tbody>
