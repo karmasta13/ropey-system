@@ -9,15 +9,18 @@ namespace RopeyDVDSystem.Controllers
 {
     public class DVDTitlesController : Controller
     {
+        //getting both services anf database context in the controller
         private readonly IDVDTitlesService _service;
         private readonly ApplicationDbContext _context;
 
+        //defining a constructor
         public DVDTitlesController(IDVDTitlesService service, ApplicationDbContext context)
         {
             _service = service;
             _context = context;
         }
 
+        //get DVDTitles
         public async Task<IActionResult> Index()
         {
             var allDVDTitles = await _service.GetAllAsync(n => n.Producer, n => n.Studio, n => n.DVDCategory);
@@ -25,7 +28,6 @@ namespace RopeyDVDSystem.Controllers
         }
 
         //GET: DVDTitles/Details/id
-        //[AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             var dVDTitleDetail = await _service.GetDVDTitleByIdAsync(id);
@@ -49,23 +51,11 @@ namespace RopeyDVDSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(newDVDTitleVM dVDTitle)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    var movieDropdownsData = await _service.GetNewDVDTitleDropdownsValues();
-
-            //    ViewBag.Cinemas = new SelectList(movieDropdownsData.DVDCategories, "CategoryNumber", "CategoryName");
-            //    ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "ProducerNumber", "ProducerName");
-            //    ViewBag.Producers = new SelectList(movieDropdownsData.Studios, "StudioNumber", "StudioName");
-            //    ViewBag.Actors = new SelectList(movieDropdownsData.Actors, "ActorNumber", "ActorFirstName");
-
-            //    return View(dVDTitle);
-            //}
-
             await _service.AddNewDVDTitleAsync(dVDTitle);
             return RedirectToAction(nameof(Index));
         }
 
-        //GET: Movies/Edit/1
+        //GET: DVDTitles/Edit/id
         public async Task<IActionResult> Edit(int id)
         {
             var dVDDetails = await _service.GetDVDTitleByIdAsync(id);
@@ -97,25 +87,14 @@ namespace RopeyDVDSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, newDVDTitleVM dVDTitle)
         {
+            //checking the id of the dvd title to be edited
             if (id != dVDTitle.DVDNumber) return View("NotFound");
-
-            //if (!ModelState.IsValid)
-            //{
-            //    var dVDDropdownsData = await _service.GetNewDVDTitleDropdownsValues();
-
-            //    ViewBag.Cinemas = new SelectList(dVDDropdownsData.DVDCategories, "CategoryNumber", "CategoryName");
-            //    ViewBag.Producers = new SelectList(dVDDropdownsData.Producers, "ProducerNumber", "ProducerName");
-            //    ViewBag.Producers = new SelectList(dVDDropdownsData.Studios, "StudioNumber", "StudioName");
-            //    ViewBag.Actors = new SelectList(dVDDropdownsData.Actors, "ActorNumber", "ActorFirstName");
-
-            //    return View(dVDTitle);
-            //}
 
             await _service.UpdateDVDTitleAsync(dVDTitle);
             return RedirectToAction(nameof(Index));
         }
 
-
+        //feature 4: listing the dvd details in increasing order of released date
         public async Task<IActionResult> DVDDetailsIndex()
         {
             //Using LINQ to get data of all DVDs 
@@ -136,11 +115,12 @@ namespace RopeyDVDSystem.Controllers
                                       String.Join(", ", g.OrderBy(c => c.ActorSurname).Select(x => (x.ActorFirstName + " " + x.ActorSurname))),
                            Release = dvdtitle.DateReleased.ToString("dd MMM yyyy"),
                        };
-            //Ordering the data by Cast
+            //Ordering the data by Castmembers
             data.OrderBy(c => c.Cast);
             return View(await data.ToListAsync());
         }
 
+        //feature 13: listing the dvd titles whose copies haven't been loaned in 31 days
         public async Task<IActionResult> UnoccupiedDVDs()
         {
             //Get DateTime of 31 Days Before Today's DateTime

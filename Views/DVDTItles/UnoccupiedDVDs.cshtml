@@ -4,44 +4,6 @@
     Layout = "_AdminLayout";
 }
 
-@*<h1 class="text-center mb-3">DVDs Not Loaned</h1>
-<h4 class="mt-1 mb-3">Displaying a list of all DVD titles in the shop where no copy of the title has been loaned in the last 31 days</h4>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Copy Number
-            </th>
-            <th>
-                DVD Title
-            </th>
-            <th>
-                Release Date
-            </th>
-            <th>
-                Loaned On
-            </th>
-            <th>
-                Days Since
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-        <td>@item.CopyNumber</td>
-        <td>@item.Title</td>
-        <td>@item.ReleaseDate</td>
-        <td>@item.LastLoan.DateOut.ToString("dd MMM yyyy")</td>
-        
-                <td>
-                    @(DateTime.Now.Subtract(item.LastLoan.DateOut).Days)
-                </td> 
-        </tr>
-}
-    </tbody>
-</table>*@
 
 <div class="container-fluid py-4">
             <div class="row">
@@ -60,6 +22,8 @@
                             <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Copy Number</th>
                             <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Release Date</th>
                             <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Category</th>
+
+
                           </tr>
                         </thead>
                         <tbody>
@@ -84,7 +48,8 @@
                                 <td class="align-middle">
                                   <p class="text-sm font-weight-bold mb-0 ms-4">@item.Category</p>
                                 </td>
-                               
+                  
+
                               </tr>
                             }
                         </tbody>

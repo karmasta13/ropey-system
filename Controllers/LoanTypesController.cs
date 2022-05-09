@@ -6,8 +6,10 @@ namespace RopeyDVDSystem.Controllers
 {
     public class LoanTypesController : Controller
     {
+        //getting the database context to the controller
         private readonly ApplicationDbContext _context;
 
+        //defining a constructor
         public LoanTypesController(ApplicationDbContext context)
         {
             _context = context;

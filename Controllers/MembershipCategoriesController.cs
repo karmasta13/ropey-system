@@ -6,8 +6,10 @@ namespace RopeyDVDSystem.Controllers
 {
     public class MembershipCategoriesController : Controller
     {
+        //getting database context to the controller
         private readonly ApplicationDbContext _context;
 
+        //defining a constructor
         public MembershipCategoriesController(ApplicationDbContext context)
         {
             _context = context;
