@@ -37,8 +37,9 @@ namespace CourseWorkSampleAuth.Controllers
             return View(new UserLoginModel());
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        // to check the login credentials
+
+        [HttpPost,ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(UserLoginModel loginModel)
         {
 
@@ -86,16 +87,20 @@ namespace CourseWorkSampleAuth.Controllers
 
             }
 
-            TempData["Error"] = "Invalid credentials. Please, try again!";
+            TempData["Error"] = "Invalid credentials. Try again!";
             return View(loginModel);
         }
 
+        
+        // to logout of the session
         public IActionResult Logout()
         {
             Response.Cookies.Delete("X-Access-Token");
             return RedirectToAction("Index");
         }
 
+
+        // to register user
         public IActionResult RegisterUser()
         {
             return View();
@@ -126,6 +131,7 @@ namespace CourseWorkSampleAuth.Controllers
         }
 
 
+        // to registe admin
         public IActionResult RegisterAdmin()
         {
             return View();

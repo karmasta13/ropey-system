@@ -24,6 +24,7 @@ namespace RopeyDVDSystem.Controllers
 
         }
         
+        // For dashboard 
         public IActionResult Index()
         {
             int MaximumUnits = 5;
@@ -67,6 +68,7 @@ namespace RopeyDVDSystem.Controllers
             
         }
 
+        // for profile detail page
         public IActionResult ProfileDetail()
         {
 
@@ -83,6 +85,7 @@ namespace RopeyDVDSystem.Controllers
             return View();
         }
 
+        // to change password 
 
         [HttpPost]
         [ValidateAntiForgeryToken]

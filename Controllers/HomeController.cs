@@ -20,7 +20,7 @@ namespace RopeyDVDSystem.Controllers
         
        
 
-
+        // home page functionality 
         public IActionResult Index()
         {
           
@@ -31,7 +31,7 @@ namespace RopeyDVDSystem.Controllers
 
             var databaseDVDList = from dvd in _context.DVDTitles select dvd.DVDNumber;
 
-
+            // checking the age restriction
             switch (ageRestricted)
             {
                 case "yes":
@@ -44,7 +44,7 @@ namespace RopeyDVDSystem.Controllers
             }
 
 
-
+           
             ViewBag.sortingOrderCol = string.IsNullOrEmpty(sortingOrderCol) ? "na" : sortingOrderCol;
             ViewBag.stockAvailability  = string.IsNullOrEmpty(stockAvailability ) ? "all" : stockAvailability ;
             ViewBag.AgeRestricted = string.IsNullOrEmpty(ageRestricted) ? "no" : ageRestricted;
@@ -81,7 +81,7 @@ namespace RopeyDVDSystem.Controllers
                 dvdDetails = dvdDetails.Where(d => d.CastMember.ToLower().Contains(searchBarValue.ToLower()) || d.DVDTitleName.ToLower().Contains(searchBarValue.ToLower()));
             }
          
-            
+            // cases for sorting
             switch (sortingOrderCol)
             {
                 case "pa":

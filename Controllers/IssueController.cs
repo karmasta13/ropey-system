@@ -192,7 +192,7 @@ namespace RopeyDVDSystem.Controllers
 
             if (operation != "Generate")
             {
-                // add a new loan record
+                // to add new loan record
                 Loan loan = new Loan
                 {
                     CopyNumber = rent.CopyNumber,

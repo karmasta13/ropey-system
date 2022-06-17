@@ -2,7 +2,6 @@
 @model IEnumerable<RopeyDVDSystem.Models.ViewModels.IssueModel>
 @{
     ViewData["Title"] = "DVD Return";
-    ViewData["Section"] = "DVDIssue";
     Layout = "_AdminLayout";
 
     var dvdRent = ViewData["LoanRecord"] as IssueModel;

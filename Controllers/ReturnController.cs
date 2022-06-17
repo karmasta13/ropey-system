@@ -15,7 +15,7 @@ namespace RopeyDVDSystem.Controllers
 
         public IEnumerable<ReturnModel> GetAllLoanRecords()
         {
-            // The DVD copt that are loan list
+            // The DVD copy that are loan list
             IEnumerable<ReturnModel> loanRecord = from dt in _context.DVDTitles
                                                      join dc in _context.DVDCopies on dt.DVDNumber equals dc.DVDNumber
                                                      join l in _context.Loans on dc.CopyNumber equals l.CopyNumber
