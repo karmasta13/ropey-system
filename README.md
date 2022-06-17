@@ -4,28 +4,6 @@ This project was assigned to us as a group coursework in whicch we were tasked t
 
 </br></br>
 
-<a name="preview"></a>
-## Application Preview
-
-<p align="center">
-    <img src="./images/1.png"/>
-</p>
-
-<br/>
-
-<p align="center">
-    <img src="./images/2.png"/>
-</p>
-
-</br>
-
-<p align="center">
-    <img src="./images/3.png"/>
-</p>
-
-<br/>
-
-
 
 ## Index
 - [About](#about)
@@ -41,41 +19,31 @@ This project was assigned to us as a group coursework in whicch we were tasked t
 ## About
 The primary goal of this system is to help Ropey DVDs manage their rented and returned DVDs. It also assists them in managing the details of various members of their store.
 
+
+</br></br>
 <a name="preview"></a>
 ## Application Preview
 
+
+
 <p align="center">
-    <img src="./images/1.png"/>
+    <img src="./wwwroot/images/ss1.png"  width="900"/>
 </p>
 
 <br/>
 
 <p align="center">
-    <img src="./images/2.png"/>
+    <img src="./wwwroot/images/ss2.png"  width="900"/>
 </p>
 
 </br>
 
 <p align="center">
-    <img src="./wwwroot/images/ss1.png"/>
+    <img src="./wwwroot/images/ss3.png" width="900"/>
 </p>
 
 <br/>
 
-<p align="center">
-    <img src="./wwwroot/images/ss2.png"/>
-</p>
-
-</br>
-
-<p align="center">
-    <img src="./wwwroot/images/ss3.png"/>
-</p>
-
-<br/>
-
-
-</br></br>
 
 
 </br></br>
